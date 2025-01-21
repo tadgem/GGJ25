@@ -14,7 +14,7 @@ animation = &"rig|idol animtion"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dj6bd"]
 
 [resource]
-graph_offset = Vector2(-76, -103)
+graph_offset = Vector2(139.273, -116)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_8jcib")
 nodes/Animation/position = Vector2(860, 120)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_lc1p6")

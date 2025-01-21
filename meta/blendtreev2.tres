@@ -1,0 +1,54 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=3 uid="uid://didjpph0bsiv7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8rgti"]
+animation = &"rig|idol animtion"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rrk05"]
+animation = &"rig|jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_whj7k"]
+animation = &"rig|run cycle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bsp5o"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_el5lh"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xk6ib"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ap8v"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hkjlm"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gk2nb"]
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xoicu"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"jump"
+
+[resource]
+allow_transition_to_self = true
+states/End/position = Vector2(922, 112)
+states/Start/position = Vector2(236, 126)
+"states/rig|idol animtion/node" = SubResource("AnimationNodeAnimation_8rgti")
+"states/rig|idol animtion/position" = Vector2(396, 126)
+states/rig|jump/node = SubResource("AnimationNodeAnimation_rrk05")
+states/rig|jump/position = Vector2(533, -50)
+"states/rig|run cycle/node" = SubResource("AnimationNodeAnimation_whj7k")
+"states/rig|run cycle/position" = Vector2(658, 126)
+transitions = ["Start", "rig|idol animtion", SubResource("AnimationNodeStateMachineTransition_bsp5o"), "rig|idol animtion", "rig|run cycle", SubResource("AnimationNodeStateMachineTransition_el5lh"), "rig|run cycle", "rig|jump", SubResource("AnimationNodeStateMachineTransition_xk6ib"), "rig|jump", "rig|idol animtion", SubResource("AnimationNodeStateMachineTransition_4ap8v"), "rig|run cycle", "rig|idol animtion", SubResource("AnimationNodeStateMachineTransition_hkjlm"), "rig|jump", "rig|run cycle", SubResource("AnimationNodeStateMachineTransition_gk2nb"), "rig|idol animtion", "rig|jump", SubResource("AnimationNodeStateMachineTransition_xoicu")]
+graph_offset = Vector2(-429, -140)
