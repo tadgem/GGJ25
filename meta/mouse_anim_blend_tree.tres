@@ -1,0 +1,29 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=6 format=3 uid="uid://bw7783o7mqdt8"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lc1p6"]
+animation = &"rig|run cycle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_10cey"]
+animation = &"rig|jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8jcib"]
+animation = &"rig|idol animtion"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_23u5t"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dj6bd"]
+
+[resource]
+graph_offset = Vector2(-76, -103)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_8jcib")
+nodes/Animation/position = Vector2(860, 120)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_lc1p6")
+"nodes/Animation 2/position" = Vector2(860, 300)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_10cey")
+"nodes/Animation 3/position" = Vector2(1140, 320)
+nodes/Jump/node = SubResource("AnimationNodeBlend2_23u5t")
+nodes/Jump/position = Vector2(1300, 100)
+nodes/Run/node = SubResource("AnimationNodeBlend2_dj6bd")
+nodes/Run/position = Vector2(1080, 100)
+nodes/output/position = Vector2(1500, 140)
+node_connections = [&"Jump", 0, &"Run", &"Jump", 1, &"Animation 3", &"Run", 0, &"Animation", &"Run", 1, &"Animation 2", &"output", 0, &"Jump"]

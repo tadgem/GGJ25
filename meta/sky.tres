@@ -1,0 +1,8 @@
+[gd_resource type="Sky" load_steps=2 format=3 uid="uid://c3uiclcyj5vvl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_htnln"]
+
+[resource]
+sky_material = SubResource("ProceduralSkyMaterial_htnln")
+process_mode = 1
+radiance_size = 0
