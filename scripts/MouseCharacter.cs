@@ -14,6 +14,10 @@ public partial class MouseCharacter : CharacterBody3D
 	public float MovementDeadZone = 0.2f;
 	[Export]
 	public float RotationSpeed = 12.0f;
+	[Export]
+	public float JumpForce = 12.0f;
+
+
 
 	private Vector2 _mouseDir = Vector2.Zero;
 	private Vector3 _lastMovementDir = Vector3.Back;
@@ -23,10 +27,18 @@ public partial class MouseCharacter : CharacterBody3D
 	private Node3D _playerModel = null;
 	private Camera3D _cam = null;
 	private AnimationTree _anim = null;
+	private float _gravity = -30.0f;
 
 
 	private void HandleAnimationParams()
 	{
+		if(!IsOnFloor())
+		{
+			_anim.Set("parameters/conditions/moving", false);
+			_anim.Set("parameters/conditions/idle", false);
+			_anim.Set("parameters/conditions/jump", true);
+			return;
+		}
 		if(Velocity.Length() > MovementDeadZone)
 		{
 			_anim.Set("parameters/conditions/moving", true);
@@ -104,9 +116,22 @@ public partial class MouseCharacter : CharacterBody3D
 		move_dir.Y = 0.0f;
 		move_dir = move_dir.Normalized();
 
-		Velocity = Velocity.MoveToward(move_dir * MoveSpeed, Acceleration * (float) delta);
-		MoveAndSlide();
+		Vector3 v = Velocity;
+		float y_vel = v.Y;
+		v.Y = 0.0f;
+		v = Velocity.MoveToward(move_dir * MoveSpeed, Acceleration * (float) delta);
+		v.Y = y_vel + _gravity * (float) delta;
 
+		bool jump = Input.IsActionJustPressed("jump") && IsOnFloor();
+
+		if(jump)
+		{
+			v.Y += JumpForce;
+		}
+		
+		Velocity = v;
+
+		MoveAndSlide();
 		HandleAnimationParams();
 
 		if(move_dir.Length() > MovementDeadZone)

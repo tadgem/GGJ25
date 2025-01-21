@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=23 format=4 uid="uid://cparnd6xcpalj"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
@@ -8693,10 +8693,12 @@ _data = {
 "rig|run cycle": SubResource("Animation_qslxx")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(13.1042, 0, 0, 0, 0.329644, 0, 0, 0, 17.7961, 0, 0, 0)
+transform = Transform3D(50.139, 0, 0, 0, 0.329644, 0, 0, 0, 120.447, 0, 0, 0)
 mesh = SubResource("BoxMesh_51wwt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -8713,11 +8715,12 @@ compositor = ExtResource("3_yvvjx")
 transform = Transform3D(0.159413, 0.925236, -0.344275, -0.388766, 0.379392, 0.839597, 0.90744, 0, 0.420181, -0.927365, 6.47543, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026444, 0, 0.0447111)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0358558, 0.0328732, 0.060008)
 script = ExtResource("4_ie6v3")
 Acceleration = 1000.0
-MoveSpeed = 5.0
+MoveSpeed = 10.0
 RotationSpeed = 9.0
+JumpForce = 20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16519, 0)
@@ -11592,3 +11595,37 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/jump = false
 parameters/conditions/moving = false
+
+[node name="Test Level Geo" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Test Level Geo"]
+transform = Transform3D(13.9228, 0, 0, 0, 10.4561, 7.30088, 0, -5.51798, 13.8345, 3.25932, -1.67204, 17.754)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Level Geo/CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_7mgcb")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Test Level Geo"]
+transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, 3.17496, 8.20319, 41.4845)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Level Geo/CSGBox3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_7mgcb")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Test Level Geo"]
+transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -20.7723, 12.1175, 40.2188)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Level Geo/CSGBox3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_7mgcb")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Test Level Geo"]
+transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291, 13.0695)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Level Geo/CSGBox3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_7mgcb")
