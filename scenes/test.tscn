@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=30 format=4 uid="uid://cparnd6xcpalj"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
@@ -8,8 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cd7dpxa74tl7o" path="res://models/third-party/mouse_1.png" id="5_ydiym"]
 [ext_resource type="Texture2D" uid="uid://dgjir82fibxav" path="res://models/third-party/mouse_2.png" id="6_si080"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://didjpph0bsiv7" path="res://meta/blendtreev2.tres" id="8_8mw26"]
+[ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="9_yeejq"]
+[ext_resource type="Texture2D" uid="uid://c3mt3g1b1igp2" path="res://images/bubble_colour.png" id="10_eqmlk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
+subdivide_width = 1
+subdivide_height = 1
+subdivide_depth = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unsw3"]
 
@@ -8695,6 +8700,25 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_vw3pq"]
+rings = 128
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c53vg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nspon"]
+noise = SubResource("FastNoiseLite_c53vg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xitd0"]
+render_priority = 0
+shader = ExtResource("9_yeejq")
+shader_parameter/smoothness = 0.09
+shader_parameter/time_scale = 0.05
+shader_parameter/colour_texture = ExtResource("10_eqmlk")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_nspon")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yn7sq"]
+radius = 1.275
+
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -11629,3 +11653,14 @@ transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Test Level Geo/CSGBox3D4/StaticBody3D"]
 shape = SubResource("BoxShape3D_7mgcb")
+
+[node name="Bubble" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35545, 1.15691, 0.060008)
+mesh = SubResource("SphereMesh_vw3pq")
+skeleton = NodePath("../CharacterBody3D")
+surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bubble"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubble/StaticBody3D"]
+shape = SubResource("SphereShape3D_yn7sq")
