@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Bubble : Area3D
+public partial class Bubble : CharacterBody3D
 {
 	[Export]
 	public float BounceStrength = 1.0f;
@@ -12,15 +12,13 @@ public partial class Bubble : Area3D
 	[Export]
 	public bool Solid = true;
 
-	private Vector3 _velocity;
-	private Vector3 _lastGlobalPosition;
+	[Export]
+	public bool IsTimed = false;
 
-	private MouseCharacter _player = null;
+	[Export]
+	public float Lifetime = 5.0f;
+	private float _timeAlive = 0.0f;
 
-	private bool MaintainVelocityForPlayer
-	{
-		get => _player != null;
-	}
 
 	private void OnAreaEntered(Node3D body)
 	{
@@ -30,48 +28,39 @@ public partial class Bubble : Area3D
 			{
 				player.Bounce(BounceStrength);
 			}
-			else
-			{
-				_player = player;
-			}
 		}
 	}
 	private void OnAreaExited(Node3D body)
 	{
 		if (body is MouseCharacter player)
 		{
-			_player = null;
-			
+					
 		}
 	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		BodyEntered += OnAreaEntered;
-		BodyExited 	+= OnAreaExited;
+		Area3D area = GetNode<Area3D>("Area3D");
+		area.BodyEntered += OnAreaEntered;
+		area.BodyExited += OnAreaExited;
 
 		if(!Solid)
 		{
-			CharacterBody3D c = GetNode<CharacterBody3D>("CharacterBody3D");
-			c.QueueFree();
+			SetCollisionLayerValue(1, false);
 		}
-		_lastGlobalPosition = Vector3.Zero;
 	}
 
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
 		Vector3 pos = GlobalPosition;
-		_velocity = pos - _lastGlobalPosition;
-		_lastGlobalPosition = pos;
+		_timeAlive += (float) delta;
 
-		if(MaintainVelocityForPlayer)
+		if(IsTimed && _timeAlive > Lifetime)
 		{
-			_player.VelocityOffset = _velocity * 50.0f;
+			QueueFree();
 		}
-
-
     }
 
 

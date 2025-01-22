@@ -51,4 +51,4 @@ states/rig|jump/position = Vector2(533, -50)
 "states/rig|run cycle/node" = SubResource("AnimationNodeAnimation_whj7k")
 "states/rig|run cycle/position" = Vector2(658, 126)
 transitions = ["Start", "rig|idol animtion", SubResource("AnimationNodeStateMachineTransition_bsp5o"), "rig|idol animtion", "rig|run cycle", SubResource("AnimationNodeStateMachineTransition_el5lh"), "rig|run cycle", "rig|jump", SubResource("AnimationNodeStateMachineTransition_xk6ib"), "rig|jump", "rig|idol animtion", SubResource("AnimationNodeStateMachineTransition_4ap8v"), "rig|run cycle", "rig|idol animtion", SubResource("AnimationNodeStateMachineTransition_hkjlm"), "rig|jump", "rig|run cycle", SubResource("AnimationNodeStateMachineTransition_gk2nb"), "rig|idol animtion", "rig|jump", SubResource("AnimationNodeStateMachineTransition_xoicu")]
-graph_offset = Vector2(-429, -140)
+graph_offset = Vector2(-69, -178)

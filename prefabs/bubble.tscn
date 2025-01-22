@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0q8xfxcdkp4d"]
+[gd_scene load_steps=10 format=3 uid="uid://0qpltij4tc5y"]
 
 [ext_resource type="Script" path="res://scripts/Bubble.cs" id="1_mo730"]
 [ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="2_xkpo2"]
 [ext_resource type="Texture2D" uid="uid://c3mt3g1b1igp2" path="res://images/bubble_colour.png" id="3_yvhej"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_yn7sq"]
-radius = 1.135
 
 [sub_resource type="SphereMesh" id="SphereMesh_vw3pq"]
 rings = 128
@@ -24,23 +21,27 @@ shader_parameter/colour_texture = ExtResource("3_yvhej")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_nspon")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ymqlo"]
-size = Vector3(2.325, 0.995, 2.26)
+size = Vector3(1.6, 0.995, 2.025)
 
-[node name="Bubble" type="Area3D"]
-transform = Transform3D(0.999003, 0, 0, 0, 0.999003, 0, 0, 0, 0.999003, 0, 0, 0)
+[sub_resource type="SphereShape3D" id="SphereShape3D_yn7sq"]
+radius = 1.135
+
+[node name="BubbleV2" type="CharacterBody3D"]
+transform = Transform3D(1.71037, 0, 0, 0, 1.71037, 0, 0, 0, 1.71037, 0, 0, 0)
 script = ExtResource("1_mo730")
-Solid = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_yn7sq")
-
-[node name="BubbleFX" type="MeshInstance3D" parent="."]
+[node name="BubbleFX2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("SphereMesh_vw3pq")
 skeleton = NodePath("../../CharacterBody3D")
 surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187419, 0.0539274, 0.0191722)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ymqlo")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_yn7sq")

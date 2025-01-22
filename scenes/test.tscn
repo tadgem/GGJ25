@@ -1,17 +1,16 @@
-[gd_scene load_steps=34 format=4 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=27 format=4 uid="uid://cparnd6xcpalj"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
 [ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_yvvjx"]
 [ext_resource type="Script" path="res://scripts/MouseCharacter.cs" id="4_ie6v3"]
 [ext_resource type="Texture2D" uid="uid://cqk8vcrucs85j" path="res://models/third-party/mouse_0.png" id="4_rm1na"]
+[ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="5_pd3bp"]
 [ext_resource type="Texture2D" uid="uid://cd7dpxa74tl7o" path="res://models/third-party/mouse_1.png" id="5_ydiym"]
 [ext_resource type="Texture2D" uid="uid://dgjir82fibxav" path="res://models/third-party/mouse_2.png" id="6_si080"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://didjpph0bsiv7" path="res://meta/blendtreev2.tres" id="8_8mw26"]
-[ext_resource type="Script" path="res://scripts/Bubble.cs" id="9_psdgx"]
-[ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="9_yeejq"]
-[ext_resource type="Texture2D" uid="uid://c3mt3g1b1igp2" path="res://images/bubble_colour.png" id="10_eqmlk"]
 [ext_resource type="Script" path="res://scenes/FollowPath.cs" id="12_dm43y"]
+[ext_resource type="Texture2D" uid="uid://dd47hqg3ukmjn" path="res://images/crosshair.png" id="13_aghgm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -23,7 +22,7 @@ subdivide_depth = 1
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q0wp8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ewsho"]
-radius = 0.25
+radius = 0.565
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1svl"]
 resource_name = "Material.001"
@@ -8702,28 +8701,6 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_yn7sq"]
-radius = 1.135
-
-[sub_resource type="SphereMesh" id="SphereMesh_vw3pq"]
-rings = 128
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_c53vg"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nspon"]
-noise = SubResource("FastNoiseLite_c53vg")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xitd0"]
-render_priority = 0
-shader = ExtResource("9_yeejq")
-shader_parameter/smoothness = 0.09
-shader_parameter/time_scale = 0.05
-shader_parameter/colour_texture = ExtResource("10_eqmlk")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_nspon")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ymqlo"]
-size = Vector3(2.325, 0.995, 2.26)
-
 [sub_resource type="Curve3D" id="Curve3D_x1hhc"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.635, -5.48363e-05, -5.31073, 0, 0, 0, 0, 0, 0, 16.1374, -5.48363e-05, -4.92491, 0, 0, 0, 0, 0, 0, 28.0812, -5.48363e-05, 4.70384, 0, 0, 0, 0, 0, 0, 16.2885, -5.48363e-05, 17.5289, 0, 0, 0, 0, 0, 0, 2.29935, -5.48363e-05, 9.17621, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -8760,6 +8737,7 @@ Acceleration = 1000.0
 MoveSpeed = 10.0
 RotationSpeed = 9.0
 JumpForce = 20.0
+Bubble = ExtResource("5_pd3bp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16519, 0)
@@ -8769,7 +8747,7 @@ shape = SubResource("CapsuleShape3D_q0wp8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575523, 0.139618)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CamPivot"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00432396, 0.0290554, -0.00113821)
 shape = SubResource("SphereShape3D_ewsho")
 spring_length = 8.0
 margin = 0.0
@@ -11635,6 +11613,39 @@ parameters/conditions/idle = false
 parameters/conditions/jump = false
 parameters/conditions/moving = false
 
+[node name="Control" type="Control" parent="CharacterBody3D"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="CharacterBody3D/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/Control/BoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("13_aghgm")
+expand_mode = 2
+stretch_mode = 3
+
 [node name="Test Level Geo" type="Node3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Test Level Geo"]
@@ -11669,48 +11680,8 @@ transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Test Level Geo/CSGBox3D4/StaticBody3D"]
 shape = SubResource("BoxShape3D_7mgcb")
 
-[node name="Bubble" type="Area3D" parent="."]
-transform = Transform3D(1.71037, 0, 0, 0, 1.71037, 0, 0, 0, 1.71037, -19.995, 19.2206, 0)
-script = ExtResource("9_psdgx")
-BounceStrength = 1.2
-Solid = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubble"]
-shape = SubResource("SphereShape3D_yn7sq")
-
-[node name="BubbleFX" type="MeshInstance3D" parent="Bubble"]
-mesh = SubResource("SphereMesh_vw3pq")
-skeleton = NodePath("../../CharacterBody3D")
-surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Bubble"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bubble/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187419, 0.0539274, 0.0191722)
-shape = SubResource("BoxShape3D_ymqlo")
-
-[node name="Bubble2" type="Area3D" parent="."]
-transform = Transform3D(2.0574, 0, 0, 0, 2.0574, 0, 0, 0, 2.0574, -19.9777, 24.8998, -6.23516)
-script = ExtResource("9_psdgx")
-BounceStrength = 1.2
-Solid = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubble2"]
-shape = SubResource("SphereShape3D_yn7sq")
-
-[node name="BubbleFX" type="MeshInstance3D" parent="Bubble2"]
-mesh = SubResource("SphereMesh_vw3pq")
-skeleton = NodePath("../../CharacterBody3D")
-surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Bubble2"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bubble2/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187419, 0.0539274, 0.0191722)
-shape = SubResource("BoxShape3D_ymqlo")
-
 [node name="MovingPathBubble" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.0836, 28.0987, -21.2856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6063, 18.7311, -13.1054)
 curve = SubResource("Curve3D_x1hhc")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingPathBubble"]
@@ -11718,51 +11689,10 @@ transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.01455, -8
 progress = 1.3
 rotation_mode = 0
 script = ExtResource("12_dm43y")
+FollowSpeed = 3.0
 
-[node name="Bubble" type="Area3D" parent="MovingPathBubble/PathFollow3D"]
-transform = Transform3D(3.31183, 0, 0, 0, 1, 0, 0, 0, 3.19291, 0, 0, 0)
-script = ExtResource("9_psdgx")
-Bounce = false
+[node name="BubbleV3" parent="MovingPathBubble/PathFollow3D" instance=ExtResource("5_pd3bp")]
+transform = Transform3D(1.70863, 0, 0, 0, 1.70863, 0, 0, 0, 1.70863, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPathBubble/PathFollow3D/Bubble"]
-shape = SubResource("SphereShape3D_yn7sq")
-
-[node name="BubbleFX" type="MeshInstance3D" parent="MovingPathBubble/PathFollow3D/Bubble"]
-mesh = SubResource("SphereMesh_vw3pq")
-skeleton = NodePath("../../CharacterBody3D")
-surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="MovingPathBubble/PathFollow3D/Bubble"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MovingPathBubble/PathFollow3D/Bubble/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187419, 0.0539274, 0.0191722)
-shape = SubResource("BoxShape3D_ymqlo")
-
-[node name="MovingPathBubble2" type="Path3D" parent="."]
-transform = Transform3D(-0.818952, 0, -0.573862, 0, 1, 0, 0.573862, 0, -0.818952, -10.9748, 30.9053, -38.0543)
-curve = SubResource("Curve3D_x1hhc")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="MovingPathBubble2"]
-transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.01455, -8.38492e-06, -0.812054)
-progress = 1.3
-rotation_mode = 0
-script = ExtResource("12_dm43y")
-
-[node name="Bubble" type="Area3D" parent="MovingPathBubble2/PathFollow3D"]
-transform = Transform3D(4.25, 0, 0, 0, 1, 0, 0, 0, 4.008, 0, 0, 0)
-script = ExtResource("9_psdgx")
-Bounce = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPathBubble2/PathFollow3D/Bubble"]
-shape = SubResource("SphereShape3D_yn7sq")
-
-[node name="BubbleFX" type="MeshInstance3D" parent="MovingPathBubble2/PathFollow3D/Bubble"]
-mesh = SubResource("SphereMesh_vw3pq")
-skeleton = NodePath("../../CharacterBody3D")
-surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="MovingPathBubble2/PathFollow3D/Bubble"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MovingPathBubble2/PathFollow3D/Bubble/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187419, 0.0539274, 0.0191722)
-shape = SubResource("BoxShape3D_ymqlo")
+[node name="BubbleV2" parent="." instance=ExtResource("5_pd3bp")]
+transform = Transform3D(1.71037, 0, 0, 0, 1.71037, 0, 0, 0, 1.71037, -5.12703, 0, 0)
