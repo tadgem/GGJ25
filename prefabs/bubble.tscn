@@ -27,21 +27,17 @@ size = Vector3(1.6, 0.995, 2.025)
 radius = 1.135
 
 [node name="BubbleV2" type="CharacterBody3D"]
-transform = Transform3D(1.71037, 0, 0, 0, 1.71037, 0, 0, 0, 1.71037, 0, 0, 0)
 script = ExtResource("1_mo730")
 
 [node name="BubbleFX2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("SphereMesh_vw3pq")
 skeleton = NodePath("../../CharacterBody3D")
 surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ymqlo")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_yn7sq")

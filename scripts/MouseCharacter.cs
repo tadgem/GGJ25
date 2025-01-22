@@ -141,9 +141,10 @@ public partial class MouseCharacter : CharacterBody3D
 			{
 				Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
 				bubble_instance.IsTimed = true;
+				bubble_instance.IsProjectile = true;
 				GetTree().CurrentScene.AddChild(bubble_instance);
-				bubble_instance.Position = Position - (Basis.Z * 4.0f);
-				bubble_instance.Velocity += Basis.Z * ProjectileSpeed;			
+				bubble_instance.Position = Position + Vector3.Up +(-_cam.GlobalBasis.Z * 4.0f);
+				bubble_instance.Velocity = -_cam.GlobalBasis.Z * ProjectileSpeed;			
 
 			}
 		}

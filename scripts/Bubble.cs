@@ -14,9 +14,13 @@ public partial class Bubble : CharacterBody3D
 
 	[Export]
 	public bool IsTimed = false;
-
+	
+	[Export]
+	public bool IsProjectile = false;
+	
 	[Export]
 	public float Lifetime = 5.0f;
+
 	private float _timeAlive = 0.0f;
 
 
@@ -57,10 +61,16 @@ public partial class Bubble : CharacterBody3D
 		Vector3 pos = GlobalPosition;
 		_timeAlive += (float) delta;
 
+		if(IsProjectile)
+		{
+			MoveAndSlide();
+		}
+
 		if(IsTimed && _timeAlive > Lifetime)
 		{
 			QueueFree();
 		}
+
     }
 
 

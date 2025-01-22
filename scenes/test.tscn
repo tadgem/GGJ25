@@ -8737,6 +8737,7 @@ Acceleration = 1000.0
 MoveSpeed = 10.0
 RotationSpeed = 9.0
 JumpForce = 20.0
+ProjectileSpeed = 200.0
 Bubble = ExtResource("5_pd3bp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
@@ -11681,7 +11682,7 @@ transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291
 shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="MovingPathBubble" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6063, 18.7311, -13.1054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6063, 19.4334, -13.1054)
 curve = SubResource("Curve3D_x1hhc")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingPathBubble"]
@@ -11692,7 +11693,7 @@ script = ExtResource("12_dm43y")
 FollowSpeed = 3.0
 
 [node name="BubbleV3" parent="MovingPathBubble/PathFollow3D" instance=ExtResource("5_pd3bp")]
-transform = Transform3D(1.70863, 0, 0, 0, 1.70863, 0, 0, 0, 1.70863, 0, 0, 0)
+Bounce = false
 
 [node name="BubbleV2" parent="." instance=ExtResource("5_pd3bp")]
 transform = Transform3D(1.71037, 0, 0, 0, 1.71037, 0, 0, 0, 1.71037, -5.12703, 0, 0)
