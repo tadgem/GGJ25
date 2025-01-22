@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Net.Http.Headers;
 using System.Reflection.Metadata;
 
 public partial class MouseCharacter : CharacterBody3D
@@ -21,6 +22,10 @@ public partial class MouseCharacter : CharacterBody3D
 	[Export]
 	public float ProjectileSpeed = 400.0f;
 	[Export]
+	public float MinSqueekTime = 17.0f;
+	[Export]
+	public float MiaxSqueekTime = 35.0f;
+	[Export]
 	public Vector3 AimPivot = new Vector3(0.0f, 3.25f, - 0.5f);
 
 	[Export]
@@ -36,10 +41,12 @@ public partial class MouseCharacter : CharacterBody3D
 	private Node3D _playerModel = null;
 	private Camera3D _cam = null;
 	private AnimationTree _anim = null;
+	private AudioStreamPlayer _squeekAudio;
 	private Control _crosshairControl;
 	private float _gravity = -30.0f;
 	private bool _bounce = false;
 	private float _bounceStrength = 0.0f;
+	private float _mouseSqueekTimer = 0.0f;
 
 	internal void Bounce(float strength_multiplier = 1.0f)
 	{
@@ -71,6 +78,16 @@ public partial class MouseCharacter : CharacterBody3D
 		}
 	}
 
+	private void HandleSqueekAudio(float delta)
+	{
+		_mouseSqueekTimer -= delta;
+		if(_mouseSqueekTimer <= 0.0f)
+		{
+			_squeekAudio.Play();
+			_mouseSqueekTimer = (float) GD.RandRange(MinSqueekTime, MiaxSqueekTime);
+		}
+	}
+
     public override void _Ready()
     {
         base._Ready();
@@ -80,6 +97,7 @@ public partial class MouseCharacter : CharacterBody3D
 		_anim = GetNode<AnimationTree>("Model/AnimationTree");
 		_crosshairControl = GetNode<Control>("Control");
 		_crosshairControl.Hide();
+		_squeekAudio = GetNode<AudioStreamPlayer>("SqueekAudio");
 		_anim.Active = true;
 
 		_defaultPivot = _pivot.Position;
@@ -205,6 +223,8 @@ public partial class MouseCharacter : CharacterBody3D
 			_playerModel.GlobalRotation = playerEuler;
 		}
 
+
+
 	}
 
     public override void _PhysicsProcess(double delta)
@@ -219,5 +239,6 @@ public partial class MouseCharacter : CharacterBody3D
 		HandleAnimationParams();
 		HandleAiming(d);
 		HandleCharacterRotation(move_dir, d);
+		HandleSqueekAudio(d);
     }
 }
