@@ -1,16 +1,16 @@
-[gd_scene load_steps=28 format=4 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=28 format=4 uid="uid://xpl7avb1yrf0"]
 
-[ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
-[ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
-[ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_yvvjx"]
-[ext_resource type="Script" path="res://scripts/MouseCharacter.cs" id="4_ie6v3"]
-[ext_resource type="Texture2D" uid="uid://cqk8vcrucs85j" path="res://models/third-party/mouse_0.png" id="4_rm1na"]
-[ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="5_pd3bp"]
-[ext_resource type="Texture2D" uid="uid://cd7dpxa74tl7o" path="res://models/third-party/mouse_1.png" id="5_ydiym"]
-[ext_resource type="Texture2D" uid="uid://dgjir82fibxav" path="res://models/third-party/mouse_2.png" id="6_si080"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://didjpph0bsiv7" path="res://meta/blendtreev2.tres" id="8_8mw26"]
-[ext_resource type="Script" path="res://scenes/FollowPath.cs" id="12_dm43y"]
-[ext_resource type="Texture2D" uid="uid://dd47hqg3ukmjn" path="res://images/crosshair.png" id="13_aghgm"]
+[ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_2dsv4"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_hoenm"]
+[ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_jtd6w"]
+[ext_resource type="Script" path="res://scripts/MouseCharacter.cs" id="4_u827a"]
+[ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="5_7cxsi"]
+[ext_resource type="Texture2D" uid="uid://cqk8vcrucs85j" path="res://models/third-party/mouse_0.png" id="6_p2ved"]
+[ext_resource type="Texture2D" uid="uid://cd7dpxa74tl7o" path="res://models/third-party/mouse_1.png" id="7_ai5bb"]
+[ext_resource type="Texture2D" uid="uid://dgjir82fibxav" path="res://models/third-party/mouse_2.png" id="8_b1sny"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://didjpph0bsiv7" path="res://meta/blendtreev2.tres" id="9_dxqsy"]
+[ext_resource type="Texture2D" uid="uid://dd47hqg3ukmjn" path="res://images/crosshair.png" id="10_ch4jk"]
+[ext_resource type="Script" path="res://scenes/FollowPath.cs" id="11_imkdc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -1259,13 +1259,13 @@ bind/400/pose = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yx7oj"]
 resource_name = "Material.003"
 cull_mode = 2
-albedo_texture = ExtResource("4_rm1na")
-metallic_texture = ExtResource("5_ydiym")
+albedo_texture = ExtResource("6_p2ved")
+metallic_texture = ExtResource("7_ai5bb")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("5_ydiym")
+roughness_texture = ExtResource("7_ai5bb")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("6_si080")
+normal_texture = ExtResource("8_b1sny")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mo7ry"]
 resource_name = "Sketchfab_Scene_Plane_001_Material_003_0"
@@ -8727,9 +8727,9 @@ mesh = SubResource("BoxMesh_51wwt")
 shape = SubResource("BoxShape3D_unsw3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_mb0y6")
-camera_attributes = ExtResource("2_7204l")
-compositor = ExtResource("3_yvvjx")
+environment = ExtResource("1_2dsv4")
+camera_attributes = ExtResource("2_hoenm")
+compositor = ExtResource("3_jtd6w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.159413, 0.925236, -0.344275, -0.388766, 0.379392, 0.839597, 0.90744, 0, 0.420181, -0.927365, 6.47543, 0)
@@ -8739,13 +8739,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0358558, 0.0328732, 0.0600
 wall_min_slide_angle = 0.0
 floor_stop_on_slope = false
 floor_snap_length = 0.18
-script = ExtResource("4_ie6v3")
+script = ExtResource("4_u827a")
 Acceleration = 1000.0
 MoveSpeed = 10.0
 RotationSpeed = 9.0
 JumpForce = 20.0
 ProjectileSpeed = 200.0
-Bubble = ExtResource("5_pd3bp")
+Bubble = ExtResource("5_7cxsi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16519, 0)
@@ -11615,7 +11615,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="CharacterBody3D/Model"]
-tree_root = ExtResource("8_8mw26")
+tree_root = ExtResource("9_dxqsy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/jump = false
@@ -11650,7 +11650,7 @@ scale = Vector2(0.25, 0.25)
 custom_minimum_size = Vector2(32, 32)
 layout_direction = 1
 layout_mode = 2
-texture = ExtResource("13_aghgm")
+texture = ExtResource("10_ch4jk")
 expand_mode = 2
 stretch_mode = 3
 
@@ -11696,13 +11696,13 @@ curve = SubResource("Curve3D_x1hhc")
 transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.01455, -8.38492e-06, -0.812054)
 progress = 1.3
 rotation_mode = 0
-script = ExtResource("12_dm43y")
+script = ExtResource("11_imkdc")
 FollowSpeed = 3.0
 
-[node name="BubbleV3" parent="MovingPathBubble/PathFollow3D" instance=ExtResource("5_pd3bp")]
+[node name="BubbleV3" parent="MovingPathBubble/PathFollow3D" instance=ExtResource("5_7cxsi")]
 Bounce = false
 
-[node name="BubbleV2" parent="." instance=ExtResource("5_pd3bp")]
+[node name="BubbleV2" parent="." instance=ExtResource("5_7cxsi")]
 transform = Transform3D(1.71037, 0, 0, 0, 1.71037, 0, 0, 0, 1.71037, -5.12703, 0, 0)
 
 [node name="MovingPathBubble2" type="Path3D" parent="."]
@@ -11713,6 +11713,6 @@ curve = SubResource("Curve3D_tber2")
 transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.01455, -8.38492e-06, -0.812054)
 progress = 1.3
 rotation_mode = 0
-script = ExtResource("12_dm43y")
+script = ExtResource("11_imkdc")
 
-[node name="Bubble" parent="MovingPathBubble2/PathFollow3D" instance=ExtResource("5_pd3bp")]
+[node name="Bubble" parent="MovingPathBubble2/PathFollow3D" instance=ExtResource("5_7cxsi")]
