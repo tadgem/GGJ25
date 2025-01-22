@@ -18,7 +18,6 @@ public partial class MouseCharacter : CharacterBody3D
 	public float JumpForce = 12.0f;
 
 
-
 	private Vector2 _mouseDir = Vector2.Zero;
 	private Vector3 _lastMovementDir = Vector3.Back;
 
@@ -28,6 +27,14 @@ public partial class MouseCharacter : CharacterBody3D
 	private Camera3D _cam = null;
 	private AnimationTree _anim = null;
 	private float _gravity = -30.0f;
+	private bool _bounce = false;
+	private float _bounceStrength = 0.0f;
+
+	internal void Bounce(float strength_multiplier = 1.0f)
+	{
+		_bounce = true;
+		_bounceStrength = strength_multiplier;
+	}
 
 
 	private void HandleAnimationParams()
@@ -127,6 +134,13 @@ public partial class MouseCharacter : CharacterBody3D
 		if(jump)
 		{
 			v.Y += JumpForce;
+		}
+
+		if(_bounce)
+		{
+			v.Y += JumpForce * _bounceStrength;
+			_bounce = false;
+			_bounceStrength = 1.0f;
 		}
 		
 		Velocity = v;
