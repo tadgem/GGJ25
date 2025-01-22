@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://xpl7avb1yrf0"]
+[gd_scene load_steps=27 format=4 uid="uid://xpl7avb1yrf0"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_2dsv4"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_hoenm"]
@@ -8708,13 +8708,6 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="Curve3D" id="Curve3D_tber2"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.635, -5.48363e-05, -5.31073, 0, 0, 0, 0, 0, 0, 16.1374, -5.48363e-05, -4.92491, 0, 0, 0, 0, 0, 0, 28.0812, -5.48363e-05, 4.70384, 0, 0, 0, 0, 0, 0, 11.6045, -5.53131e-05, 17.5289, 0, 0, 0, 0, 0, 0, 2.29935, -5.48363e-05, 9.17621, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 7
-
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -11688,6 +11681,9 @@ transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Test Level Geo/CSGBox3D4/StaticBody3D"]
 shape = SubResource("BoxShape3D_7mgcb")
 
+[node name="BubbleV2" parent="Test Level Geo" instance=ExtResource("5_7cxsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32093, 0.164822, 1.86122)
+
 [node name="MovingPathBubble" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6063, 19.4334, -13.1054)
 curve = SubResource("Curve3D_x1hhc")
@@ -11702,17 +11698,9 @@ FollowSpeed = 3.0
 [node name="BubbleV3" parent="MovingPathBubble/PathFollow3D" instance=ExtResource("5_7cxsi")]
 Bounce = false
 
-[node name="BubbleV2" parent="." instance=ExtResource("5_7cxsi")]
-transform = Transform3D(1.71037, 0, 0, 0, 1.71037, 0, 0, 0, 1.71037, -5.12703, 0, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(11.3285, 0, 0, 0, 5.16203, 0, 0, 0, 9.33767, 0, 1.69972, -10.0854)
 
-[node name="MovingPathBubble2" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8482, 27.4746, -13.0096)
-curve = SubResource("Curve3D_tber2")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="MovingPathBubble2"]
-transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.01455, -8.38492e-06, -0.812054)
-progress = 1.3
-rotation_mode = 0
-script = ExtResource("11_imkdc")
-
-[node name="Bubble" parent="MovingPathBubble2/PathFollow3D" instance=ExtResource("5_7cxsi")]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(0.498741, 0, 0, 0, 1.09453, 0, 0, 0, 0.605074, 0, -0.329274, 0.0866545)
+operation = 2
