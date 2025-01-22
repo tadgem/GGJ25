@@ -21,6 +21,8 @@ public partial class MouseCharacter : CharacterBody3D
 	private Vector2 _mouseDir = Vector2.Zero;
 	private Vector3 _lastMovementDir = Vector3.Back;
 
+	internal Vector3 VelocityOffset = Vector3.Zero;
+
 
 	private Node3D _pivot = null;
 	private Node3D _playerModel = null;
@@ -68,7 +70,6 @@ public partial class MouseCharacter : CharacterBody3D
 		_playerModel = GetNode<Node3D>("Model");
 		_anim = GetNode<AnimationTree>("Model/AnimationTree");
 		_anim.Active = true;
-		GD.Print("Horrible");
     }
 
     public override void _Input(InputEvent @event)
@@ -138,11 +139,11 @@ public partial class MouseCharacter : CharacterBody3D
 
 		if(_bounce)
 		{
+			v.Y = Mathf.Clamp(v.Y, 0.0f, float.MaxValue);
 			v.Y += JumpForce * _bounceStrength;
 			_bounce = false;
 			_bounceStrength = 1.0f;
 		}
-		
 		Velocity = v;
 
 		MoveAndSlide();
@@ -158,6 +159,8 @@ public partial class MouseCharacter : CharacterBody3D
 
 			_playerModel.GlobalRotation = playerEuler;
 		}
+
+		VelocityOffset = Vector3.Zero;
 
     }
 }

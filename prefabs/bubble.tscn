@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0q8xfxcdkp4d"]
+
+[ext_resource type="Script" path="res://scripts/Bubble.cs" id="1_mo730"]
+[ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="2_xkpo2"]
+[ext_resource type="Texture2D" uid="uid://c3mt3g1b1igp2" path="res://images/bubble_colour.png" id="3_yvhej"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yn7sq"]
+radius = 1.135
+
+[sub_resource type="SphereMesh" id="SphereMesh_vw3pq"]
+rings = 128
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c53vg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nspon"]
+noise = SubResource("FastNoiseLite_c53vg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xitd0"]
+render_priority = 0
+shader = ExtResource("2_xkpo2")
+shader_parameter/smoothness = 0.09
+shader_parameter/time_scale = 0.05
+shader_parameter/colour_texture = ExtResource("3_yvhej")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_nspon")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymqlo"]
+size = Vector3(2.325, 0.995, 2.26)
+
+[node name="Bubble" type="Area3D"]
+transform = Transform3D(0.999003, 0, 0, 0, 0.999003, 0, 0, 0, 0.999003, 0, 0, 0)
+script = ExtResource("1_mo730")
+Solid = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_yn7sq")
+
+[node name="BubbleFX" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_vw3pq")
+skeleton = NodePath("../../CharacterBody3D")
+surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187419, 0.0539274, 0.0191722)
+shape = SubResource("BoxShape3D_ymqlo")

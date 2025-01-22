@@ -12,6 +12,16 @@ public partial class Bubble : Area3D
 	[Export]
 	public bool Solid = true;
 
+	private Vector3 _velocity;
+	private Vector3 _lastGlobalPosition;
+
+	private MouseCharacter _player = null;
+
+	private bool MaintainVelocityForPlayer
+	{
+		get => _player != null;
+	}
+
 	private void OnAreaEntered(Node3D body)
 	{
 		if (body is MouseCharacter player)
@@ -20,12 +30,17 @@ public partial class Bubble : Area3D
 			{
 				player.Bounce(BounceStrength);
 			}
+			else
+			{
+				_player = player;
+			}
 		}
 	}
 	private void OnAreaExited(Node3D body)
 	{
 		if (body is MouseCharacter player)
 		{
+			_player = null;
 			
 		}
 	}
@@ -38,15 +53,26 @@ public partial class Bubble : Area3D
 
 		if(!Solid)
 		{
-			StaticBody3D s = GetNode<StaticBody3D>("StaticBody3D");
-			s.QueueFree();
+			CharacterBody3D c = GetNode<CharacterBody3D>("CharacterBody3D");
+			c.QueueFree();
 		}
-		
+		_lastGlobalPosition = Vector3.Zero;
 	}
 
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
+		Vector3 pos = GlobalPosition;
+		_velocity = pos - _lastGlobalPosition;
+		_lastGlobalPosition = pos;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+		if(MaintainVelocityForPlayer)
+		{
+			_player.VelocityOffset = _velocity * 50.0f;
+		}
+
+
+    }
+
+
 }
