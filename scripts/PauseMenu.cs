@@ -15,6 +15,12 @@ public partial class PauseMenu : Control
 		GD.Print("Toggle Pause");
 	}
 
+	internal void GrabMenuFocus()
+	{
+		_resumeButton.GrabFocus();
+	}
+	
+
 	public override void _Ready()
 	{
 		_resumeButton = GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton");

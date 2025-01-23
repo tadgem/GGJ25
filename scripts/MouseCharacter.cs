@@ -55,7 +55,7 @@ public partial class MouseCharacter : CharacterBody3D
 	private AudioStreamPlayer _squeekAudio;
 	private AudioStreamPlayer _jumpAudio;
 	private Control _crosshairControl;
-	private Control _pauseMenuControl;
+	private PauseMenu _pauseMenuControl;
 	private float _gravity = -30.0f;
 	private bool _bounce = false;
 	private float _bounceStrength = 0.0f;
@@ -116,7 +116,7 @@ public partial class MouseCharacter : CharacterBody3D
 		_anim = GetNode<AnimationTree>("Model/AnimationTree");
 		_crosshairControl = GetNode<Control>("Control");
 		_crosshairControl.Hide();
-		_pauseMenuControl = GetNode<Control>("PauseMenu");
+		_pauseMenuControl = GetNode<PauseMenu>("PauseMenu");
 		_pauseMenuControl.Hide();
 		_squeekAudio = GetNode<AudioStreamPlayer>("SqueekAudio");
 		_jumpAudio = GetNode<AudioStreamPlayer>("JumpAudio");
@@ -358,6 +358,7 @@ public partial class MouseCharacter : CharacterBody3D
 			{
 				Engine.TimeScale = 0.0f;
 				_pauseMenuControl.Show();
+				_pauseMenuControl.GrabMenuFocus();
 			}
 			_paused = !_paused;
 	}
@@ -374,6 +375,13 @@ public partial class MouseCharacter : CharacterBody3D
     {
         base._PhysicsProcess(delta);
 
+		HandlePauseMenu();
+		
+		if(_paused)
+		{
+			return;
+		}
+
 		float d = (float) delta;
 
 		HandleCameraRotation(d);
@@ -384,6 +392,5 @@ public partial class MouseCharacter : CharacterBody3D
 		HandleAiming(d);
 		HandleCharacterRotation(move_dir, d);
 		HandleSqueekAudio(d);
-		HandlePauseMenu();
     }
 }
