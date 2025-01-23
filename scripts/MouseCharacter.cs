@@ -20,11 +20,16 @@ public partial class MouseCharacter : CharacterBody3D
 	[Export]
 	public float AimSpeed = 2.0f;
 	[Export]
-	public float ProjectileSpeed = 400.0f;
+	public float FirePlatformSpeed = 4.0f;
+	[Export]
+	public float FireProjectileSpeed = 200.0f;
 	[Export]
 	public float MinSqueekTime = 17.0f;
 	[Export]
 	public float MiaxSqueekTime = 35.0f;
+	[Export]
+	public float ControllerLookSensitivity = 2.0f;
+	
 	[Export]
 	public Vector3 AimPivot = new Vector3(0.0f, 3.25f, - 0.5f);
 
@@ -135,6 +140,10 @@ public partial class MouseCharacter : CharacterBody3D
 
 	private void HandleCameraRotation(float delta)
 	{
+		if(_mouseDir == Vector2.Zero)
+		{
+			_mouseDir = Input.GetVector("look_left", "look_right", "look_up", "look_down") * ControllerLookSensitivity;
+		}
 		Vector3 euler = _pivot.Rotation;
 		euler.X += _mouseDir.Y * (float) delta;
 		euler.Y -= _mouseDir.X * (float) delta;
@@ -146,6 +155,26 @@ public partial class MouseCharacter : CharacterBody3D
 
 	}
 
+	private void FirePlatform()
+	{
+		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
+		bubble_instance.IsTimed = true;
+		bubble_instance.IsProjectile = true;
+		GetTree().CurrentScene.AddChild(bubble_instance);
+		bubble_instance.Position = Position + Vector3.Up +(-_cam.GlobalBasis.Z * 4.0f);
+		bubble_instance.Velocity = -_cam.GlobalBasis.Z * FirePlatformSpeed;	
+	}
+
+	private void FireProjectile()
+	{
+		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
+		bubble_instance.IsTimed = true;
+		bubble_instance.IsProjectile = true;
+		GetTree().CurrentScene.AddChild(bubble_instance);
+		bubble_instance.Position = Position + Vector3.Up +(-_cam.GlobalBasis.Z * 4.0f);
+		bubble_instance.Velocity = -_cam.GlobalBasis.Z * FireProjectileSpeed;	
+	}
+
 	private void HandleAiming(float delta)
 	{
 		bool aim = Input.IsActionPressed("aim");
@@ -155,17 +184,16 @@ public partial class MouseCharacter : CharacterBody3D
 			_crosshairControl.Show();
 			_pivot.Position = _pivot.Position.Lerp(AimPivot, (float) delta * AimSpeed);
 
-			bool fire = Input.IsActionJustPressed("fire");
 
-			if(fire)
+			bool fire_platform = Input.IsActionJustPressed("fire_platform");
+			bool fire_projectile = Input.IsActionJustPressed("fire_projectile");
+			if(fire_platform)
 			{
-				Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
-				bubble_instance.IsTimed = true;
-				bubble_instance.IsProjectile = true;
-				GetTree().CurrentScene.AddChild(bubble_instance);
-				bubble_instance.Position = Position + Vector3.Up +(-_cam.GlobalBasis.Z * 4.0f);
-				bubble_instance.Velocity = -_cam.GlobalBasis.Z * ProjectileSpeed;			
-
+				FirePlatform();	
+			}
+			if(fire_projectile)
+			{
+				FireProjectile();
 			}
 		}
 		else
