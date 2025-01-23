@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=19 format=3 uid="uid://cparnd6xcpalj"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
 [ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_yvvjx"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="4_8ajwi"]
 [ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="5_pd3bp"]
+[ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="7_t0tec"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="12_dm43y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
@@ -29,6 +30,108 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
+
+[sub_resource type="Theme" id="Theme_yleoe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krmqw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="Animation" id="Animation_s435u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:theme_override_styles/panel:draw_center")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_28jal"]
+resource_name = "looney_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 20), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:theme_override_styles/panel:draw_center")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_do5k7"]
+resource_name = "looney_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(20, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:theme_override_styles/panel:draw_center")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsw0u"]
+_data = {
+"RESET": SubResource("Animation_s435u"),
+"looney_in": SubResource("Animation_28jal"),
+"looney_out": SubResource("Animation_do5k7")
+}
 
 [node name="Node3D" type="Node3D"]
 
@@ -116,5 +219,38 @@ rotation_mode = 0
 script = ExtResource("12_dm43y")
 
 [node name="Bubble" parent="MovingPathBubble2/PathFollow3D" instance=ExtResource("5_pd3bp")]
+
+[node name="LooneyTransition" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_t0tec")
+Autoplay = true
+
+[node name="Circle" type="Panel" parent="LooneyTransition"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-0.5, -0.5)
+pivot_offset = Vector2(150, 150)
+theme = SubResource("Theme_yleoe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_krmqw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LooneyTransition"]
+libraries = {
+"": SubResource("AnimationLibrary_hsw0u")
+}
 
 [editable path="BubbleV2"]

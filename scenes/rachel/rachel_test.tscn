@@ -61,7 +61,7 @@ size = Vector3(0.883667, 1.12097, 2.40546)
 [node name="Flooring" type="Node3D" parent="CSG_Stuff"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CSG_Stuff/Flooring"]
-transform = Transform3D(81.1024, 0, 0, 0, 0.329644, 0, 0, 0, 93.9366, -0.989384, 0, 1.89357)
+transform = Transform3D(81.1024, 0, 0, 0, 0.329644, 0, 0, 0, 93.9366, -0.982391, 0.0465164, 1.86719)
 material_override = ExtResource("6_4uykf")
 mesh = SubResource("BoxMesh_51wwt")
 skeleton = NodePath("../../..")
@@ -196,7 +196,7 @@ size = Vector3(48.8834, 1, 5.49075)
 [node name="Storage Boxes" type="Node3D" parent="CSG_Stuff"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSG_Stuff/Storage Boxes"]
-transform = Transform3D(12.621, 0, 7.25241, 0, 14.5563, 0, -7.25241, 0, 12.621, 9.00873, 4.44479, -29.3192)
+transform = Transform3D(12.621, 0, 7.25241, 0, 14.5563, 0, -7.25241, 0, 12.621, 9.01969, 4.70646, -29.4223)
 use_collision = true
 size = Vector3(0.714111, 0.568634, 0.932739)
 material = ExtResource("7_gcypq")
