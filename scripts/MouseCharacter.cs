@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
 
@@ -29,6 +30,10 @@ public partial class MouseCharacter : CharacterBody3D
 	public float MiaxSqueekTime = 35.0f;
 	[Export]
 	public float ControllerLookSensitivity = 2.0f;
+	[Export]
+	public float ProjectileBubbleTimeAlive = 4.0f;
+	[Export]
+	public float PlatformBubbleTimeAlive = 4.0f;
 	
 	[Export]
 	public Vector3 AimPivot = new Vector3(0.0f, 3.25f, - 0.5f);
@@ -53,6 +58,10 @@ public partial class MouseCharacter : CharacterBody3D
 	private bool _bounce = false;
 	private float _bounceStrength = 0.0f;
 	private float _mouseSqueekTimer = 0.0f;
+
+	private TextureRect[] _bubbleUiTextures = new TextureRect[3];
+	private float[]	_bubbleUiTimers = new float[3];
+	private const int MAX_ACTIVE_BUBBLES = 3;
 
 	internal void Bounce(float strength_multiplier = 1.0f)
 	{
@@ -107,6 +116,14 @@ public partial class MouseCharacter : CharacterBody3D
 		_jumpAudio = GetNode<AudioStreamPlayer>("JumpAudio");
 		_anim.Active = true;
 
+		_bubbleUiTextures[0] = GetNode<TextureRect>("BubblesUI/Container/Bubble1");
+		_bubbleUiTextures[1] = GetNode<TextureRect>("BubblesUI/Container/Bubble2");
+		_bubbleUiTextures[2] = GetNode<TextureRect>("BubblesUI/Container/Bubble3");
+
+		_bubbleUiTimers[0] = 0.0f;
+		_bubbleUiTimers[1] = 0.0f;
+		_bubbleUiTimers[2] = 0.0f;
+
 		_defaultPivot = _pivot.Position;
     }
 
@@ -155,24 +172,71 @@ public partial class MouseCharacter : CharacterBody3D
 
 	}
 
+	private bool CanFire()
+	{
+		return 	_bubbleUiTimers[0] <= 0.0f ||
+				_bubbleUiTimers[1] <= 0.0f || 
+				_bubbleUiTimers[2] <= 0.0f ;
+	}
+
+	private int GetBubbleFireIndex()
+	{
+		if(_bubbleUiTimers[0] <= 0.0f)
+		{
+			return 0;
+		}
+
+		if(_bubbleUiTimers[1] <= 0.0f)
+		{
+			return 1;
+		}
+
+		if(_bubbleUiTimers[2] <= 0.0f)
+		{
+			return 2;
+		}
+
+		return -1;
+	}
+
+	private void OnBubbleFired(float timeAlive)
+	{
+		int bubbleIndex = GetBubbleFireIndex();
+
+		if(bubbleIndex < 0)
+		{
+			GD.Print("Failed to fire, should not be able to get here!");
+			return;
+		}
+
+		_bubbleUiTimers[bubbleIndex] = timeAlive;
+		_bubbleUiTextures[bubbleIndex].Hide();
+		_bubbleUiTextures[bubbleIndex].Visible = false;
+	}
+
 	private void FirePlatform()
 	{
 		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
 		bubble_instance.IsTimed = true;
+		bubble_instance.Lifetime = PlatformBubbleTimeAlive;
 		bubble_instance.IsProjectile = true;
 		GetTree().CurrentScene.AddChild(bubble_instance);
 		bubble_instance.Position = Position + Vector3.Up +(-_cam.GlobalBasis.Z * 4.0f);
 		bubble_instance.Velocity = -_cam.GlobalBasis.Z * FirePlatformSpeed;	
+		OnBubbleFired(PlatformBubbleTimeAlive);
 	}
 
 	private void FireProjectile()
 	{
 		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
 		bubble_instance.IsTimed = true;
+		bubble_instance.Lifetime = ProjectileBubbleTimeAlive;
 		bubble_instance.IsProjectile = true;
 		GetTree().CurrentScene.AddChild(bubble_instance);
 		bubble_instance.Position = Position + Vector3.Up +(-_cam.GlobalBasis.Z * 4.0f);
 		bubble_instance.Velocity = -_cam.GlobalBasis.Z * FireProjectileSpeed;	
+		OnBubbleFired(ProjectileBubbleTimeAlive);
+
 	}
 
 	private void HandleAiming(float delta)
@@ -187,13 +251,20 @@ public partial class MouseCharacter : CharacterBody3D
 
 			bool fire_platform = Input.IsActionJustPressed("fire_platform");
 			bool fire_projectile = Input.IsActionJustPressed("fire_projectile");
+			
 			if(fire_platform)
 			{
-				FirePlatform();	
+				if(CanFire())
+				{
+					FirePlatform();	
+				}
 			}
 			if(fire_projectile)
 			{
-				FireProjectile();
+				if(CanFire())
+				{
+					FireProjectile();
+				}
 			}
 		}
 		else
@@ -254,6 +325,22 @@ public partial class MouseCharacter : CharacterBody3D
 		}
 	}
 
+	private void HandleActiveBubbles(float delta)
+	{
+
+		for(int i = 0; i < MAX_ACTIVE_BUBBLES; i++)
+		{
+			if(_bubbleUiTimers[i] <= 0.0f)
+			{
+				_bubbleUiTextures[i].Show();
+				_bubbleUiTextures[i].Visible = true;
+			}
+			else{
+				_bubbleUiTimers[i] -= delta;
+			}
+		}
+	}
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -264,6 +351,7 @@ public partial class MouseCharacter : CharacterBody3D
 		Vector3 move_dir = HandleCharacterVelocity(d);
 		MoveAndSlide();
 		HandleAnimationParams();
+		HandleActiveBubbles(d);
 		HandleAiming(d);
 		HandleCharacterRotation(move_dir, d);
 		HandleSqueekAudio(d);
