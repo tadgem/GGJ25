@@ -54,6 +54,7 @@ public partial class Bubble : CharacterBody3D
 
 		if(!Solid)
 		{
+			// disable collision with all other objects in the scene
 			SetCollisionLayerValue(1, false);
 		}
 	}
