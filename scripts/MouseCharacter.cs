@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
+using System.Security.Cryptography;
 
 public partial class MouseCharacter : CharacterBody3D
 {
@@ -54,6 +55,7 @@ public partial class MouseCharacter : CharacterBody3D
 	private AudioStreamPlayer _squeekAudio;
 	private AudioStreamPlayer _jumpAudio;
 	private Control _crosshairControl;
+	private Control _pauseMenuControl;
 	private float _gravity = -30.0f;
 	private bool _bounce = false;
 	private float _bounceStrength = 0.0f;
@@ -62,6 +64,8 @@ public partial class MouseCharacter : CharacterBody3D
 	private TextureRect[] _bubbleUiTextures = new TextureRect[3];
 	private float[]	_bubbleUiTimers = new float[3];
 	private const int MAX_ACTIVE_BUBBLES = 3;
+
+	private bool _paused = false;
 
 	internal void Bounce(float strength_multiplier = 1.0f)
 	{
@@ -112,6 +116,8 @@ public partial class MouseCharacter : CharacterBody3D
 		_anim = GetNode<AnimationTree>("Model/AnimationTree");
 		_crosshairControl = GetNode<Control>("Control");
 		_crosshairControl.Hide();
+		_pauseMenuControl = GetNode<Control>("PauseMenu");
+		_pauseMenuControl.Hide();
 		_squeekAudio = GetNode<AudioStreamPlayer>("SqueekAudio");
 		_jumpAudio = GetNode<AudioStreamPlayer>("JumpAudio");
 		_anim.Active = true;
@@ -341,6 +347,29 @@ public partial class MouseCharacter : CharacterBody3D
 		}
 	}
 
+	internal void TogglePause()
+	{
+		if(_paused)
+			{
+				Engine.TimeScale = 1.0f;
+				_pauseMenuControl.Hide();
+			}
+			else
+			{
+				Engine.TimeScale = 0.0f;
+				_pauseMenuControl.Show();
+			}
+			_paused = !_paused;
+	}
+
+	private void HandlePauseMenu()
+	{
+		if(Input.IsActionJustPressed("pause"))
+		{
+			TogglePause();
+		}
+	}
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -355,5 +384,6 @@ public partial class MouseCharacter : CharacterBody3D
 		HandleAiming(d);
 		HandleCharacterRotation(move_dir, d);
 		HandleSqueekAudio(d);
+		HandlePauseMenu();
     }
 }
