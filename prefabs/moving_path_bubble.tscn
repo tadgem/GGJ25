@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds6tw127bbgk3"]
 
-[ext_resource type="Script" path="res://scenes/FollowPath.cs" id="1_xhgo6"]
-[ext_resource type="PackedScene" uid="uid://d0q8xfxcdkp4d" path="res://prefabs/bubble.tscn" id="2_5n0bi"]
+[ext_resource type="Script" path="res://scripts/FollowPath.cs" id="1_xhgo6"]
+[ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="2_5n0bi"]
 
 [sub_resource type="Curve3D" id="Curve3D_x1hhc"]
 _data = {

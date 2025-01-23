@@ -42,6 +42,7 @@ public partial class MouseCharacter : CharacterBody3D
 	private Camera3D _cam = null;
 	private AnimationTree _anim = null;
 	private AudioStreamPlayer _squeekAudio;
+	private AudioStreamPlayer _jumpAudio;
 	private Control _crosshairControl;
 	private float _gravity = -30.0f;
 	private bool _bounce = false;
@@ -98,6 +99,7 @@ public partial class MouseCharacter : CharacterBody3D
 		_crosshairControl = GetNode<Control>("Control");
 		_crosshairControl.Hide();
 		_squeekAudio = GetNode<AudioStreamPlayer>("SqueekAudio");
+		_jumpAudio = GetNode<AudioStreamPlayer>("JumpAudio");
 		_anim.Active = true;
 
 		_defaultPivot = _pivot.Position;
@@ -193,6 +195,7 @@ public partial class MouseCharacter : CharacterBody3D
 
 		if(jump)
 		{
+			_jumpAudio.Play();
 			v.Y += JumpForce;
 		}
 
@@ -211,7 +214,6 @@ public partial class MouseCharacter : CharacterBody3D
 
 	private void HandleCharacterRotation(Vector3 move_dir, float delta)
 	{
-		
 		if(move_dir.Length() > MovementDeadZone)
 		{
 			_lastMovementDir = move_dir;
@@ -222,9 +224,6 @@ public partial class MouseCharacter : CharacterBody3D
 
 			_playerModel.GlobalRotation = playerEuler;
 		}
-
-
-
 	}
 
     public override void _PhysicsProcess(double delta)

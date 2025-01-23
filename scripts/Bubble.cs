@@ -23,9 +23,11 @@ public partial class Bubble : CharacterBody3D
 
 	private float _timeAlive = 0.0f;
 
-
+	private AudioStreamPlayer3D _boingAudio;
+	
 	private void OnAreaEntered(Node3D body)
 	{
+		_boingAudio.Play();
 		if (body is MouseCharacter player)
 		{
 			if(Bounce)
@@ -46,6 +48,7 @@ public partial class Bubble : CharacterBody3D
 	public override void _Ready()
 	{
 		Area3D area = GetNode<Area3D>("Area3D");
+		_boingAudio = GetNode<AudioStreamPlayer3D>("BoingAudio");
 		area.BodyEntered += OnAreaEntered;
 		area.BodyExited += OnAreaExited;
 
