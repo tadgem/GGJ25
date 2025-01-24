@@ -11,21 +11,46 @@ public partial class LockedPlatform : LockedBase
 		base._Ready();
 		_hideNode = GetNode<Node3D>("HideNode");
 	}
+
+	private void RecurseTogglePhysicsNodes(Node n, bool active)
+	{
+		var children = n.GetChildren();
+
+		foreach(Node child in children)
+		{
+			if(child is PhysicsBody3D body)
+			{
+				body.SetCollisionLayerValue(1, active);
+			}
+			RecurseTogglePhysicsNodes(child, active);
+		}
+	}
+
+	private void EnableChildColliders()
+	{
+		RecurseTogglePhysicsNodes(this, true);
+	}
+
+	private void DisableChildColliders()
+	{
+		RecurseTogglePhysicsNodes(this, false);
+	}
+
 	public override void OnEnable()
 	{
 		base.OnEnable();
 		GD.Print("LockedPlatform : OnEnable");
-		_hideNode.SetProcess(true);
-		_hideNode.SetPhysicsProcess(true);
-		_hideNode.Show();
+		_hideNode.SetProcess(false);
+		_hideNode.Hide();
+		DisableChildColliders();
 	}
 
 	public override void OnDisable()
 	{
 		base.OnDisable();
 		GD.Print("LockedPlatform : OnDisable");
-		_hideNode.SetProcess(false);
-		_hideNode.SetPhysicsProcess(false);
-		_hideNode.Hide();
+		_hideNode.SetProcess(true);
+		_hideNode.Show();
+		EnableChildColliders();
 	}
 }
