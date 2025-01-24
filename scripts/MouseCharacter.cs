@@ -76,7 +76,6 @@ public partial class MouseCharacter : CharacterBody3D
 		_bounceStrength = strength_multiplier;
 	}
 
-
 	private void HandleAnimationParams()
 	{
 		if(!IsOnFloor())
