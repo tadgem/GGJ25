@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=24 format=3 uid="uid://cparnd6xcpalj"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="5_pd3bp"]
 [ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="7_t0tec"]
 [ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="8_2qxxr"]
+[ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="9_812ac"]
+[ext_resource type="Script" path="res://scenes/LockedDoor.cs" id="9_eq457"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="12_dm43y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
@@ -134,6 +136,12 @@ _data = {
 "looney_out": SubResource("Animation_do5k7")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_shsyf"]
+size = Vector3(2, 4, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_juoxv"]
+size = Vector3(2, 4, 0.25)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Test Level Geo" type="Node3D" parent="."]
@@ -247,3 +255,20 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28361, 0.233331, 0.374963)
 
 [node name="BubbleSwitch" parent="." instance=ExtResource("8_2qxxr")]
+
+[node name="LockedDoor" parent="." instance=ExtResource("9_812ac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166956, 1.95188, 6.2291)
+
+[node name="LockedDoor2" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
+transform = Transform3D(-4.90442e-07, 0, -1, 0, 2.53, 0, 11.22, 0, -4.37114e-08, -11.6343, 15.9803, 40.3935)
+script = ExtResource("9_eq457")
+Switch = NodePath("../BubbleSwitch")
+
+[node name="DoorRoot" type="StaticBody3D" parent="LockedDoor2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LockedDoor2/DoorRoot"]
+shape = SubResource("BoxShape3D_shsyf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LockedDoor2/DoorRoot"]
+mesh = SubResource("BoxMesh_juoxv")
+skeleton = NodePath("../..")

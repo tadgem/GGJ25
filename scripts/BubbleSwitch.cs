@@ -3,12 +3,12 @@ using System;
 
 public partial class BubbleSwitch : Area3D
 {
-	public delegate void BubbleSwitchActivatedHandler(string tag);
+	public delegate void BubbleSwitchToggledHandler(string tag, bool enabled);
 
 	[Export]
 	public string Tag = "";
 
-	public event BubbleSwitchActivatedHandler OnSwitchActivated;
+	public event BubbleSwitchToggledHandler OnSwitchToggled;
 
 
 	private MeshInstance3D _upMesh;
@@ -23,14 +23,15 @@ public partial class BubbleSwitch : Area3D
 		{
 			_upMesh.Hide();
 			_downMesh.Show();
-			OnSwitchActivated?.Invoke(Tag);
 		}
 		else
 		{
 			_upMesh.Show();
 			_downMesh.Hide();
+			
 		}
 		_active = !_active;
+		OnSwitchToggled?.Invoke(Tag, _active);
 	}
 
 	private void OnAreaEntered(Node3D other)

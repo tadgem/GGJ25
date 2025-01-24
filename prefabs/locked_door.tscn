@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfnq7rp88wqa0"]
+
+[ext_resource type="Script" path="res://scenes/LockedDoor.cs" id="1_onupx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shsyf"]
+size = Vector3(2, 4, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_juoxv"]
+size = Vector3(2, 4, 0.25)
+
+[node name="LockedDoor" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95188, 6.09982)
+script = ExtResource("1_onupx")
+
+[node name="DoorRoot" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorRoot"]
+shape = SubResource("BoxShape3D_shsyf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRoot"]
+mesh = SubResource("BoxMesh_juoxv")
+skeleton = NodePath("../..")
