@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://clamfnur5p3ff"]
+
+[ext_resource type="Texture2D" uid="uid://c2w8m1n6fwp1i" path="res://images/wood.png" id="1_34o8m"]
+
+[resource]
+albedo_color = Color(0.807648, 0.883059, 1, 1)
+albedo_texture = ExtResource("1_34o8m")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.420448
+uv1_world_triplanar = true
