@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvgq0xgssj4jo"]
+
+[ext_resource type="Script" path="res://scripts/BubbleSwitch.cs" id="1_7jhsc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv505"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s6chr"]
+size = Vector3(1.915, 1.71, 0.21)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3tglp"]
+size = Vector3(0.2, 1, 0.2)
+
+[node name="BubbleSwitch" type="Area3D"]
+transform = Transform3D(2.56503, 0, 0, 0, 2.56503, 0, 0, 0, 2.56503, 14, 1.46999, 0)
+script = ExtResource("1_7jhsc")
+Tag = "Test123"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_tv505")
+
+[node name="Plate" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_s6chr")
+
+[node name="SwitchUp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.336214, -0.371485)
+mesh = SubResource("BoxMesh_3tglp")
+
+[node name="SwitchDown" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, -0.197329, -0.371485)
+visible = false
+mesh = SubResource("BoxMesh_3tglp")

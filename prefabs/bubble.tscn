@@ -37,6 +37,7 @@ stream_2/stream = ExtResource("6_j2g8g")
 
 [node name="BubbleV2" type="CharacterBody3D"]
 script = ExtResource("1_mo730")
+BounceStrength = 1.25
 
 [node name="BubbleFX2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_vw3pq")
