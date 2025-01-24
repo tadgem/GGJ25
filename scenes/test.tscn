@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=19 format=3 uid="uid://cparnd6xcpalj"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
+[ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="1_s1035"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
 [ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_yvvjx"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="4_8ajwi"]
@@ -126,10 +127,12 @@ _data = {
 
 [node name="Ramp1" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.3718, 0, 0, 0, 7.04502, 11.8141, 0, -3.71785, 22.3867, 2.97201, 0.786738, 21.2347)
+material_override = ExtResource("1_s1035")
 use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, 3.17496, 8.20319, 41.4845)
+material_override = ExtResource("1_s1035")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D2"]
 
@@ -138,6 +141,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -20.7723, 12.1175, 40.2188)
+material_override = ExtResource("1_s1035")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D3"]
 
@@ -146,6 +150,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291, 13.0695)
+material_override = ExtResource("1_s1035")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D4"]
 
@@ -154,6 +159,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Test Level Geo"]
 transform = Transform3D(50.139, 0, 0, 0, 0.329644, 0, 0, 0, 120.447, 0, 0, 0)
+material_override = ExtResource("1_s1035")
 mesh = SubResource("BoxMesh_51wwt")
 skeleton = NodePath("../..")
 
@@ -216,3 +222,4 @@ transform = Transform3D(8.90421, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24
 Switch = NodePath("../BubbleSwitch")
 
 [node name="LockedPlatform" parent="." instance=ExtResource("8_1tud6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.186, 0.787475, 0.0723343)
