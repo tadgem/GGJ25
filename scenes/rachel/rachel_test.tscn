@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xpl7avb1yrf0"]
+[gd_scene load_steps=15 format=3 uid="uid://xpl7avb1yrf0"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_2dsv4"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_hoenm"]
@@ -7,8 +7,9 @@
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="6_4uykf"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_xryax"]
 [ext_resource type="Material" uid="uid://c3rby7bjwgn2x" path="res://materials/csg_materials/wood_csg.tres" id="7_gcypq"]
-[ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="7_qt61j"]
+[ext_resource type="Material" path="res://materials/csg_materials/wallcolor_csg.tres" id="7_qt61j"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="9_sqkgb"]
+[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="11_47kg4"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="11_imkdc"]
 
 [sub_resource type="Curve3D" id="Curve3D_x1hhc"]
@@ -257,3 +258,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47159, 0)
 
 [node name="Whisky_NF" parent="." instance=ExtResource("9_sqkgb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.6203, 0.211338, 13.4371)
+
+[node name="BrightMesh" parent="." instance=ExtResource("11_47kg4")]

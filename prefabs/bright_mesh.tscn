@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce7eu40mg84hk"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1pwxq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7p0k"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 8.62
+
+[node name="BrightMesh" type="MeshInstance3D"]
+transform = Transform3D(1.8, 0, 0, 0, -4.37114e-08, 2, 0, -1, -8.74228e-08, -17.845, 2.52445, 26.3841)
+mesh = SubResource("PlaneMesh_1pwxq")
+surface_material_override/0 = SubResource("StandardMaterial3D_c7p0k")
