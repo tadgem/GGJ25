@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfnq7rp88wqa0"]
 
-[ext_resource type="Script" path="res://scenes/LockedDoor.cs" id="1_onupx"]
+[ext_resource type="Script" path="res://scripts/LockedDoor.cs" id="1_onupx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_shsyf"]
 size = Vector3(2, 4, 0.25)

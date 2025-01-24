@@ -248,10 +248,12 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28361, 0.233331, 0.374963)
 
 [node name="BubbleSwitch" parent="." instance=ExtResource("8_2qxxr")]
-transform = Transform3D(2.50155, 0, 0, 0, 2.50155, 0, 0, 0, 2.50155, 13.9955, 1.52097, 0.00584602)
+transform = Transform3D(2.50819, 0, 0, 0, 2.50819, 0, 0, 0, 2.50819, 13.9955, 1.52097, 0.00584602)
 Timed = true
 DoorTime = 10.0
 
 [node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("9_812ac")]
-transform = Transform3D(9.3, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24.2516)
+transform = Transform3D(8.90421, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24.2516)
 Switch = NodePath("../BubbleSwitch")
+
+[node name="LockedPlatform" type="Node3D" parent="."]
