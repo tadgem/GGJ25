@@ -6,7 +6,6 @@ public partial class LockedDoor : LockedBase
 	
 	private StaticBody3D _door;
 	
-
 	public override void OnEnable()
 	{
 		base.OnEnable();
