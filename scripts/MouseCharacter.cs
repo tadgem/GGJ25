@@ -322,7 +322,8 @@ public partial class MouseCharacter : CharacterBody3D
 
 	private void HandleCharacterRotation(Vector3 move_dir, float delta)
 	{
-#if LIAM
+
+#if false
 		// pass2
 		// adjust rotation for slopes
 		var space = GetWorld3D().DirectSpaceState;
