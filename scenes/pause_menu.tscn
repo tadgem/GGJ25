@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0jdf1aivhcb3"]
+[gd_scene load_steps=5 format=3 uid="uid://c0jdf1aivhcb3"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.cs" id="1_r4t8h"]
 [ext_resource type="Shader" path="res://shaders/pause_menu_blur.gdshader" id="2_na0po"]
+[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="3_s682v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x1mnt"]
 shader = ExtResource("2_na0po")
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r4t8h")
+MainMenuScenePath = "res://scenes/main_menu.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_x1mnt")
@@ -22,6 +24,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -50,3 +56,8 @@ text = "Resume"
 layout_mode = 2
 text = "Main Menu
 "
+
+[node name="LooneyTransitionOut" parent="." instance=ExtResource("3_s682v")]
+visible = false
+layout_mode = 1
+TransitionIn = false

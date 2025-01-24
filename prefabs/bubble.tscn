@@ -40,7 +40,7 @@ script = ExtResource("1_mo730")
 
 [node name="BubbleFX2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_vw3pq")
-skeleton = NodePath("../../CharacterBody3D")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
