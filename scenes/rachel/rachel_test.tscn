@@ -7,9 +7,9 @@
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="6_4uykf"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_xryax"]
 [ext_resource type="Material" uid="uid://c3rby7bjwgn2x" path="res://materials/csg_materials/wood_csg.tres" id="7_gcypq"]
-[ext_resource type="Material" path="res://materials/csg_materials/wallcolor_csg.tres" id="7_qt61j"]
+[ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="7_qt61j"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="9_sqkgb"]
-[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="11_47kg4"]
+[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="11_47kg4"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="11_imkdc"]
 
 [sub_resource type="Curve3D" id="Curve3D_x1hhc"]
