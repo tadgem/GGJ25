@@ -22,19 +22,11 @@ public partial class LockedBase : Node3D
 	public virtual void OnEnable()
 	{
 		GD.Print("LockedBase : Enabling Door");
-		// _door.SetProcess(true);
-		// _door.SetPhysicsProcess(true);
-		// _door.SetCollisionLayerValue(1, true);
-		// _door.Show();
 	}
 
 	public virtual void OnDisable()
 	{
 		GD.Print("LockedBase : Disabling Door");
-		// _door.SetProcess(false);
-		// _door.SetPhysicsProcess(false);
-		// _door.SetCollisionLayerValue(1, false);
-		// _door.Hide();
 	}
 
 
