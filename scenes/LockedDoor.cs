@@ -27,6 +27,7 @@ public partial class LockedDoor : Node3D
 		GD.Print("Enabling Door");
 		_door.SetProcess(true);
 		_door.SetPhysicsProcess(true);
+		_door.SetCollisionLayerValue(1, true);
 		_door.Show();
 	}
 
@@ -35,6 +36,7 @@ public partial class LockedDoor : Node3D
 		GD.Print("Disabling Door");
 		_door.SetProcess(false);
 		_door.SetPhysicsProcess(false);
+		_door.SetCollisionLayerValue(1, false);
 		_door.Hide();
 	}
 
