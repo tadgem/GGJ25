@@ -21,6 +21,7 @@ public partial class LockedPlatform : LockedBase
 		{
 			if(child is PhysicsBody3D body)
 			{
+				GD.Print($"Disabling collision for node : {n.Name}");
 				body.SetCollisionLayerValue(1, active);
 			}
 			RecurseTogglePhysicsNodes(child, active);

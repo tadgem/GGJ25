@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8mc6m0utssy"]
+
+[ext_resource type="Script" path="res://scripts/ResetBox.cs" id="1_ki1lt"]
+[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="2_vsowq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pl8g"]
+
+[node name="ResetBox" type="Area3D"]
+script = ExtResource("1_ki1lt")
+ResetLocation = Vector3(-0.615512, 0.213356, 0.00689548)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2pl8g")
+
+[node name="LooneyTransition" parent="." instance=ExtResource("2_vsowq")]

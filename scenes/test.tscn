@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cparnd6xcpalj"]
+[gd_scene load_steps=23 format=4 uid="uid://cparnd6xcpalj"]
 
 [ext_resource type="PackedScene" uid="uid://c7yrbcoyp7xur" path="res://prefabs/level_transition_trigger.tscn" id="1_2nuq4"]
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ulnwk80wku0" path="res://prefabs/locked_platform.tscn" id="8_1tud6"]
 [ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="8_2qxxr"]
 [ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="9_812ac"]
+[ext_resource type="PackedScene" uid="uid://b8mc6m0utssy" path="res://prefabs/reset_box.tscn" id="11_dds0b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
 
@@ -242,3 +243,6 @@ Timed = true
 stream = SubResource("AudioStreamOggVorbis_ugljx")
 volume_db = -12.0
 autoplay = true
+
+[node name="ResetBox" parent="." instance=ExtResource("11_dds0b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00252151, 0.0140576, 0.00650787)
