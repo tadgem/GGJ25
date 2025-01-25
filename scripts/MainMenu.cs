@@ -11,10 +11,15 @@ public partial class MainMenu : Control
 	[Export]
 	public string LevelToLoadOnStartPath;
 
+	[Export]
+	public float MusicFadeDbInSeconds = 18.0f;
+
 	private Node _loadedScene = null;
+	private AudioStreamPlayer _menuMusic = null;
 
 	Timer _loadLevelTimer = new Timer();
 	private bool _transitioning = false;
+
 	private void OnLooneyFinished(StringName animName)
 	{
 		if(LevelToLoadOnStartPath != string.Empty && _transitioning)
@@ -54,6 +59,7 @@ public partial class MainMenu : Control
 		_quitGameButton = GetNode<Button>("VBoxContainer/QuitButton");
 		_looneyTransition = GetNode<LooneyTransition>("LooneyTransition");
 		_looneyInTransition = GetNode<LooneyTransition>("EnterTransition");
+		_menuMusic = GetNode<AudioStreamPlayer>("MainMenuMusic");
 		_looneyTransition.OnTransitionFinished += OnLooneyFinished;
 
 		GD.Print($"_looneyTransition is null? : {_looneyTransition == null}");
@@ -66,6 +72,11 @@ public partial class MainMenu : Control
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{		
+		if(_transitioning)
+		{
+			_menuMusic.VolumeDb -= MusicFadeDbInSeconds * (float) delta;
+		}
+
 		//GD.Print($"Is Animation Player Current Anim Name : {_looneyInTransition.Animator.CurrentAnimation}");
 		//GD.Print($"Is Animation Player Current Anim Length : {_looneyInTransition.Animator.CurrentAnimationLength}");
 		//GD.Print($"Is Animation Player Current Anim Pos : {_looneyInTransition.Animator.CurrentAnimationPosition}");
