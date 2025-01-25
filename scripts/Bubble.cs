@@ -27,10 +27,14 @@ public partial class Bubble : CharacterBody3D
 	
 	private void OnAreaEntered(Node3D body)
 	{
+		if(!IsVisibleInTree())
+		{
+			return;
+		}
 		_boingAudio.Play();
 		if (body is MouseCharacter player)
 		{
-			if(Bounce && IsVisibleInTree())
+			if(Bounce)
 			{
 				player.Bounce(BounceStrength);
 			}
