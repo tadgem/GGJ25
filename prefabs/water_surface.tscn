@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddt0by16kpdai"]
+
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_l8gkx"]
+[ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="2_vyl8b"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mumnm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjyaa"]
+render_priority = 0
+shader = ExtResource("1_l8gkx")
+shader_parameter/depth_distance = 3.45
+shader_parameter/beers_law = 12.18
+shader_parameter/water_transparency = 0.0
+shader_parameter/time_scale = 1.0
+shader_parameter/noise_scale = 15.5
+shader_parameter/roughness = 0.1
+shader_parameter/water_colour = Color(0.136005, 0.432532, 0.523291, 1)
+shader_parameter/water_secondary_colour = Color(0.0369578, 0.0984208, 0.233267, 1)
+shader_parameter/normal_texture = ExtResource("2_vyl8b")
+
+[node name="WaterSurface" type="MeshInstance3D"]
+transform = Transform3D(0.999998, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, 0, 0, 0)
+mesh = SubResource("PlaneMesh_mumnm")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_jjyaa")

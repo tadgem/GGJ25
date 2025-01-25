@@ -140,6 +140,11 @@ shader = ExtResource("10_xqke6")
 shader_parameter/depth_distance = 2.55
 shader_parameter/beers_law = 6.0
 shader_parameter/water_transparency = 0.35
+shader_parameter/time_scale = 0.5
+shader_parameter/noise_scale = 0.5
+shader_parameter/roughness = 0.1
+shader_parameter/water_colour = null
+shader_parameter/water_secondary_colour = null
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1.00271, 0, 0, 0, 1.00271, 0, 0, 0, 1.00271, 0, 0, 0)
