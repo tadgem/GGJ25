@@ -45,6 +45,9 @@ public partial class MouseCharacter : CharacterBody3D
 	[Export]
 	public PackedScene Bubble;
 
+	[Export]
+	public bool StartWithBubbles = true;
+
 	[Export(PropertyHint.None, "Debug")]
 	public bool EnableDebugRendering;
 
@@ -69,7 +72,7 @@ public partial class MouseCharacter : CharacterBody3D
 
 	private TextureRect[] _bubbleUiTextures = new TextureRect[3];
 	private float[]	_bubbleUiTimers = new float[3];
-	private const int MAX_ACTIVE_BUBBLES = 3;
+	private int MAX_ACTIVE_BUBBLES = 3;
 
 	private bool _paused = false;
 
@@ -113,6 +116,14 @@ public partial class MouseCharacter : CharacterBody3D
 		}
 	}
 
+	public void GiveBubbles()
+	{
+		MAX_ACTIVE_BUBBLES = 3;
+		_bubbleUiTextures[0].Show();
+		_bubbleUiTextures[1].Show();
+		_bubbleUiTextures[2].Show();		
+	}
+
     public override void _Ready()
     {
         base._Ready();
@@ -135,6 +146,18 @@ public partial class MouseCharacter : CharacterBody3D
 		_bubbleUiTimers[0] = 0.0f;
 		_bubbleUiTimers[1] = 0.0f;
 		_bubbleUiTimers[2] = 0.0f;
+
+		MAX_ACTIVE_BUBBLES = 0;
+		if(StartWithBubbles)
+		{
+			MAX_ACTIVE_BUBBLES = 3;
+		}
+		else
+		{
+			_bubbleUiTextures[0].Hide();
+			_bubbleUiTextures[1].Hide();
+			_bubbleUiTextures[2].Hide();
+		}
 
 		_defaultPivot = _pivot.Position;
     }
@@ -228,6 +251,10 @@ public partial class MouseCharacter : CharacterBody3D
 
 	private void FirePlatform()
 	{
+		if(MAX_ACTIVE_BUBBLES == 0)
+		{
+			return;
+		}
 		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
 		bubble_instance.IsTimed = true;
 		bubble_instance.Lifetime = PlatformBubbleTimeAlive;
@@ -240,6 +267,10 @@ public partial class MouseCharacter : CharacterBody3D
 
 	private void FireProjectile()
 	{
+		if(MAX_ACTIVE_BUBBLES == 0)
+		{
+			return;
+		}
 		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
 		bubble_instance.IsTimed = true;
 		bubble_instance.Lifetime = ProjectileBubbleTimeAlive;
