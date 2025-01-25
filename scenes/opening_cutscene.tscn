@@ -30,7 +30,7 @@ MainMenuAudio = ExtResource("2_3f0xp")
 NestDestroyedAudio = ExtResource("3_usf4b")
 FarmlandCottageAudio = ExtResource("4_f6pno")
 FadeSpeed = 1.0
-LevelToLoadOnFinish = "res://scenes/test.tscn"
+LevelToLoadOnFinish = "res://scenes/rachel/Pantry.tscn"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

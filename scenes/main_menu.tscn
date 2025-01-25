@@ -134,7 +134,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hg358")
-LevelToLoadOnStartPath = "res://scenes/test.tscn"
+LevelToLoadOnStartPath = "res://scenes/opening_cutscene.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
