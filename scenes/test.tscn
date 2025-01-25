@@ -210,7 +210,7 @@ libraries = {
 }
 
 [node name="MouseCharacter" parent="." instance=ExtResource("4_8ajwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58491, -0.0130641, -0.00971895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.615512, 0.213356, 0.00689548)
 
 [node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("9_812ac")]
 transform = Transform3D(8.90421, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24.2516)

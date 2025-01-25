@@ -382,7 +382,6 @@ public partial class MouseCharacter : CharacterBody3D
 
 			Vector3 surface_n = result["normal"].AsVector3();
 			Node col = (Node) result["collider"];
-			GD.Print($"Collider Name : {col.Name}, Normal : {surface_n}");
 			if(surface_n.AngleTo(Vector3.Up) < SteepAngle && IsOnFloor())
 			{
 				_playerModel.Transform = _playerModel.Transform.InterpolateWith(AlignWithY(_playerModel.Transform, surface_n), delta * RotationSpeed / 2.0f);
