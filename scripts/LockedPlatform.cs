@@ -11,6 +11,7 @@ public partial class LockedPlatform : LockedBase
 		base._Ready();
 		_hideNode = GetNode<Node3D>("HideNode");
 		_hideNode.Hide();
+		RecurseTogglePhysicsNodes(this, false);
 	}
 
 	private void RecurseTogglePhysicsNodes(Node n, bool active)
