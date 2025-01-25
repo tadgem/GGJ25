@@ -22,11 +22,14 @@ public partial class LockedPlatform : LockedBase
 		{
 			if(child is PhysicsBody3D body)
 			{
-				GD.Print($"Disabling collision for node : {n.Name}");
+				GD.Print($"Setting collision for node : {n.Name} to {active}");
 				body.SetCollisionLayerValue(1, active);
+				body.SetProcess(active);
+				body.SetPhysicsProcess(active);
 			}
 			RecurseTogglePhysicsNodes(child, active);
 		}
+
 	}
 
 	private void EnableChildColliders()

@@ -30,7 +30,7 @@ public partial class Bubble : CharacterBody3D
 		_boingAudio.Play();
 		if (body is MouseCharacter player)
 		{
-			if(Bounce)
+			if(Bounce && IsVisibleInTree())
 			{
 				player.Bounce(BounceStrength);
 			}
