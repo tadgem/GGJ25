@@ -1,0 +1,391 @@
+[gd_scene load_steps=12 format=3 uid="uid://c431r11baogqo"]
+
+[ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_yacye"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_66ou0"]
+[ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_v21p7"]
+[ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="4_2fnlp"]
+[ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_6d151"]
+[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_0d5dv"]
+[ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_8nxt5"]
+[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
+[ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="9_u2cqs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
+subdivide_width = 1
+subdivide_height = 1
+subdivide_depth = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_unsw3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_yacye")
+camera_attributes = ExtResource("2_66ou0")
+compositor = ExtResource("3_v21p7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.159413, 0.925236, -0.344275, -0.388766, 0.379392, 0.839597, 0.90744, 0, 0.420181, -0.927365, 6.47543, 0)
+
+[node name="Test Level Geo" type="Node3D" parent="."]
+
+[node name="BubbleV2" parent="Test Level Geo" instance=ExtResource("4_2fnlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32093, 0.164822, 1.86122)
+
+[node name="Mouse_Sized_Cube" type="CSGBox3D" parent="."]
+transform = Transform3D(0.934522, 0, -0.355906, 0, 1, 0, 0.355906, 0, 0.934522, 1.20792, 0.738251, 0.752694)
+size = Vector3(0.883667, 1.12097, 2.40546)
+
+[node name="CSG_Stuff" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0.146727)
+
+[node name="Pantry_Architecture" type="Node3D" parent="CSG_Stuff"]
+
+[node name="Floor" type="Node3D" parent="CSG_Stuff/Pantry_Architecture"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSG_Stuff/Pantry_Architecture/Floor"]
+transform = Transform3D(197.303, 0, 0, 0, 0.449216, 0, 0, 0, 336.111, 33.164, 0.740235, 144.747)
+material_override = ExtResource("5_6d151")
+mesh = SubResource("BoxMesh_51wwt")
+skeleton = NodePath("../../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSG_Stuff/Pantry_Architecture/Floor/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSG_Stuff/Pantry_Architecture/Floor/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_unsw3")
+
+[node name="Alcove_Wall" type="Node3D" parent="CSG_Stuff/Pantry_Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.388399)
+
+[node name="Alcove_Shelves" type="Node3D" parent="CSG_Stuff/Pantry_Architecture/Alcove_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.388399)
+
+[node name="Door_Wall" type="Node3D" parent="CSG_Stuff/Pantry_Architecture"]
+
+[node name="Base_Skirting" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall"]
+transform = Transform3D(8.38667, 0, 0, 0, 1.29988, 0, 0, 0, 1.06913, 80.6694, 2.51226, 28.7374)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(8.83119, 3.07312, 1.48926)
+
+[node name="Door_Skirting_Subtractive" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Base_Skirting"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999993, 0, 0, 0, 0.999991, -0.712571, -0.244794, 0.561245)
+operation = 2
+size = Vector3(3.72354, 3.69587, 0.702698)
+
+[node name="Base_Skirting2" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall"]
+transform = Transform3D(8.38667, 0, 0, 0, 1.29988, 0, 0, 0, 1.06913, -42.9667, 2.51226, 28.7374)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(1.14089, 3.07312, 1.48926)
+
+[node name="Kitchen_Door" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall"]
+transform = Transform3D(-1, 0, -7.92704e-08, 0, 3.05587, 0, 8.74228e-08, 0, -0.906748, 74.9195, 31.3752, 27.9701)
+size = Vector3(30.1663, 20.6696, 2.18942)
+
+[node name="Doorframe_Top" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Kitchen_Door"]
+transform = Transform3D(8.38666, 0, 0, 0, 0.327239, 0, 0, 0, 2.57124, -0.0347977, 10.7661, -0.63166)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(4.24884, 2.75421, 0.998779)
+
+[node name="Doorframe_Left" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Kitchen_Door"]
+transform = Transform3D(-3.66592e-07, -0.999998, 0, 2.74445, -1.43041e-08, 0, 0, 0, 2.57124, 16.3959, -0.145935, -0.630545)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(7.62874, 2.75421, 1)
+
+[node name="Doorframe_Right" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Kitchen_Door"]
+transform = Transform3D(-3.66592e-07, -0.999998, 0, 2.74445, -1.43041e-08, 0, 0, 0, 2.57124, -16.4752, -0.147921, -0.626244)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(7.6273, 2.75421, 1)
+
+[node name="Kitchen_Door2" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall"]
+transform = Transform3D(-4.37114e-08, 0, -0.906748, 0, 3.05587, 0, 1, 0, -3.96352e-08, -53.6703, 31.3752, 69.3929)
+size = Vector3(30.1663, 20.6696, 2.18942)
+
+[node name="Doorframe_Top" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Kitchen_Door2"]
+transform = Transform3D(8.38666, 0, 0, 0, 0.327239, 0, 0, 0, 2.57124, -0.0347977, 10.7661, -0.63166)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(4.24884, 2.75421, 0.998779)
+
+[node name="Doorframe_Left" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Kitchen_Door2"]
+transform = Transform3D(-3.66592e-07, -0.999998, 0, 2.74445, -1.43041e-08, 0, 0, 0, 2.57124, 16.3959, -0.145935, -0.630545)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(7.62874, 2.75421, 1)
+
+[node name="Doorframe_Right" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Kitchen_Door2"]
+transform = Transform3D(-3.66592e-07, -0.999998, 0, 2.74445, -1.43041e-08, 0, 0, 0, 2.57124, -16.4752, -0.147921, -0.626244)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(7.6273, 2.75421, 1)
+
+[node name="Door_Wall_Plane" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall"]
+transform = Transform3D(2.60971, 0, 0, 0, 1.17889, 0, 0, 0, 0.854906, 34.4073, 54.9101, 8.6939)
+material_override = ExtResource("6_8nxt5")
+use_collision = true
+size = Vector3(62.7461, 96.4878, 47.2081)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Door_Wall_Plane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1433, -17.3856, 9.47187)
+operation = 2
+size = Vector3(31.3257, 57.2423, 37.5525)
+
+[node name="Mouse_Hole_To_Kitchen" type="CSGCylinder3D" parent="CSG_Stuff/Pantry_Architecture/Door_Wall/Door_Wall_Plane"]
+transform = Transform3D(1.05219, 0, 0, 0, 0.0265206, 3.6223, 0, -0.963562, 0.128248, -26.1905, -33.0627, -12.9195)
+operation = 2
+height = 6.59331
+sides = 20
+
+[node name="Bare_Wall" type="Node3D" parent="CSG_Stuff/Pantry_Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.62939e-06, 89.0119)
+
+[node name="Bare_Wall_Plane" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall"]
+transform = Transform3D(-1.14074e-07, 0, 0.854906, 0, 1.17889, 0, -2.60971, 0, -3.73691e-08, 115.876, 54.7328, 36.7675)
+material_override = ExtResource("6_8nxt5")
+use_collision = true
+size = Vector3(75.0669, 93.3548, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall/Bare_Wall_Plane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4034, 16.2526, 0.0896149)
+operation = 2
+size = Vector3(8.8675, 9.95544, 1.39746)
+
+[node name="Bare_Wall_Plane3" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall"]
+transform = Transform3D(-1.14074e-07, 0, 0.854906, 0, 1.17889, 0, -2.60971, 0, -3.73691e-08, -54.164, 39.3777, 61.5965)
+material_override = ExtResource("6_8nxt5")
+use_collision = true
+size = Vector3(94.0951, 67.3048, 1)
+
+[node name="Bare_Wall_Plane2" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall"]
+transform = Transform3D(3.42222e-07, 1.17889, 3.73691e-08, 9.97267e-15, 5.15309e-08, -0.854906, -2.60971, 1.54593e-07, 1.63346e-15, 74.1582, 110.089, 60.8799)
+material_override = ExtResource("6_8nxt5")
+use_collision = true
+size = Vector3(93.3734, 75.7795, 1)
+
+[node name="Bare_Wall_Skirting" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall"]
+transform = Transform3D(-3.66593e-07, 0, 2.33147, 0, 1.29988, 0, -8.38667, 0, -1.01912e-07, 115.319, 2.28465, 36.3962)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(23.278, 3.07312, 0.563049)
+
+[node name="Bare_Wall_Skirting4" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall"]
+transform = Transform3D(-3.66593e-07, 0, 2.33147, 0, 1.29988, 0, -8.38667, 0, -1.01912e-07, -53.615, 2.28465, 64.9308)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(28.5447, 3.07312, 0.563049)
+
+[node name="Bare_Wall_Skirting3" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall"]
+transform = Transform3D(-8.38667, 0, 2.03824e-07, 0, 1.29988, 0, -7.33186e-07, 0, -2.33147, 6.65114, 2.28465, 181.977)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(14.4725, 3.07312, 0.563049)
+
+[node name="Bare_Wall_Skirting2" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Bare_Wall"]
+transform = Transform3D(-5.93027, 0, -1.6486, 0, 1.29988, 0, 5.93027, 0, -1.6486, 89.572, 2.28465, 158.243)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(8.7227, 3.07312, 0.563049)
+
+[node name="Shelving_Wall" type="Node3D" parent="CSG_Stuff/Pantry_Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.9227)
+
+[node name="Shelving_Wall_Plane" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Shelving_Wall"]
+transform = Transform3D(2.60971, 0, 0, 0, 1.17889, 0.00159654, 0, -0.00220158, 0.854905, 5.66512, 57.5013, 288.517)
+material_override = ExtResource("6_8nxt5")
+use_collision = true
+size = Vector3(46.7435, 91.0982, 1)
+material = ExtResource("5_6d151")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Shelving_Wall/Shelving_Wall_Plane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 9.31323e-10, 1, 0.961434, -0.116894, 1.46793)
+operation = 2
+size = Vector3(28.1475, 41.6338, 5.24353)
+
+[node name="Shelving_Wall_Plane2" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Shelving_Wall"]
+transform = Transform3D(1.84534, 0, 0.60451, 0, 1.17889, 0, -1.84534, 0, 0.60451, 91.2185, 57.1222, 263.078)
+material_override = ExtResource("6_8nxt5")
+use_collision = true
+size = Vector3(27.6775, 90.455, 1)
+material = ExtResource("5_6d151")
+
+[node name="Shelves" type="Node3D" parent="CSG_Stuff/Pantry_Architecture/Shelving_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.9227)
+
+[node name="Shelf_5" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Shelving_Wall/Shelves"]
+transform = Transform3D(-0.707107, 0, -0.854079, 0, 0.698174, 0, 0.707107, 0, -0.854079, 88.4896, 64.2662, 243.193)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(55.0252, 1, 7.47386)
+
+[node name="Roof" type="Node3D" parent="CSG_Stuff/Pantry_Architecture"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.45737, 5.33802, 143.485)
+
+[node name="Roof_Slant_Plane" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof"]
+transform = Transform3D(2.60853, -3.72529e-09, -0.0250486, -0.0718511, 0.403203, -0.803004, 0.0261523, 1.10776, 0.292263, -8.30042, 92.3677, -16.8947)
+material_override = ExtResource("6_8nxt5")
+use_collision = true
+size = Vector3(95.4454, 82.9284, 1)
+material = ExtResource("5_6d151")
+
+[node name="Roof_Beams" type="Node3D" parent="CSG_Stuff/Pantry_Architecture/Roof"]
+
+[node name="Thin_Beams" type="Node3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams"]
+
+[node name="Beam_8" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, 113.223, 87.3784, -16.3824)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_9" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, 94.0469, 87.8254, -16.3248)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_10" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, 70.9306, 88.3642, -16.2554)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_11" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939915, -0.00209575, -0.412336, 46.8733, 88.8731, -16.3262)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.3647, 4.40228, 2.54588)
+
+[node name="Beam_12" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, 22.7238, 89.488, -16.1106)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_13" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, -0.874035, 90.0381, -16.0398)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_14" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, -24.4354, 90.5873, -15.969)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_15" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, -46.876, 91.1104, -15.9017)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_16" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, -67.2926, 91.5863, -15.8404)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_17" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, -88.1861, 92.0734, -15.7776)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_18" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, -126.3, 92.9618, -15.6632)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Beam_19" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thin_Beams"]
+transform = Transform3D(0.0107764, 0.697977, 0.0252196, 0.341225, -0.0162704, 1.13501, 0.939916, -0.00209575, -0.412336, -106.436, 92.4988, -15.7228)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(96.6691, 4.40228, 2.54588)
+
+[node name="Thick_Beams" type="Node3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams"]
+
+[node name="Left_End" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thick_Beams"]
+transform = Transform3D(-0.00740455, 0.493682, 0.854027, 0.999945, -3.05168e-08, 0.0126484, 0.00740461, 0.493682, -0.854027, -79.1563, 50.922, 103.751)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(106.531, 13.2875, 4.45941)
+
+[node name="Left_End2" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thick_Beams"]
+transform = Transform3D(-0.00740455, 0.493682, 0.854027, 0.999945, -3.05168e-08, 0.0126484, 0.00740461, 0.493682, -0.854027, -121.43, 50.922, 61.4772)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(106.531, 13.2875, 4.45941)
+
+[node name="Left_End4" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thick_Beams"]
+transform = Transform3D(4.46306e-08, 0.69818, -1.07102e-07, 0.999945, -3.05168e-08, 0.0126484, 0.0104718, -6.33297e-08, -1.20779, -123.775, 45.2198, -53.4689)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(91.722, 13.6453, 5.90221)
+
+[node name="Right_End" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thick_Beams"]
+transform = Transform3D(-0.0104717, -0.698133, 4.61853e-14, 0.999945, -0.00731113, 0, 1.38778e-16, 1.06581e-14, 1.20784, 109.976, 36.3025, -56.6676)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(83.138, 14.1643, 5.90221)
+
+[node name="Right_End2" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thick_Beams"]
+transform = Transform3D(-0.0104717, -0.698129, 1.03029e-13, 0.999945, -0.00731113, 0, 3.88578e-16, 2.4869e-14, 1.20783, 109.808, 52.3631, 105.75)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(109.646, 14.1643, 5.90221)
+
+[node name="Shelf_Wall_Beam" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thick_Beams"]
+transform = Transform3D(-0.999857, -4.84288e-08, 0.0198362, 0.0156204, 0.215562, 1.14868, -0.00507063, 0.664054, -0.372871, -10.7855, 74.8036, -60.5616)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(244.208, 9.27132, 5.90221)
+
+[node name="Door_Wall_Beam" type="CSGBox3D" parent="CSG_Stuff/Pantry_Architecture/Roof/Roof_Beams/Thick_Beams"]
+transform = Transform3D(-0.999979, -0.00121846, -4.14235e-09, -3.35344e-09, -3.04275e-08, 1.20784, -0.00174523, 0.698154, 5.26336e-08, -7.66071, 103.961, 27.6152)
+material_override = ExtResource("5_6d151")
+use_collision = true
+size = Vector3(248.088, 13.2387, 7.47698)
+
+[node name="Kitchen_Island" type="Node3D" parent="CSG_Stuff"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG_Stuff/Kitchen_Island"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7276, 14.5145, 128.916)
+size = Vector3(47.8251, 29.079, 90.5815)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSG_Stuff/Kitchen_Island"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.271, 14.5145, 150.111)
+size = Vector3(24.9436, 29.079, 133.049)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSG_Stuff/Kitchen_Island"]
+transform = Transform3D(-0.0181504, 0, 0.999835, 0, 1, 0, -0.999835, 0, -0.0181504, 4.17822, 14.5145, 9.82578)
+size = Vector3(22.2257, 29.079, 68.3369)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSG_Stuff/Kitchen_Island"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.482, 59.8927, 139.519)
+size = Vector3(8.52197, 27.1438, 94.7683)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSG_Stuff/Kitchen_Island"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.37704, 14.5145, 258.745)
+size = Vector3(24.9436, 29.079, 117.737)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSG_Stuff/Kitchen_Island"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 80.5883, 14.5145, 243.024)
+size = Vector3(24.9436, 29.079, 97.8556)
+
+[node name="MouseCharacter" parent="." instance=ExtResource("6_0d5dv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 7.74787, 34)
+MinSqueekTime = 12.0
+MiaxSqueekTime = 28.0
+
+[node name="BrightMesh" parent="." instance=ExtResource("7_ft0m0")]
+transform = Transform3D(-1.79994, -0.0082553, 0, -6.49531e-10, 4.37099e-08, 2, -0.0148595, 0.999966, -8.74228e-08, -31.1697, 2.52445, -0.384718)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Barrel_NF" parent="Props" instance=ExtResource("9_u2cqs")]
+transform = Transform3D(8.85343, 0, 0, 0, 8.85343, 0, 0, 0, 8.85343, 101.518, 1.27113, 15.08)
