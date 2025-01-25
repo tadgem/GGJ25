@@ -38,9 +38,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_csd5b")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_au2p6"]
-height = 4.92567
-radius = 0.665108
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7qfj"]
+size = Vector3(1.13464, 3.40375, 1)
 
 [node name="Whisky_NF" type="Node3D"]
 
@@ -55,5 +54,5 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984445, 0)
-shape = SubResource("CylinderShape3D_au2p6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0673218, 1.78929, 0)
+shape = SubResource("BoxShape3D_w7qfj")
