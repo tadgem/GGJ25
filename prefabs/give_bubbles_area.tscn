@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03t36dq65irl"]
+
+[ext_resource type="Script" path="res://scripts/GiveBubblesTrigger.cs" id="1_w60gt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p3dhe"]
+
+[node name="GiveBubblesArea" type="Area3D"]
+script = ExtResource("1_w60gt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_p3dhe")
