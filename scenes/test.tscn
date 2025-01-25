@@ -234,7 +234,7 @@ Switch = NodePath("../BubbleSwitch")
 transform = Transform3D(2.56503, 0, 0, 0, 2.56503, 0, 0, 0, 2.56503, 7.211, 1.63481, 4.77873)
 Timed = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_ugljx")
-volume_db = -9.0
+volume_db = -12.0
 autoplay = true
