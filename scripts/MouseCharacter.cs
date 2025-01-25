@@ -45,6 +45,9 @@ public partial class MouseCharacter : CharacterBody3D
 	[Export]
 	public PackedScene Bubble;
 
+	[Export(PropertyHint.None, "Debug")]
+	public bool EnableDebugRendering;
+
 
 	private Vector2 _mouseDir = Vector2.Zero;
 	private Vector3 _lastMovementDir = Vector3.Back;
@@ -250,6 +253,14 @@ public partial class MouseCharacter : CharacterBody3D
 
 	private void HandleAiming(float delta)
 	{
+		bool fire_platform = Input.IsActionJustPressed("fire_platform");
+		if(fire_platform)
+		{
+			if(CanFire())
+			{
+				FirePlatform();	
+			}
+		}
 		bool aim = Input.IsActionPressed("aim");
 
 		if(aim)
@@ -258,16 +269,10 @@ public partial class MouseCharacter : CharacterBody3D
 			_pivot.Position = _pivot.Position.Lerp(AimPivot, (float) delta * AimSpeed);
 
 
-			bool fire_platform = Input.IsActionJustPressed("fire_platform");
+			
 			bool fire_projectile = Input.IsActionJustPressed("fire_projectile");
 			
-			if(fire_platform)
-			{
-				if(CanFire())
-				{
-					FirePlatform();	
-				}
-			}
+		
 			if(fire_projectile)
 			{
 				if(CanFire())
@@ -320,10 +325,23 @@ public partial class MouseCharacter : CharacterBody3D
 		return move_dir;
 	}
 
+	private Transform3D AlignWithY(Transform3D t, Vector3 new_y)
+	{
+		Transform3D new_t = t;
+		// xform.basis.y = new_y
+    	// xform.basis.x = -xform.basis.z.cross(new_y)
+    	// xform.basis = xform.basis.orthonormalized()
+		new_t.Basis.Y = new_y;
+		new_t.Basis.X = -t.Basis.Z.Cross(new_y);
+		new_t.Basis = new_t.Basis.Orthonormalized();
+
+		return new_t;
+	}
+
 	private void HandleCharacterRotation(Vector3 move_dir, float delta)
 	{
 
-#if false
+#if true
 		// pass2
 		// adjust rotation for slopes
 		var space = GetWorld3D().DirectSpaceState;
@@ -336,72 +354,51 @@ public partial class MouseCharacter : CharacterBody3D
 			GetRid(),
 		});
 
-#if TOOLS
-		DebugDraw3D.DrawBox(start, Quaternion.Identity, new Vector3(0.25f, 0.25f, 0.25f), Color.Color8(255, 0,0,255));
-		DebugDraw3D.DrawLine(start, start + dir, Color.Color8(0, 255,0, 255));
-		DebugDraw3D.DrawBox(start + dir, Quaternion.Identity, new Vector3(0.25f, 0.25f, 0.25f), Color.Color8(0, 0,255,255));
-#endif
+		if(EnableDebugRendering)
+		{
+			DebugDraw3D.DrawBox(start, Quaternion.Identity, new Vector3(0.25f, 0.25f, 0.25f), Color.Color8(255, 0,0,255));
+			DebugDraw3D.DrawLine(start, start + dir, Color.Color8(0, 255,0, 255));
+			DebugDraw3D.DrawBox(start + dir, Quaternion.Identity, new Vector3(0.25f, 0.25f, 0.25f), Color.Color8(0, 0,255,255));
+		}
 
 		var result = space.IntersectRay(rayQuery);
 		
-
-		// pass 1
-		// adjust rotation to look direction
-		if(move_dir.Length() > MovementDeadZone)
-		{
-			_lastMovementDir = move_dir;
-		}
-
-		float target_angle = Vector3.Back.SignedAngleTo(_lastMovementDir, Vector3.Up);
-		Vector3 playerEuler = _playerModel.Rotation;
-		playerEuler.Y = Mathf.LerpAngle(_playerModel.Rotation.Y, target_angle, RotationSpeed * (float) delta);
-		_playerModel.Rotation = playerEuler;
 		if(result.ContainsKey("normal"))
 		{
-			#if TOOLS
-			DebugDraw3D.DrawBox(result["position"].AsVector3(),
-			Quaternion.Identity,
-			new Vector3(0.25f, 0.25f, 0.25f),
-			Color.Color8(255, 255, 0, 255));
+			if(EnableDebugRendering)
+			{
+				DebugDraw3D.DrawBox(result["position"].AsVector3(),
+				Quaternion.Identity,
+				new Vector3(0.25f, 0.25f, 0.25f),
+				Color.Color8(255, 255, 0, 255));
 
-			#endif
+				DebugDraw3D.DrawArrowRay(
+					result["position"].AsVector3(),
+					result["normal"].AsVector3(),
+					1.0f,
+					Color.Color8(0, 0, 255, 255)
+				);
+			}
+
 			Vector3 surface_n = result["normal"].AsVector3();
 			Node col = (Node) result["collider"];
 			GD.Print($"Collider Name : {col.Name}, Normal : {surface_n}");
 			if(surface_n.AngleTo(Vector3.Up) < SteepAngle && IsOnFloor())
 			{
-				Vector3 cross = _playerModel.Basis.Y.Cross(surface_n);
-				cross.Z = 0.0f;
-				if(cross.Length() > 0.1f)
-				{
-					GD.Print("Rotating based on underlying surface");	
-					_playerModel.Rotate(cross.Normalized(), _playerModel.Basis.Y.AngleTo(surface_n));
-					_lastMovementDir = _lastMovementDir.Rotated(
-						Vector3.Up.Cross(surface_n).Normalized(), 
-						Vector3.Up.AngleTo(surface_n)
-					);
-				}
+				_playerModel.Transform = _playerModel.Transform.InterpolateWith(AlignWithY(_playerModel.Transform, surface_n), delta * RotationSpeed / 2.0f);
 			}
-			else
-			{
-				GD.Print("Too steep, Rotating based on global up");	
-				Vector3 normal = Vector3.Up;
-	  			Vector3 cross = _playerModel.Basis.Y.Cross(normal);
-				_playerModel.Rotate(cross.Normalized(), _playerModel.Basis.Y.AngleTo(normal));
-				if(cross.Length() > 0.1f){
-					_lastMovementDir = _lastMovementDir.Rotated(
-					Vector3.Up.Cross(normal).Normalized(), 
-					Vector3.Up.AngleTo(normal));
-				}
-			}
+
+
+		if(move_dir.Length() > MovementDeadZone)
+		{
+			_lastMovementDir = move_dir;
+			float target_angle = Vector3.Back.SignedAngleTo(_lastMovementDir, Vector3.Up);
+			Vector3 playerEuler = _playerModel.Rotation;
+			playerEuler.Y = Mathf.LerpAngle(_playerModel.Rotation.Y, target_angle, RotationSpeed * (float) delta);
+
+			_playerModel.Rotation = playerEuler;
 		}
-
-		// _playerModel.LookAt(
-		// 	_playerModel.GlobalPosition - _lastMovementDir, 
-		// 	_playerModel.GlobalBasis.Y
-		// );
-
-		#else
+#else
 		if(move_dir.Length() > MovementDeadZone)
 		{
 			_lastMovementDir = move_dir;
@@ -412,8 +409,8 @@ public partial class MouseCharacter : CharacterBody3D
 
 			_playerModel.GlobalRotation = playerEuler;
 		}
-		#endif
-		
+#endif
+		}
 
 	}
 

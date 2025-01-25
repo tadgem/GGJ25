@@ -19,6 +19,7 @@ public partial class BubbleSwitch : Area3D
 
 	private MeshInstance3D _upMesh;
 	private MeshInstance3D _downMesh;
+	private TextureProgressBar _progress;
 
 	private bool _active = false;
 	private bool _timerActive = false;
@@ -50,15 +51,21 @@ public partial class BubbleSwitch : Area3D
 		{
 			_upMesh.Hide();
 			_downMesh.Show();
-			// start a timer
-			StartTimer();
+			if(Timed)
+			{
+				_progress.Show();
+				StartTimer();
+			}
 		}
 		else
 		{
 			_upMesh.Show();
 			_downMesh.Hide();
-			// reset timer
-			ResetTimer();
+			if(Timed)
+			{
+				_progress.Hide();
+				ResetTimer();
+			}
 		}
 		OnSwitchToggled?.Invoke(Tag, _active);
 	}
@@ -87,6 +94,7 @@ public partial class BubbleSwitch : Area3D
 	{
 		_upMesh = GetNode<MeshInstance3D>("SwitchUp");
 		_downMesh = GetNode<MeshInstance3D>("SwitchDown");
+		_progress = GetNode<TextureProgressBar>("Control/TextureProgressBar");
 
 		AreaEntered += OnAreaEntered;
 		AreaExited += OnAreaExited;
@@ -104,6 +112,8 @@ public partial class BubbleSwitch : Area3D
 		}
 
 		_timerTime -= (float) delta;
+
+		_progress.Value = (double) (_timerTime / DoorTime) * 100.0f;
 
 		if(_timerTime <= 0.0f)
 		{

@@ -210,16 +210,16 @@ libraries = {
 }
 
 [node name="MouseCharacter" parent="." instance=ExtResource("4_8ajwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28361, 0.233331, 0.374963)
-
-[node name="BubbleSwitch" parent="." instance=ExtResource("8_2qxxr")]
-transform = Transform3D(2.50819, 0, 0, 0, 2.50819, 0, 0, 0, 2.50819, 13.9955, 1.52097, 0.00584602)
-Timed = true
-DoorTime = 4.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58491, -0.0130641, -0.00971895)
 
 [node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("9_812ac")]
 transform = Transform3D(8.90421, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24.2516)
 Switch = NodePath("../BubbleSwitch")
 
-[node name="LockedPlatform" parent="." instance=ExtResource("8_1tud6")]
+[node name="LockedPlatform" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("8_1tud6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.186, 0.787475, 0.0723343)
+Switch = NodePath("../BubbleSwitch")
+
+[node name="BubbleSwitch" parent="." instance=ExtResource("8_2qxxr")]
+transform = Transform3D(2.56503, 0, 0, 0, 2.56503, 0, 0, 0, 2.56503, 7.211, 1.63481, 4.77873)
+Timed = true
