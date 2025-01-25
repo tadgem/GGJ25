@@ -2,7 +2,9 @@ using Godot;
 using System;
 
 public partial class SoundButton : Button
-{
+{	
+	[Export]
+	public bool VisibleByDefault = false;
 
 	[Export]
 	public AudioStream HighlightAudio;
@@ -30,8 +32,10 @@ public partial class SoundButton : Button
 	{
 		Pressed += OnAccept;
 		VisibilityChanged += OnVisibilityChanged;
+		_visible = VisibleByDefault;
 		
 		_streamPlayer = new AudioStreamPlayer2D();
+		_streamPlayer.VolumeDb = -12.0f;
 		AddChild(_streamPlayer);
 	}
 
