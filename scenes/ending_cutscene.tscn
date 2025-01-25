@@ -23,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ss8a8")
 EndingAudio = ExtResource("2_74w4h")
+LevelToLoadOnFinish = "res://scenes/main_menu.tscn"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

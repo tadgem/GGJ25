@@ -14,6 +14,9 @@ public partial class OpeningCutscene : Control
 	[Export]
 	public float FadeSpeed = 5.0f;
 
+	[Export]
+	public string LevelToLoadOnFinish;
+
 
 	private TextureRect _mainMenuImage;
 	private RichTextLabel _mainMenuText;
@@ -98,6 +101,14 @@ public partial class OpeningCutscene : Control
     private void OnOutTransitionFinished(StringName animName)
     {
 		// change scene
+		if(LevelToLoadOnFinish != string.Empty)
+		{
+			var error = GetTree().ChangeSceneToFile(LevelToLoadOnFinish);
+			if(error != Error.Ok)
+			{
+				GD.Print($"OnLooneyFinished : Failed to change scene to packed : {error}");
+			}
+		}
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
