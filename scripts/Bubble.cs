@@ -69,6 +69,8 @@ public partial class Bubble : CharacterBody3D
 		Vector3 pos = GlobalPosition;
 		_timeAlive += (float) delta;
 
+		Velocity = new Vector3(Velocity.X, Velocity.Y + (float) delta, Velocity.Z);
+
 		if(IsProjectile)
 		{
 			MoveAndSlide();
