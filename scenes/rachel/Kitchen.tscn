@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c431r11baogqo"]
+[gd_scene load_steps=11 format=3 uid="uid://c431r11baogqo"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_yacye"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_66ou0"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://tpb2usp5fbwf" path="res://scenes/rachel/kitchen_csg.tscn" id="5_yehon"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_0d5dv"]
 [ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
+[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="8_hf3ff"]
+[ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="9_7jscg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_22ppc"]
+radius = 3.804
 
 [node name="Node3D" type="Node3D"]
 
@@ -26,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32093, 0.164822, 1.86122)
 [node name="CSG_Stuff" parent="." instance=ExtResource("5_yehon")]
 
 [node name="MouseCharacter" parent="." instance=ExtResource("6_0d5dv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.1765, 57.9464, 252.62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.364, 75.2363, 235.931)
 MinSqueekTime = 12.0
 MiaxSqueekTime = 28.0
 
@@ -74,3 +79,18 @@ size = Vector3(24.9436, 29.079, 97.8556)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.2609, 26.0886, 259.048)
 use_collision = true
 size = Vector3(25.7365, 51.3329, 20.1548)
+
+[node name="LooneyTransition" parent="." instance=ExtResource("8_hf3ff")]
+DestroyOnFinish = true
+Autoplay = true
+
+[node name="LevelTransitionTrigger" type="Area3D" parent="."]
+transform = Transform3D(1.97348, 0, 0, 0, 1.97348, 0, 0, 0, 1.97348, -86.436, 74.0761, 264.507)
+script = ExtResource("9_7jscg")
+LevelToMoveTo = "res://scenes/ending_cutscene.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelTransitionTrigger"]
+shape = SubResource("SphereShape3D_22ppc")
+
+[node name="LooneyTransition" parent="LevelTransitionTrigger" instance=ExtResource("8_hf3ff")]
+visible = false

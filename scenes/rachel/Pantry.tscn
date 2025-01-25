@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xpl7avb1yrf0"]
+[gd_scene load_steps=19 format=3 uid="uid://xpl7avb1yrf0"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_2dsv4"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_hoenm"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="12_rlfug"]
 [ext_resource type="PackedScene" uid="uid://be1ep0l1bx05r" path="res://prefabs/non-final/crate_nf.tscn" id="13_375ns"]
 [ext_resource type="PackedScene" uid="uid://bjgbtciqtjv05" path="res://prefabs/non-final/spam_nf.tscn" id="14_t4364"]
+[ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="14_w3q35"]
+[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="15_0qy3t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -20,6 +22,9 @@ subdivide_height = 1
 subdivide_depth = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unsw3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_22ppc"]
+radius = 3.804
 
 [node name="Node3D" type="Node3D"]
 
@@ -406,3 +411,19 @@ transform = Transform3D(-3.96116, 1.2996, -5.26261, 0.333413, 19.9375, 0.293251,
 
 [node name="Spam_NF" parent="Props" instance=ExtResource("14_t4364")]
 transform = Transform3D(4.63149, 0, 0, 0, 4.38324, 0, 0, 0, 4.63149, -22.8746, 1.52, -51.8847)
+
+[node name="LevelTransitionTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0832, 1.29959, 13.933)
+script = ExtResource("14_w3q35")
+LevelToMoveTo = "res://scenes/rachel/Kitchen.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelTransitionTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02334, 0.807024, 0)
+shape = SubResource("SphereShape3D_22ppc")
+
+[node name="LooneyTransition" parent="LevelTransitionTrigger" instance=ExtResource("15_0qy3t")]
+visible = false
+
+[node name="LooneyTransition" parent="." instance=ExtResource("15_0qy3t")]
+DestroyOnFinish = true
+Autoplay = true
