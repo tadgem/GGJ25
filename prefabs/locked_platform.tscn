@@ -11,13 +11,11 @@ _data = {
 }
 point_count = 10
 
-[node name="LockedPlatform" type="Node3D" node_paths=PackedStringArray("Switch")]
+[node name="LockedPlatform" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.1642, 0.682548, 0)
 script = ExtResource("1_ni2t5")
-Switch = NodePath("")
 
 [node name="HideNode" type="Node3D" parent="."]
-visible = false
 
 [node name="MovingPathBubble" type="Path3D" parent="HideNode"]
 transform = Transform3D(-0.382135, 0, 0.924106, 0, 1, 0, -0.924106, 0, -0.382135, 0, 0, 0)
