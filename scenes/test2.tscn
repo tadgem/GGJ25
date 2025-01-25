@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dyo6d0xjb674i"]
+[gd_scene load_steps=24 format=4 uid="uid://dyo6d0xjb674i"]
 
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="1_f023i"]
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="2_dt52p"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="7_21w27"]
 [ext_resource type="PackedScene" uid="uid://b7ulnwk80wku0" path="res://prefabs/locked_platform.tscn" id="8_vubnp"]
 [ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="9_6gohb"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="10_xqke6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
 
@@ -131,7 +132,17 @@ packet_sequence = SubResource("OggPacketSequence_7cm4g")
 bpm = 83.0
 loop = true
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_mumnm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjyaa"]
+render_priority = 0
+shader = ExtResource("10_xqke6")
+shader_parameter/depth_distance = 2.55
+shader_parameter/beers_law = 6.0
+shader_parameter/water_transparency = 0.35
+
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1.00271, 0, 0, 0, 1.00271, 0, 0, 0, 1.00271, 0, 0, 0)
 
 [node name="Test Level Geo" type="Node3D" parent="."]
 
@@ -238,3 +249,9 @@ Timed = true
 stream = SubResource("AudioStreamOggVorbis_ugljx")
 volume_db = -12.0
 autoplay = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999998, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, -0.936234, 0.882817, -0.20356)
+mesh = SubResource("PlaneMesh_mumnm")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_jjyaa")
