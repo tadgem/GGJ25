@@ -27,10 +27,10 @@ public partial class LooneyTransition : Control
     private void AnimationFinishedShim(StringName animName)
     {
 		OnTransitionFinished?.Invoke(animName);
-		_anim.AnimationFinished -= AnimationFinishedShim;
 
 		if(DestroyOnFinish)
 		{
+			_anim.AnimationFinished -= AnimationFinishedShim;
 			QueueFree();
 		}
     }
