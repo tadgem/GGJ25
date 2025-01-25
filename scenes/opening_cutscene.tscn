@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxjuwq8q5jb8c"]
+
+[ext_resource type="Script" path="res://scripts/OpeningCutscene.cs" id="1_sgqc4"]
+[ext_resource type="Texture2D" uid="uid://cgua6wurx8g4q" path="res://images/temp/MainMenu_Temp.png" id="1_tgaln"]
+[ext_resource type="AudioStream" uid="uid://bws1tioat2be4" path="res://sounds/voiceover/SoundAsleep_VO.ogg" id="2_3f0xp"]
+[ext_resource type="Texture2D" uid="uid://wa4v7v6ak004" path="res://images/temp/NestDestroyed_Temp.png" id="2_3ok3y"]
+[ext_resource type="Texture2D" uid="uid://ds5dvndha133w" path="res://images/temp/FarmlandCottage_Temp.png" id="3_fb8y4"]
+[ext_resource type="AudioStream" uid="uid://b7h0tw08jhrqc" path="res://sounds/voiceover/DestroyedNest_VO.ogg" id="3_usf4b"]
+[ext_resource type="AudioStream" uid="uid://b0cwwm2e8jwba" path="res://sounds/voiceover/FarmlandCottage_VO.ogg" id="4_f6pno"]
+[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="5_3l1mp"]
+
+[node name="OpeningCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sgqc4")
+MainMenuAudio = ExtResource("2_3f0xp")
+NestDestroyedAudio = ExtResource("3_usf4b")
+FarmlandCottageAudio = ExtResource("4_f6pno")
+FadeSpeed = 1.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FarmlandCottageImage" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fb8y4")
+expand_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="Control/FarmlandCottageImage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -128.0
+offset_right = 250.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(150, 100)
+color = Color(0, 0, 0, 0.596078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/FarmlandCottageImage/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "I have no doubt you sometimes thieve; What of it, friend? You too must live! A random corn-ear in a shock's a small behest; it'll give me a blessing to know such a loss; I'll never miss it!"
+
+[node name="NestDestroyedImage" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3ok3y")
+expand_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="Control/NestDestroyedImage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -154.0
+offset_right = 250.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(150, 100)
+color = Color(0, 0, 0, 0.596078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/NestDestroyedImage/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "The cruel iron ploughshare passed straight through your cell! That flimsy heap of leaves and stubble had cost you many a weary nibble! Now you're turned out, for all your trouble, less house and hold, to endure cold winter's icy dribble and hoarfrosts cold!"
+
+[node name="MainMenuImage" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tgaln")
+expand_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="Control/MainMenuImage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -128.0
+offset_right = 250.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(150, 100)
+color = Color(0, 0, 0, 0.596078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MainMenuImage/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "You saw your fields laid bare and waste, with weary winter closing fast, and cozy here, beneath the blast, you thought to dwell, until crash!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -6.0
+
+[node name="InTransition" parent="." instance=ExtResource("5_3l1mp")]
+layout_mode = 1
+DestroyOnFinish = true
+Autoplay = true
+
+[node name="OutTransition" parent="." instance=ExtResource("5_3l1mp")]
+visible = false
+layout_mode = 1
+TransitionIn = false
+DestroyOnFinish = true
