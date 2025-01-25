@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7yrbcoyp7xur"]
+
+[ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="1_b4oab"]
+[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="2_5bwg8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_22ppc"]
+radius = 3.804
+
+[node name="LevelTransitionTrigger" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_b4oab")
+LevelToMoveTo = "res://scenes/test2.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_22ppc")
+
+[node name="LooneyTransition" parent="." instance=ExtResource("2_5bwg8")]
+visible = false
