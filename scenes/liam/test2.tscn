@@ -5,7 +5,6 @@
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="3_q8ux1"]
 [ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="4_dbwvb"]
 [ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="5_g0sjh"]
-[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_m5vrc"]
 [ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="7_8i64b"]
 [ext_resource type="PackedScene" uid="uid://b7ulnwk80wku0" path="res://prefabs/locked_platform.tscn" id="8_78cv7"]
 [ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="9_tjo4b"]
@@ -31,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dd4fnsxq4as41" path="res://prefabs/non-final/knife_nf.tscn" id="29_u8de3"]
 [ext_resource type="PackedScene" uid="uid://br601y3shis7k" path="res://prefabs/non-final/pan_nf.tscn" id="30_2ne88"]
 [ext_resource type="PackedScene" uid="uid://dptma88dln0cg" path="res://prefabs/non-final/stewpot_nf.tscn" id="31_hdtvr"]
+[ext_resource type="PackedScene" uid="uid://chw0fk8pvfrc" path="res://prefabs/mouse_character_v2.tscn" id="32_euu0o"]
 [ext_resource type="PackedScene" uid="uid://hibgjcgk2l6u" path="res://prefabs/non-final/ceiling_rack_nf.tscn" id="32_rwpf4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
@@ -257,9 +257,6 @@ libraries = {
 "": SubResource("AnimationLibrary_hsw0u")
 }
 
-[node name="MouseCharacter" parent="." instance=ExtResource("6_m5vrc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.615512, 0.213356, 0.00689548)
-
 [node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("7_8i64b")]
 transform = Transform3D(8.90421, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24.2516)
 Switch = NodePath("../BubbleSwitch")
@@ -348,3 +345,5 @@ transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, -4.72438
 
 [node name="CeilingRack_NF" parent="." instance=ExtResource("32_rwpf4")]
 transform = Transform3D(0.997298, 0, 0, 0, 0.997298, 0, 0, 0, 0.997298, -9.766, 2.95252, 2.60335)
+
+[node name="MouseCharacterV2" parent="." instance=ExtResource("32_euu0o")]

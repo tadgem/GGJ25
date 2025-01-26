@@ -18,6 +18,8 @@ public partial class SlowLerpCam : Camera3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		// GlobalPosition = GlobalPosition.Lerp(Target.GlobalPosition, (float) delta * LerpSpeed);
+		// GlobalRotation = GlobalRotation.Lerp(Target.GlobalRotation, (float) delta * LerpSpeed);
 		GlobalTransform = GlobalTransform.InterpolateWith(Target.GlobalTransform, (float) delta * LerpSpeed);
 	}
 }
