@@ -1,17 +1,17 @@
 [gd_scene load_steps=25 format=4 uid="uid://cparnd6xcpalj"]
 
-[ext_resource type="PackedScene" uid="uid://c7yrbcoyp7xur" path="res://prefabs/level_transition_trigger.tscn" id="1_2nuq4"]
-[ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_mb0y6"]
-[ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="1_s1035"]
-[ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_7204l"]
-[ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_yvvjx"]
-[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="4_8ajwi"]
-[ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="7_t0tec"]
-[ext_resource type="PackedScene" uid="uid://b7ulnwk80wku0" path="res://prefabs/locked_platform.tscn" id="8_1tud6"]
-[ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="8_2qxxr"]
-[ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="9_812ac"]
-[ext_resource type="Script" path="res://scripts/ResetBox.cs" id="11_i37rm"]
-[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="12_hxjrx"]
+[ext_resource type="PackedScene" uid="uid://c7yrbcoyp7xur" path="res://prefabs/level_transition_trigger.tscn" id="1_730nh"]
+[ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="2_vppge"]
+[ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="3_firt8"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="4_knbbw"]
+[ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="5_gu1rh"]
+[ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="6_lwxqu"]
+[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="7_yd3no"]
+[ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="8_ljq7t"]
+[ext_resource type="PackedScene" uid="uid://b7ulnwk80wku0" path="res://prefabs/locked_platform.tscn" id="9_0r0cu"]
+[ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="10_1sl2u"]
+[ext_resource type="Script" path="res://scripts/ResetBox.cs" id="11_nmb6r"]
+[ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="12_ns4a1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
 
@@ -139,19 +139,19 @@ size = Vector3(9, 5, 9)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="LevelTransitionTrigger" parent="." instance=ExtResource("1_2nuq4")]
+[node name="LevelTransitionTrigger" parent="." instance=ExtResource("1_730nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
 
 [node name="Test Level Geo" type="Node3D" parent="."]
 
 [node name="Ramp1" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.3718, 0, 0, 0, 7.04502, 11.8141, 0, -3.71785, 22.3867, 2.97201, 0.786738, 21.2347)
-material_override = ExtResource("1_s1035")
+material_override = ExtResource("2_vppge")
 use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, 3.17496, 8.20319, 41.4845)
-material_override = ExtResource("1_s1035")
+material_override = ExtResource("2_vppge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D2"]
 
@@ -160,7 +160,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -20.7723, 12.1175, 40.2188)
-material_override = ExtResource("1_s1035")
+material_override = ExtResource("2_vppge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D3"]
 
@@ -169,7 +169,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291, 13.0695)
-material_override = ExtResource("1_s1035")
+material_override = ExtResource("2_vppge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D4"]
 
@@ -178,7 +178,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Test Level Geo"]
 transform = Transform3D(50.139, 0, 0, 0, 0.329644, 0, 0, 0, 120.447, 0, 0, 0)
-material_override = ExtResource("1_s1035")
+material_override = ExtResource("2_vppge")
 mesh = SubResource("BoxMesh_51wwt")
 skeleton = NodePath("../..")
 
@@ -191,9 +191,9 @@ shape = SubResource("BoxShape3D_unsw3")
 transform = Transform3D(0.159413, 0.925236, -0.344276, -0.388766, 0.379392, 0.839597, 0.907441, 6.76096e-08, 0.420181, -0.927365, 6.47543, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Test Level Geo"]
-environment = ExtResource("1_mb0y6")
-camera_attributes = ExtResource("2_7204l")
-compositor = ExtResource("3_yvvjx")
+environment = ExtResource("3_firt8")
+camera_attributes = ExtResource("4_knbbw")
+compositor = ExtResource("5_gu1rh")
 
 [node name="EnterLevelTransition" type="Control" parent="."]
 layout_mode = 3
@@ -202,7 +202,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("7_t0tec")
+script = ExtResource("6_lwxqu")
 Autoplay = true
 
 [node name="Circle" type="Panel" parent="EnterLevelTransition"]
@@ -228,19 +228,19 @@ libraries = {
 "": SubResource("AnimationLibrary_hsw0u")
 }
 
-[node name="MouseCharacter" parent="." instance=ExtResource("4_8ajwi")]
+[node name="MouseCharacter" parent="." instance=ExtResource("7_yd3no")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.615512, 0.213356, 0.00689548)
 StartWithBubbles = false
 
-[node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("9_812ac")]
+[node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("8_ljq7t")]
 transform = Transform3D(8.90421, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24.2516)
 Switch = NodePath("../BubbleSwitch")
 
-[node name="LockedPlatform" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("8_1tud6")]
+[node name="LockedPlatform" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("9_0r0cu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.186, 0.787475, 0.0723343)
 Switch = NodePath("../BubbleSwitch")
 
-[node name="BubbleSwitch" parent="." instance=ExtResource("8_2qxxr")]
+[node name="BubbleSwitch" parent="." instance=ExtResource("10_1sl2u")]
 transform = Transform3D(2.56503, 0, 0, 0, 2.56503, 0, 0, 0, 2.56503, 7.211, 1.63481, 4.77873)
 Timed = true
 
@@ -251,15 +251,15 @@ autoplay = true
 
 [node name="ResetBox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4185, 0.164822, -9.57088)
-script = ExtResource("11_i37rm")
+script = ExtResource("11_nmb6r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ResetBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13003, 2.12838, 0.251177)
 shape = SubResource("BoxShape3D_2pl8g")
 
-[node name="OutTransition" parent="ResetBox" instance=ExtResource("12_hxjrx")]
+[node name="OutTransition" parent="ResetBox" instance=ExtResource("12_ns4a1")]
 
-[node name="InTransition" parent="ResetBox" instance=ExtResource("12_hxjrx")]
+[node name="InTransition" parent="ResetBox" instance=ExtResource("12_ns4a1")]
 
 [node name="RespawnLocation" type="Node3D" parent="ResetBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 19, 25)

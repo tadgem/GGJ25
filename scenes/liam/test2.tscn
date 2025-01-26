@@ -1,15 +1,28 @@
-[gd_scene load_steps=24 format=4 uid="uid://dyo6d0xjb674i"]
+[gd_scene load_steps=37 format=4 uid="uid://dyo6d0xjb674i"]
 
-[ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="1_f023i"]
-[ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="2_dt52p"]
-[ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="3_ox1wr"]
-[ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="4_00n6m"]
-[ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="5_qu0np"]
-[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_g7oqx"]
-[ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="7_21w27"]
-[ext_resource type="PackedScene" uid="uid://b7ulnwk80wku0" path="res://prefabs/locked_platform.tscn" id="8_vubnp"]
-[ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="9_6gohb"]
-[ext_resource type="Shader" path="res://shaders/water.gdshader" id="10_xqke6"]
+[ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="1_76357"]
+[ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="2_g02nc"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="3_q8ux1"]
+[ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="4_dbwvb"]
+[ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="5_g0sjh"]
+[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_m5vrc"]
+[ext_resource type="PackedScene" uid="uid://bfnq7rp88wqa0" path="res://prefabs/locked_door.tscn" id="7_8i64b"]
+[ext_resource type="PackedScene" uid="uid://b7ulnwk80wku0" path="res://prefabs/locked_platform.tscn" id="8_78cv7"]
+[ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="9_tjo4b"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="10_ngfrn"]
+[ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="11_3ddw1"]
+[ext_resource type="PackedScene" uid="uid://caof7trexnu55" path="res://prefabs/non-final/box_nf.tscn" id="12_iyk16"]
+[ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="13_grsxl"]
+[ext_resource type="PackedScene" uid="uid://be1ep0l1bx05r" path="res://prefabs/non-final/crate_nf.tscn" id="14_amhg4"]
+[ext_resource type="PackedScene" uid="uid://bp4iucdy8skyr" path="res://prefabs/non-final/dented_can_nf.tscn" id="15_7upni"]
+[ext_resource type="PackedScene" uid="uid://bh22s220v8pwa" path="res://prefabs/non-final/dented_spam_nf.tscn" id="16_ph7m3"]
+[ext_resource type="PackedScene" uid="uid://bhg38ys83mj5w" path="res://prefabs/non-final/fridge_nf.tscn" id="17_febur"]
+[ext_resource type="PackedScene" uid="uid://dk4qu8wac2m4q" path="res://prefabs/non-final/glass_closed_nf.tscn" id="18_csg8t"]
+[ext_resource type="PackedScene" uid="uid://e3yfi7ayx67x" path="res://prefabs/non-final/glass_open_nf.tscn" id="19_5185m"]
+[ext_resource type="PackedScene" uid="uid://d3ytuchqihksv" path="res://prefabs/non-final/jar_nf.tscn" id="20_572fr"]
+[ext_resource type="PackedScene" uid="uid://bjgbtciqtjv05" path="res://prefabs/non-final/spam_nf.tscn" id="21_oogqk"]
+[ext_resource type="PackedScene" uid="uid://cl22jnmvmt8ye" path="res://prefabs/non-final/web_nf.tscn" id="22_6jhay"]
+[ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="23_1plsf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
 
@@ -136,7 +149,7 @@ loop = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjyaa"]
 render_priority = 0
-shader = ExtResource("10_xqke6")
+shader = ExtResource("10_ngfrn")
 shader_parameter/depth_distance = 2.55
 shader_parameter/beers_law = 6.0
 shader_parameter/water_transparency = 0.35
@@ -153,12 +166,12 @@ transform = Transform3D(1.00271, 0, 0, 0, 1.00271, 0, 0, 0, 1.00271, 0, 0, 0)
 
 [node name="Ramp1" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.3718, 0, 0, 0, 7.04502, 11.8141, 0, -3.71785, 22.3867, 2.97201, 0.786738, 21.2347)
-material_override = ExtResource("1_f023i")
+material_override = ExtResource("1_76357")
 use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, 3.17496, 8.20319, 41.4845)
-material_override = ExtResource("1_f023i")
+material_override = ExtResource("1_76357")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D2"]
 
@@ -167,7 +180,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -20.7723, 12.1175, 40.2188)
-material_override = ExtResource("1_f023i")
+material_override = ExtResource("1_76357")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D3"]
 
@@ -176,7 +189,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Test Level Geo"]
 transform = Transform3D(17.1831, 0, 0, 0, 4, 0, 0, 0, 21.7929, -19.7879, 15.6291, 13.0695)
-material_override = ExtResource("1_f023i")
+material_override = ExtResource("1_76357")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Test Level Geo/CSGBox3D4"]
 
@@ -185,7 +198,7 @@ shape = SubResource("BoxShape3D_7mgcb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Test Level Geo"]
 transform = Transform3D(50.139, 0, 0, 0, 0.329644, 0, 0, 0, 120.447, 0, 0, 0)
-material_override = ExtResource("1_f023i")
+material_override = ExtResource("1_76357")
 mesh = SubResource("BoxMesh_51wwt")
 skeleton = NodePath("../..")
 
@@ -198,9 +211,9 @@ shape = SubResource("BoxShape3D_unsw3")
 transform = Transform3D(0.159413, 0.925236, -0.344276, -0.388766, 0.379392, 0.839597, 0.907441, 6.76096e-08, 0.420181, -0.927365, 6.47543, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Test Level Geo"]
-environment = ExtResource("2_dt52p")
-camera_attributes = ExtResource("3_ox1wr")
-compositor = ExtResource("4_00n6m")
+environment = ExtResource("2_g02nc")
+camera_attributes = ExtResource("3_q8ux1")
+compositor = ExtResource("4_dbwvb")
 
 [node name="EnterLevelTransition" type="Control" parent="."]
 layout_mode = 3
@@ -209,7 +222,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_qu0np")
+script = ExtResource("5_g0sjh")
 Autoplay = true
 
 [node name="Circle" type="Panel" parent="EnterLevelTransition"]
@@ -235,18 +248,18 @@ libraries = {
 "": SubResource("AnimationLibrary_hsw0u")
 }
 
-[node name="MouseCharacter" parent="." instance=ExtResource("6_g7oqx")]
+[node name="MouseCharacter" parent="." instance=ExtResource("6_m5vrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.615512, 0.213356, 0.00689548)
 
-[node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("7_21w27")]
+[node name="LockedDoor" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("7_8i64b")]
 transform = Transform3D(8.90421, 0, 0, 0, 2.5, 0, 0, 0, 1, -20.2396, 19.6197, 24.2516)
 Switch = NodePath("../BubbleSwitch")
 
-[node name="LockedPlatform" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("8_vubnp")]
+[node name="LockedPlatform" parent="." node_paths=PackedStringArray("Switch") instance=ExtResource("8_78cv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.186, 0.787475, 0.0723343)
 Switch = NodePath("../BubbleSwitch")
 
-[node name="BubbleSwitch" parent="." instance=ExtResource("9_6gohb")]
+[node name="BubbleSwitch" parent="." instance=ExtResource("9_tjo4b")]
 transform = Transform3D(2.56503, 0, 0, 0, 2.56503, 0, 0, 0, 2.56503, 7.211, 1.63481, 4.77873)
 Timed = true
 
@@ -260,3 +273,42 @@ transform = Transform3D(0.999998, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, -0.93623
 mesh = SubResource("PlaneMesh_mumnm")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_jjyaa")
+
+[node name="Barrel_NF" parent="." instance=ExtResource("11_3ddw1")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, 12.5145, 0.164822, -31.4159)
+
+[node name="Box_NF" parent="." instance=ExtResource("12_iyk16")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, 13.3175, 0.164822, -25.0243)
+
+[node name="Can_NF" parent="." instance=ExtResource("13_grsxl")]
+transform = Transform3D(3.98919, 0, 0, 0, 3.98919, 0, 0, 0, 3.98919, 13.4689, 1.86867, -19.3684)
+
+[node name="Crate_NF" parent="." instance=ExtResource("14_amhg4")]
+transform = Transform3D(2.40061, 0, 0, 0, 2.40061, 0, 0, 0, 2.40061, 8.66138, 0.164822, -14.58)
+
+[node name="DentedCan_NF" parent="." instance=ExtResource("15_7upni")]
+transform = Transform3D(3.98919, 0, 0, 0, 3.98919, 0, 0, 0, 3.98919, 10.4873, 2.21409, -6.37516)
+
+[node name="DentedSpam_NF" parent="." instance=ExtResource("16_ph7m3")]
+transform = Transform3D(0.736794, 0, -2.31244, 0, 2.42698, 0, 2.31244, 0, 0.736794, 6.39907, 0.164822, -9.6219)
+
+[node name="Fridge_NF" parent="." instance=ExtResource("17_febur")]
+transform = Transform3D(0.342208, 0, -0.936748, 0, 0.997298, 0, 0.936748, 0, 0.342208, 3.50537, 0.164823, -20.0489)
+
+[node name="GlassClosed_NF" parent="." instance=ExtResource("18_csg8t")]
+transform = Transform3D(2.10068, 0, 0, 0, 2.10068, 0, 0, 0, 2.10068, -1.73908, 0.164822, -25.7185)
+
+[node name="GlassOpen_NF" parent="." instance=ExtResource("19_5185m")]
+transform = Transform3D(2.89947, 0, 0, 0, 2.89947, 0, 0, 0, 2.89947, -2.69762, 0.164822, -17.8032)
+
+[node name="Jar_NF" parent="." instance=ExtResource("20_572fr")]
+transform = Transform3D(1.83561, 0, 0, 0, 1.83561, 0, 0, 0, 1.83561, -1.78032, 0.164822, -11.2068)
+
+[node name="Spam_NF" parent="." instance=ExtResource("21_oogqk")]
+transform = Transform3D(1.63707, 0, 0, 0, 1.63707, 0, 0, 0, 1.63707, 1.86081, 0.350518, -7.37544)
+
+[node name="Web_NF" parent="." instance=ExtResource("22_6jhay")]
+transform = Transform3D(2.10027, 0, 0, 0, 2.10027, 0, 0, 0, 2.10027, -6.46518, 1.10464, -8.31059)
+
+[node name="Whisky_NF" parent="." instance=ExtResource("23_1plsf")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, 9.19611, 0.164822, -0.17496)

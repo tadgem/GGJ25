@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_6d151"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_0d5dv"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_8nxt5"]
-[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
+[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="8_hf3ff"]
 [ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="9_7jscg"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="9_u2cqs"]
@@ -1201,7 +1201,7 @@ transform = Transform3D(-0.806197, 0, 0.591647, 0, 1, 0, -0.591647, 0, -0.806197
 curve = SubResource("Curve3D_j8jkh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Sink_Bubbles_Platforming/HideNode/MovingPathBubble6"]
-transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, -3.34121, 1.1119, -0.749395)
+transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, -3.34121, 1.1119, -0.749394)
 progress = 1.3
 rotation_mode = 0
 script = ExtResource("17_8v4ww")
@@ -1216,7 +1216,7 @@ transform = Transform3D(-0.945063, 0, -0.326888, 0, 1, 0, 0.326888, 0, -0.945063
 curve = SubResource("Curve3D_n4vmy")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Sink_Bubbles_Platforming/HideNode/MovingPathBubble4"]
-transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, -1.97155, 1.10529, -0.521263)
+transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, -1.97155, 1.10528, -0.521264)
 progress = 1.3
 rotation_mode = 0
 script = ExtResource("17_8v4ww")
@@ -1299,7 +1299,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.9986, -2.77726, -5.508)
 curve = SubResource("Curve3D_a2keu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Sink_Bubbles_Platforming/HideNode/MovingPathBubble3"]
-transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.01429, -8.38278e-06, -0.811847)
+transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.01429, -8.38279e-06, -0.811847)
 progress = 1.3
 rotation_mode = 0
 script = ExtResource("17_8v4ww")
