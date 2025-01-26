@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/OpeningCutscene.cs" id="1_sgqc4"]
 [ext_resource type="AudioStream" uid="uid://bws1tioat2be4" path="res://sounds/voiceover/SoundAsleep_VO.ogg" id="2_3f0xp"]
-[ext_resource type="Texture2D" uid="uid://wa4v7v6ak004" path="res://images/temp/NestDestroyed_Temp.png" id="2_3ok3y"]
-[ext_resource type="Texture2D" uid="uid://ds5dvndha133w" path="res://images/temp/FarmlandCottage_Temp.png" id="3_fb8y4"]
 [ext_resource type="AudioStream" uid="uid://b7h0tw08jhrqc" path="res://sounds/voiceover/DestroyedNest_VO.ogg" id="3_usf4b"]
 [ext_resource type="AudioStream" uid="uid://b0cwwm2e8jwba" path="res://sounds/voiceover/FarmlandCottage_VO.ogg" id="4_f6pno"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="5_3l1mp"]
+[ext_resource type="Texture2D" uid="uid://be76qpild4q8w" path="res://images/art/FarmlandCottage.png" id="5_6ak3j"]
+[ext_resource type="Texture2D" uid="uid://dgg46civablci" path="res://images/art/Nest_Destroyed.png" id="6_kjvc4"]
 [ext_resource type="Texture2D" uid="uid://bxulooqcw4qom" path="res://images/art/Final_Main_Menu.png" id="7_52d30"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_iitbl"]
@@ -47,7 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_fb8y4")
+texture = ExtResource("5_6ak3j")
 expand_mode = 5
 
 [node name="ColorRect" type="ColorRect" parent="Control/FarmlandCottageImage"]
@@ -87,7 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_3ok3y")
+texture = ExtResource("6_kjvc4")
 expand_mode = 5
 
 [node name="ColorRect" type="ColorRect" parent="Control/NestDestroyedImage"]
