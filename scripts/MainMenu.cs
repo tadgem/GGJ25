@@ -5,6 +5,8 @@ public partial class MainMenu : Control
 {
 	private Button _startGameButton;
 	private Button _quitGameButton;
+	private Button _fullScreenButton;
+
 	private LooneyTransition _looneyTransition;
 	private LooneyTransition _looneyInTransition;
 	
@@ -57,6 +59,7 @@ public partial class MainMenu : Control
 
 		_startGameButton = GetNode<Button>("VBoxContainer/StartButton");
 		_quitGameButton = GetNode<Button>("VBoxContainer/QuitButton");
+		_fullScreenButton = GetNode<Button>("VBoxContainer/FullScreenButton");
 		_looneyTransition = GetNode<LooneyTransition>("LooneyTransition");
 		_looneyInTransition = GetNode<LooneyTransition>("EnterTransition");
 		_menuMusic = GetNode<AudioStreamPlayer>("MainMenuMusic");
@@ -66,10 +69,29 @@ public partial class MainMenu : Control
 		GD.Print($"_looneyInTransition is null? : {_looneyInTransition == null}");
 		// LooneyTransition enter = GetNode<LooneyTransition>("EnterTransition");
 		_startGameButton.Pressed += StartTransition;
+		_fullScreenButton.Pressed += FullscreenToggle;
+		_quitGameButton.Pressed += QuitGame;
 		GrabMenuFocus();
 	}
 
+    private void QuitGame()
+    {
+        GetTree().Quit();
+    }
+
+
+    private void FullscreenToggle()
+    {
+		var current_mode = DisplayServer.WindowGetMode();
+		current_mode = current_mode == DisplayServer.WindowMode.Windowed ? 
+		DisplayServer.WindowMode.Fullscreen :
+		DisplayServer.WindowMode.Windowed;
+
+		DisplayServer.WindowSetMode(current_mode);
+    }
+
     // Called every frame. 'delta' is the elapsed time since the previous frame.
+
     public override void _Process(double delta)
 	{		
 		if(_transitioning)
