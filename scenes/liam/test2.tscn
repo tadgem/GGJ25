@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dyo6d0xjb674i"]
+[gd_scene load_steps=46 format=4 uid="uid://dyo6d0xjb674i"]
 
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="1_76357"]
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="2_g02nc"]
@@ -23,6 +23,15 @@
 [ext_resource type="PackedScene" uid="uid://bjgbtciqtjv05" path="res://prefabs/non-final/spam_nf.tscn" id="21_oogqk"]
 [ext_resource type="PackedScene" uid="uid://cl22jnmvmt8ye" path="res://prefabs/non-final/web_nf.tscn" id="22_6jhay"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="23_1plsf"]
+[ext_resource type="PackedScene" uid="uid://b0gfdbxlkcnmv" path="res://prefabs/non-final/book_nf.tscn" id="24_6vlbd"]
+[ext_resource type="PackedScene" uid="uid://yojccmd65hae" path="res://prefabs/non-final/chopping_board_nf.tscn" id="25_2q4js"]
+[ext_resource type="PackedScene" uid="uid://bhejvjrbt0w2v" path="res://prefabs/non-final/counter_nf.tscn" id="26_lqas7"]
+[ext_resource type="PackedScene" uid="uid://d32o60b56ujms" path="res://prefabs/non-final/cupboard_nf.tscn" id="27_awra3"]
+[ext_resource type="PackedScene" uid="uid://cyoh7h3mnlxyh" path="res://prefabs/non-final/hob_nf.tscn" id="28_unn88"]
+[ext_resource type="PackedScene" uid="uid://dd4fnsxq4as41" path="res://prefabs/non-final/knife_nf.tscn" id="29_u8de3"]
+[ext_resource type="PackedScene" uid="uid://br601y3shis7k" path="res://prefabs/non-final/pan_nf.tscn" id="30_2ne88"]
+[ext_resource type="PackedScene" uid="uid://dptma88dln0cg" path="res://prefabs/non-final/stewpot_nf.tscn" id="31_hdtvr"]
+[ext_resource type="PackedScene" uid="uid://hibgjcgk2l6u" path="res://prefabs/non-final/ceiling_rack_nf.tscn" id="32_rwpf4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mgcb"]
 
@@ -312,3 +321,30 @@ transform = Transform3D(2.10027, 0, 0, 0, 2.10027, 0, 0, 0, 2.10027, -6.46518, 1
 
 [node name="Whisky_NF" parent="." instance=ExtResource("23_1plsf")]
 transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, 9.19611, 0.164822, -0.17496)
+
+[node name="Book_NF" parent="." instance=ExtResource("24_6vlbd")]
+transform = Transform3D(3.98919, 0, 0, 0, 3.98919, 0, 0, 0, 3.98919, -4.98649, 0, 0.997297)
+
+[node name="ChoppingBoard_NF" parent="." instance=ExtResource("25_2q4js")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, -7.5827, 0.164822, 9.89686)
+
+[node name="Counter_NF" parent="." instance=ExtResource("26_lqas7")]
+transform = Transform3D(0.997298, 0, 0, 0, 0.997298, 0, 0, 0, 0.997298, -10.7043, 1.20298, 7.94749)
+
+[node name="Cupboard_NF" parent="." instance=ExtResource("27_awra3")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, -4.32032, 0.164822, 9.43337)
+
+[node name="Hob_NF" parent="." instance=ExtResource("28_unn88")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, -6.46983, 0.164822, 7.87104)
+
+[node name="Knife_NF" parent="." instance=ExtResource("29_u8de3")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, -10.2998, 0.164822, 9.21226)
+
+[node name="Pan_NF" parent="." instance=ExtResource("30_2ne88")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, -8.90442, 0.164822, 8.49846)
+
+[node name="Stewpot_NF" parent="." instance=ExtResource("31_hdtvr")]
+transform = Transform3D(0.997297, 0, 0, 0, 0.997297, 0, 0, 0, 0.997297, -4.72438, 0.164822, 10.6998)
+
+[node name="CeilingRack_NF" parent="." instance=ExtResource("32_rwpf4")]
+transform = Transform3D(0.997298, 0, 0, 0, 0.997298, 0, 0, 0, 0.997298, -9.766, 2.95252, 2.60335)
