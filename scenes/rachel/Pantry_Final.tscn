@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://bth8xl5n35q7j"]
+[gd_scene load_steps=65 format=4 uid="uid://bth8xl5n35q7j"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_toohh"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_r1krp"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="4_uy6wx"]
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_kxgkr"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_oya00"]
-[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
+[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="9_sot42"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="10_0l4n7"]
 [ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="11_xphod"]
@@ -35,10 +35,10 @@
 [ext_resource type="AudioStream" uid="uid://b0pjyh5avoi5f" path="res://sounds/boing2.wav" id="25_7o6sj"]
 [ext_resource type="AudioStream" uid="uid://bqrlh54lufkfp" path="res://sounds/boing3.wav" id="26_myybu"]
 [ext_resource type="PackedScene" uid="uid://ywlgbskcv7gk" path="res://scenes/rachel/CSG_Reworked/pantrey_final_geo.tscn" id="27_xh3pb"]
-[ext_resource type="PackedScene" uid="uid://ddt0by16kpdai" path="res://prefabs/water_surface.tscn" id="36_4pxl1"]
+[ext_resource type="PackedScene" path="res://prefabs/water_surface.tscn" id="36_4pxl1"]
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="37_c45s7"]
 [ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="38_xuyfw"]
-[ext_resource type="PackedScene" uid="uid://chw0fk8pvfrc" path="res://prefabs/mouse_character_v2.tscn" id="39_ij8io"]
+[ext_resource type="PackedScene" path="res://prefabs/mouse_character_v2.tscn" id="39_ij8io"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -164,6 +164,16 @@ shader_parameter/water_colour = Color(0.877577, 0.727901, 0.430712, 1)
 shader_parameter/water_secondary_colour = Color(0.136575, 0.089174, 0.0418264, 1)
 shader_parameter/normal_texture = ExtResource("38_xuyfw")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_1pwxq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7p0k"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 8.62
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8o0r"]
+size = Vector3(1.66168, 1.26904, 1.78619)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -173,6 +183,7 @@ compositor = ExtResource("3_neimw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.159413, 0.925236, -0.344275, -0.388766, 0.379392, 0.839597, 0.90744, 0, 0.420181, -0.927365, 6.47543, 0)
+visible = false
 
 [node name="Test Level Geo" type="Node3D" parent="."]
 
@@ -1015,9 +1026,28 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.877, -0.03, 32.467)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3277, 77.4507, 0.770607)
-light_energy = 14.594
-omni_range = 37.9122
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5338, 68.9568, -14.6111)
+light_color = Color(0.914021, 0.770168, 0.751798, 1)
+light_energy = 16.0
+omni_range = 51.0532
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5338, 68.9568, -14.6111)
+light_color = Color(0.914021, 0.770168, 0.751798, 1)
+light_energy = 16.0
+omni_range = 51.0532
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.7386, 86.1226, -17.3976)
+light_color = Color(0.914021, 0.770168, 0.751798, 1)
+light_energy = 16.0
+omni_range = 68.2359
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.7386, 39.3747, -17.3976)
+light_color = Color(0.914021, 0.770168, 0.751798, 1)
+light_energy = 16.0
+omni_range = 68.2359
 
 [node name="WaterSurface" parent="." instance=ExtResource("36_4pxl1")]
 transform = Transform3D(4.80858, 0, 0, 0, 0.999998, 0, 0, 0, 5.80366, 10.9018, 30.9202, -55.9921)
@@ -1026,3 +1056,14 @@ surface_material_override/0 = SubResource("ShaderMaterial_qvo0h")
 [node name="MouseCharacterV2" parent="." instance=ExtResource("39_ij8io")]
 transform = Transform3D(0.997298, 0, 0, 0, 0.997298, 0, 0, 0, 0.997298, 100.728, 4.23168, -54.4574)
 StartWithBubbles = false
+
+[node name="BrightMesh3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.79912, 0.0313409, 2.73991e-09, 0, -4.37114e-08, 2, 0.0564136, 0.999509, 8.73799e-08, 101.067, 2.63729, -61.7706)
+mesh = SubResource("PlaneMesh_1pwxq")
+surface_material_override/0 = SubResource("StandardMaterial3D_c7p0k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BrightMesh3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BrightMesh3/StaticBody3D"]
+transform = Transform3D(1, -9.31323e-09, -3.9968e-15, 1.86265e-08, 0.999972, 2.55795e-13, 6.66134e-16, 6.16396e-13, 0.999972, -0.000782013, -0.264366, 0.39309)
+shape = SubResource("BoxShape3D_m8o0r")
