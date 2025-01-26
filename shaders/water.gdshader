@@ -30,7 +30,7 @@ float fresnel(float amount, vec3 normal, vec3 view)
 
 
 void fragment() {
-	
+
 	vec3 screen = texture(screen_texture, SCREEN_UV).xyz;
 	float depth = texture(depth_texture, SCREEN_UV).r;
 	// Called for every pixel the material is visible on.
@@ -38,14 +38,14 @@ void fragment() {
 	vec4 world = INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
 	float depth_texture_y = world.y / world.w;
 	float vertex_y = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).y;
-	
+
 	float depth_blend = clamp((vertex_y - depth_texture_y) / depth_distance, 0.0, 1.0);
 	depth_blend = exp(-depth_blend * beers_law);
-	
+
 	vec3 depth_colour = mix(water_secondary_colour.xyz, water_colour.xyz, depth_blend);
 	vec3 final_colour = mix(depth_colour, screen, water_transparency);
 	float basic_fresnel = fresnel(3.0, NORMAL, VIEW);
-	
+
 	vec3 surface_normal = texture(normal_texture, world_pos.xz * TIME * time_scale).xyz;
 	NORMAL_MAP = surface_normal;
 	ALBEDO = mix(final_colour, screen, depth_blend * (1.0 - basic_fresnel));

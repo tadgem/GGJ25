@@ -48,7 +48,7 @@ normal_enabled = true
 normal_texture = ExtResource("3_q15kg")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ynvep"]
-size = Vector3(1.31314, 1.15454, 0.838013)
+size = Vector3(1.31314, 1.1759, 0.8367)
 
 [node name="Spam_NF" type="Node3D"]
 
@@ -56,6 +56,7 @@ size = Vector3(1.31314, 1.15454, 0.838013)
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 
 [node name="spam 2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0235955)
 mesh = SubResource("ArrayMesh_gg0et")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_oi2a5")
@@ -63,5 +64,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_oi2a5")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00367737, 0.554187, -0.00531006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00367737, 0.564868, -0.00465381)
 shape = SubResource("BoxShape3D_ynvep")
