@@ -23,6 +23,7 @@ advance_mode = 2
 advance_condition = &"jump"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ap8v"]
+xfade_time = 0.13
 advance_mode = 2
 advance_condition = &"idle"
 
@@ -32,6 +33,7 @@ advance_mode = 2
 advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gk2nb"]
+xfade_time = 0.13
 advance_mode = 2
 advance_condition = &"moving"
 
