@@ -3,17 +3,18 @@ using System;
 
 public partial class ResetBox : Area3D
 {
-	[Export]
-	public Vector3 ResetLocation;
 
 	private LooneyTransition _inTransition;
 	private LooneyTransition _outTransition;
+
+	private Node3D _respawn;
 
 	private MouseCharacter _mouse =  null;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		BodyEntered += OnBodyEntered;
+		_respawn = GetNode<Node3D>("RespawnLocation");
 		_inTransition = GetNode<LooneyTransition>("InTransition");
 		_outTransition = GetNode<LooneyTransition>("OutTransition");
 		_inTransition.Hide();
@@ -37,8 +38,7 @@ public partial class ResetBox : Area3D
     private void OnFadedOut(StringName animName)
     {
 		GD.Print("ResetBox : Faded out");
-		_mouse.Position = ResetLocation;
-		_mouse.Rotation = Vector3.Zero;
+		_mouse.GlobalTransform = _respawn.GlobalTransform;
 		_inTransition.Show();
 		_inTransition.PlayInTransition();
 		_outTransition.Hide();

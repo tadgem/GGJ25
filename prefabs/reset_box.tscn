@@ -17,3 +17,5 @@ shape = SubResource("BoxShape3D_2pl8g")
 [node name="OutTransition" parent="." instance=ExtResource("2_vsowq")]
 
 [node name="InTransition" parent="." instance=ExtResource("2_vsowq")]
+
+[node name="RespawnLocation" type="Node3D" parent="."]
