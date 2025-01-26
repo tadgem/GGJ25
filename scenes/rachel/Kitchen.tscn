@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_6d151"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_0d5dv"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_8nxt5"]
-[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
+[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="8_hf3ff"]
 [ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="9_7jscg"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="9_u2cqs"]
