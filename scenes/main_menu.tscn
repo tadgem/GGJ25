@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=4 uid="uid://ug8w3ql2ybyw"]
 
-[ext_resource type="Texture2D" uid="uid://dgn3dgye2cq0l" path="res://images/texel_density.png" id="1_d5367"]
 [ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_hg358"]
 [ext_resource type="Shader" path="res://shaders/pause_menu_blur.gdshader" id="1_u3e1r"]
+[ext_resource type="Texture2D" uid="uid://bxulooqcw4qom" path="res://images/art/Final_Main_Menu.png" id="2_vqdnb"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="4_8bpwt"]
 [ext_resource type="Script" path="res://scripts/SoundButton.cs" id="4_eg1ti"]
 [ext_resource type="AudioStream" uid="uid://cq18s4oopupna" path="res://sounds/ui_nav.wav" id="5_uyfle"]
@@ -143,9 +143,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_d5367")
-expand_mode = 1
-stretch_mode = 1
+texture = ExtResource("2_vqdnb")
+expand_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_4mlyw")

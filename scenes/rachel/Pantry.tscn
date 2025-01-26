@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://xpl7avb1yrf0"]
+[gd_scene load_steps=47 format=4 uid="uid://ds4mxvpy0qv6k"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_2dsv4"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_hoenm"]
