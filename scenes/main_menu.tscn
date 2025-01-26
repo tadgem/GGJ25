@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ug8w3ql2ybyw"]
+[gd_scene load_steps=25 format=4 uid="uid://ug8w3ql2ybyw"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_hg358"]
 [ext_resource type="Shader" path="res://shaders/pause_menu_blur.gdshader" id="1_u3e1r"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cq18s4oopupna" path="res://sounds/ui_nav.wav" id="5_uyfle"]
 [ext_resource type="Script" path="res://scripts/LooneyTransition.cs" id="6_duvj1"]
 [ext_resource type="AudioStream" uid="uid://catjfacwtgbe2" path="res://sounds/ui_accept.wav" id="6_ix06i"]
+[ext_resource type="Texture2D" uid="uid://djax18bqpbc72" path="res://images/art/Title.png" id="9_n8rut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4mlyw"]
 shader = ExtResource("1_u3e1r")
@@ -125,6 +126,54 @@ packet_sequence = SubResource("OggPacketSequence_tqn5y")
 bpm = 83.0
 loop = true
 
+[sub_resource type="Animation" id="Animation_o5gy7"]
+resource_name = "size"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(11.16, 11.16), Vector2(9.96, 9.96)]
+}
+
+[sub_resource type="Animation" id="Animation_jnqh5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11.16, 11.16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32aa7"]
+_data = {
+"RESET": SubResource("Animation_jnqh5"),
+"size": SubResource("Animation_o5gy7")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fqcde"]
+animation = &"size"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ugr3p"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bqcl4"]
+states/size/node = SubResource("AnimationNodeAnimation_fqcde")
+states/size/position = Vector2(311, 110)
+transitions = ["Start", "size", SubResource("AnimationNodeStateMachineTransition_ugr3p")]
+
 [node name="MainMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -162,10 +211,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -21.5
-offset_right = 23.0
-offset_bottom = 21.5
+offset_left = -46.0
+offset_top = 229.0
+offset_right = 46.0
+offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -192,6 +241,7 @@ layout_mode = 1
 
 [node name="EnterTransition" type="Control" parent="."]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,3 +278,32 @@ libraries = {
 stream = SubResource("AudioStreamOggVorbis_g3b65")
 volume_db = -10.81
 autoplay = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(11.16, 11.16)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("9_n8rut")
+expand_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_32aa7")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="TextureRect2"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_bqcl4")
+anim_player = NodePath("../AnimationPlayer")
