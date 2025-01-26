@@ -1294,7 +1294,7 @@ mesh = SubResource("ArrayMesh_dvpj3")
 skeleton = NodePath("")
 
 [node name="Box023" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 65.818, -0.2, -48.199)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 65.818, -0.5, -48.199)
 mesh = SubResource("ArrayMesh_xogsc")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_j2bk1")
