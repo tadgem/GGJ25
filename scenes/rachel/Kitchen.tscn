@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://c431r11baogqo"]
+[gd_scene load_steps=71 format=4 uid="uid://c431r11baogqo"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_yacye"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_66ou0"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bp4iucdy8skyr" path="res://prefabs/non-final/dented_can_nf.tscn" id="15_uh2vf"]
 [ext_resource type="Script" path="res://scripts/LockedPlatform.cs" id="16_hinqc"]
 [ext_resource type="PackedScene" uid="uid://bh22s220v8pwa" path="res://prefabs/non-final/dented_spam_nf.tscn" id="16_mf6g1"]
+[ext_resource type="PackedScene" uid="uid://dk4qu8wac2m4q" path="res://prefabs/non-final/glass_closed_nf.tscn" id="17_8e8b5"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="17_8v4ww"]
 [ext_resource type="Script" path="res://scripts/Bubble.cs" id="18_7m7rd"]
 [ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="19_gwx0r"]
@@ -31,6 +32,7 @@
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="25_yb3oa"]
 [ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="26_xai1o"]
 [ext_resource type="Script" path="res://scripts/LockedDoor.cs" id="28_al2lj"]
+[ext_resource type="PackedScene" uid="uid://bhg38ys83mj5w" path="res://prefabs/non-final/fridge_nf.tscn" id="32_taxfe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -217,6 +219,12 @@ size = Vector3(2, 4, 0.25)
 size = Vector3(2, 4, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hw7vx"]
+size = Vector3(2, 4, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egu16"]
+size = Vector3(2, 4, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f66yp"]
 size = Vector3(2, 4, 0.25)
 
 [node name="Node3D" type="Node3D"]
@@ -864,7 +872,7 @@ transform = Transform3D(2.02894, 0, 0, 0, 2.02894, 0, 0, 0, 2.02894, 59.0501, 10
 use_collision = true
 
 [node name="MouseCharacter" parent="." instance=ExtResource("6_0d5dv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86789, 9.88103, 62.905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5295, 62.9506, 143.096)
 MinSqueekTime = 12.0
 MiaxSqueekTime = 28.0
 
@@ -903,9 +911,9 @@ use_collision = true
 size = Vector3(8.52197, 27.1438, 91.7094)
 
 [node name="Window_Sink_Wall_Bottom_Cabinets" type="CSGBox3D" parent="Temp_Props"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.37704, 14.5145, 258.745)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.66505, 14.5145, 258.745)
 use_collision = true
-size = Vector3(24.9436, 29.079, 117.737)
+size = Vector3(24.9436, 29.079, 117.161)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Temp_Props/Window_Sink_Wall_Bottom_Cabinets"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0671387, 9.36377, 0.681497)
@@ -922,11 +930,6 @@ transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 11.299
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 80.5883, 14.5145, 243.024)
 use_collision = true
 size = Vector3(24.9436, 29.079, 97.8556)
-
-[node name="Fridge" type="CSGBox3D" parent="Temp_Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.2609, 26.0886, 259.048)
-use_collision = true
-size = Vector3(25.7365, 51.3329, 20.1548)
 
 [node name="Whisky_NF" parent="Temp_Props" instance=ExtResource("12_qrr2o")]
 transform = Transform3D(3.27421, 0, 0, 0, 3.27421, 0, 0, 0, 3.27421, -15.5098, 34.5964, 173.557)
@@ -951,6 +954,12 @@ transform = Transform3D(4.75247, 0, 0, 0, 0.634005, 0, 0, 0, 4.87341, -13.1091, 
 
 [node name="Can_NF" parent="Temp_Props" instance=ExtResource("10_q4hxx")]
 transform = Transform3D(-1.03641, -3.71818, -1.04929, -3.10493, 0.155156, 2.51701, -2.29898, 1.46665, -2.92637, 14.4871, 2.50673, 81.8737)
+
+[node name="Can_NF3" parent="Temp_Props" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(-3.97416, 0.00506777, -0.453928, 0.00853044, 3.99988, -0.0300025, 0.453872, -0.0307807, -3.97405, -10.1522, 7.37513, 87.4203)
+
+[node name="Can_NF4" parent="Temp_Props" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(-3.49023, 0.00506777, 1.95405, -0.0106126, 3.99988, -0.0293293, -1.95404, -0.0307807, -3.4901, -14.7289, 7.38204, 87.5644)
 
 [node name="Crate_NF" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
 transform = Transform3D(5.97721, -0.047884, 7.84641, 0, -11.2122, -0.051382, 8.18449, 0.0349701, -5.7303, -12.2631, 34.6316, 174.128)
@@ -1003,16 +1012,16 @@ transform = Transform3D(-4.81499, -0.0203291, 0.141792, -0.0556018, -4.12921, -2
 transform = Transform3D(-0.064689, 0, 0.997905, 0, 1, 0, -0.997905, 0, -0.064689, -27.0537, 48.4104, 143.564)
 
 [node name="Can_NF4" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
-transform = Transform3D(7, 0, -5.96046e-08, 0, 7, 0, 5.96046e-08, 0, 7, -68.4819, 7.10961, -65.9184)
+transform = Transform3D(0.14541, 0, 4.33989, 0, 4.34232, 0, -4.33989, 0, 0.14541, 53.7655, -21.3155, 42.8443)
 
 [node name="Can_NF7" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 39.8131, 15.3147, -59.6345)
 
 [node name="Can_NF5" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -59.2998, 5.88813, -65.222)
+transform = Transform3D(0.0830913, 0, 2.47994, 0, 2.48133, 0, -2.47994, 0, 0.0830913, 53.442, -22.0501, 46.1782)
 
 [node name="Can_NF6" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -55.8612, 5.88813, -65.9184)
+transform = Transform3D(0.0830913, 0, 2.47994, 0, 2.48133, 0, -2.47994, 0, 0.0830913, 54.0816, -22.0732, 33.4114)
 
 [node name="Can_NF9" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 14.9446, 14.0932, -59.6345)
@@ -1030,22 +1039,22 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 22.074, 14.0932, -58.69)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30.1628, 14.0932, -59.6345)
 
 [node name="Can_NF8" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -57.4688, 9.58097, -65.9183)
+transform = Transform3D(0.0796739, -0.0329535, 2.47983, 0.509166, 2.42847, 0.0159122, -2.42722, 0.508346, 0.0847388, 54.009, -19.8912, 35.1061)
 
 [node name="Jar_NF" parent="Temp_Props/Shelving_Range" instance=ExtResource("14_n0nx7")]
 transform = Transform3D(1.701, 0, 0, 0, 1.701, 0, 0, 0, 1.701, 16.4859, 16.103, -59.3847)
 
 [node name="Jar_NF2" parent="Temp_Props/Shelving_Range" instance=ExtResource("14_n0nx7")]
-transform = Transform3D(2.75315, 0, -5.96046e-08, 0, 2.75315, 0, 5.96046e-08, 0, 2.75315, -63.0969, 3.87592, -65.6685)
+transform = Transform3D(0.0571907, 0, 1.70691, 0, 1.70787, 0, -1.70691, 0, 0.0571907, 54.1084, -23.3214, 37.2392)
 
 [node name="DentedCan_NF" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_uh2vf")]
-transform = Transform3D(3.75033, 0, 0, 0, 3.75034, 0, 0, 0, 3.75033, -72.971, 6.18458, -64.3991)
+transform = Transform3D(0.0779049, 0, 2.32515, 0, 2.32645, 0, -2.32515, 0, 0.0779049, 53.3779, -21.9835, 39.7068)
 
 [node name="DentedCan_NF2" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_uh2vf")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 26.2716, 15.34, -58.518)
 
 [node name="DentedSpam_NF" parent="Temp_Props/Shelving_Range" instance=ExtResource("16_mf6g1")]
-transform = Transform3D(3.53594, 0, 1.87005, 0, 4, 0, -1.87005, 0, 3.53594, -51.6377, 4.23525, -65.2645)
+transform = Transform3D(-1.08595, 0, 2.23107, 0, 2.48133, 0, -2.23107, 0, -1.08595, 54.6599, -23.0985, 27.4334)
 
 [node name="Spam_NF4" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_14c6c")]
 transform = Transform3D(2.76697, 0, -1.15926, 0, 3.1979, 0, 1.15926, 0, 2.76697, 34.3775, 12.4394, -59.4561)
@@ -1055,6 +1064,36 @@ transform = Transform3D(2.99689, 0, -0.136508, 0, 3, 0, 0.136508, 0, 2.99689, 32
 
 [node name="Spam_NF3" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_14c6c")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.6639, 12.4394, -58.7339)
+
+[node name="Jar_NF3" parent="Temp_Props" instance=ExtResource("14_n0nx7")]
+transform = Transform3D(-0.110036, 0, 1.69744, 0, 1.701, 0, -1.69744, 0, -0.110036, 4.88098, 5.4826, 87.773)
+
+[node name="Jar_NF4" parent="Temp_Props" instance=ExtResource("14_n0nx7")]
+transform = Transform3D(-0.110036, 0, 1.69744, 0, 1.701, 0, -1.69744, 0, -0.110036, 1.52569, 5.4826, 87.773)
+
+[node name="Jar_NF5" parent="Temp_Props" instance=ExtResource("14_n0nx7")]
+transform = Transform3D(0.215282, -1.68664, 0.0480216, -0.11052, 0.0342117, 1.69706, -1.6837, -0.217903, -0.105257, -1.14534, 6.81441, 87.8153)
+
+[node name="GlassClosed_NF" parent="Temp_Props" instance=ExtResource("17_8e8b5")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 9.4702, 12.4682, 87.5746)
+
+[node name="GlassClosed_NF2" parent="Temp_Props" instance=ExtResource("17_8e8b5")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -3.31425, 12.4682, 87.5746)
+
+[node name="GlassClosed_NF3" parent="Temp_Props" instance=ExtResource("17_8e8b5")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -15.253, 12.4682, 87.5746)
+
+[node name="GlassClosed_NF4" parent="Temp_Props" instance=ExtResource("17_8e8b5")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -9.70384, 12.4682, 85.2524)
+
+[node name="GlassClosed_NF5" parent="Temp_Props" instance=ExtResource("17_8e8b5")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 2.71746, 12.4682, 85.2141)
+
+[node name="Whisky_NF5" parent="Temp_Props" instance=ExtResource("12_qrr2o")]
+transform = Transform3D(0.0240245, -1.20624, 0.841305, 1.47055, 0.0292888, 0, -0.0167528, 0.841139, 1.20648, 5.25685, 20.065, 85.2955)
+
+[node name="Whisky_NF6" parent="Temp_Props" instance=ExtResource("12_qrr2o")]
+transform = Transform3D(0.0261595, -1.31344, -0.661497, 1.47055, 0.0292888, -1.71274e-10, 0.0131723, -0.661366, 1.3137, -8.10518, 20.065, 86.9475)
 
 [node name="LooneyTransition" parent="." instance=ExtResource("8_hf3ff")]
 DestroyOnFinish = true
@@ -1077,7 +1116,7 @@ volume_db = -12.0
 autoplay = true
 
 [node name="Island_Switch" parent="." instance=ExtResource("13_blebg")]
-transform = Transform3D(-0.0105807, 2.56496, -0.0155809, 0.000789814, -0.0155778, -2.56498, -2.56501, -0.0105853, -0.000725534, 1.89805, 30.0187, 172.619)
+transform = Transform3D(-2.56215, 0.120829, -0.0134155, 0.0134304, -5.87061e-10, -2.56499, -0.120828, -2.56218, -0.000632657, 5.12494, 30.0014, 174.53)
 
 [node name="Island_Bubble_Platforming" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4482, 45.7905, 178.923)
@@ -1414,6 +1453,7 @@ Switch = NodePath("../Fridge_Switch")
 [node name="DoorRoot" type="StaticBody3D" parent="Fridge_Locked_Plane"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge_Locked_Plane/DoorRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -4.09782e-08, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_kjl6v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fridge_Locked_Plane/DoorRoot"]
@@ -1474,3 +1514,136 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.73781, 0, 0, 0, 1.73781, 0, 0, 0, 1.73781, 19.6755, 4.12077, 84.1321)
 Timed = true
 DoorTime = 20.0
+
+[node name="Fridge_NF" parent="." instance=ExtResource("32_taxfe")]
+transform = Transform3D(-12.9842, 0, 0.640713, 0, 13, 0, -0.640713, 0, -12.9842, -68.3963, 0.964846, 259.369)
+
+[node name="Barrel_NF" parent="." instance=ExtResource("9_u2cqs")]
+transform = Transform3D(10.719, 0, 0, 0, 10.719, 0, 0, 0, 10.719, 102.691, 0.964843, 71.1047)
+
+[node name="Final_Puzzle_Switch" parent="." instance=ExtResource("13_blebg")]
+transform = Transform3D(-1.12121e-07, 0, -2.56503, 0, 2.56503, 0, 2.56503, 0, -1.12121e-07, -91.5129, 65.5559, 155.59)
+Timed = true
+DoorTime = 15.0
+
+[node name="Final_Puzzle" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
+transform = Transform3D(4.464, 0, 0, 0, 1.41234, 0, 0, 0, 1, -87.3147, 75.538, 229.97)
+script = ExtResource("28_al2lj")
+Switch = NodePath("../Final_Puzzle_Switch")
+
+[node name="DoorRoot" type="StaticBody3D" parent="Final_Puzzle"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Puzzle/DoorRoot"]
+shape = SubResource("BoxShape3D_egu16")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Final_Puzzle/DoorRoot"]
+mesh = SubResource("BoxMesh_f66yp")
+skeleton = NodePath("../..")
+
+[node name="LockedPlatform" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.1642, 0.682548, 0)
+script = ExtResource("16_hinqc")
+Switch = NodePath("../Final_Puzzle_Switch")
+
+[node name="HideNode" type="Node3D" parent="LockedPlatform"]
+
+[node name="MovingPathBubble4" type="Path3D" parent="LockedPlatform/HideNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.311, 57.6123, 173.533)
+curve = SubResource("Curve3D_im0ns")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="LockedPlatform/HideNode/MovingPathBubble4"]
+transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 0, 1.2988, 0)
+progress = 1.3
+rotation_mode = 0
+script = ExtResource("17_8v4ww")
+
+[node name="Bubble" type="CharacterBody3D" parent="LockedPlatform/HideNode/MovingPathBubble4/PathFollow3D"]
+transform = Transform3D(1.64966, 0, 0, 0, 1.64966, 0, 0, 0, 1.64966, 0, -0.279293, 0)
+script = ExtResource("18_7m7rd")
+BounceStrength = 1.25
+IsTimed = true
+
+[node name="BubbleFX2" type="MeshInstance3D" parent="LockedPlatform/HideNode/MovingPathBubble4/PathFollow3D/Bubble"]
+mesh = SubResource("SphereMesh_vw3pq")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LockedPlatform/HideNode/MovingPathBubble4/PathFollow3D/Bubble"]
+shape = SubResource("BoxShape3D_ymqlo")
+
+[node name="Area3D" type="Area3D" parent="LockedPlatform/HideNode/MovingPathBubble4/PathFollow3D/Bubble"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LockedPlatform/HideNode/MovingPathBubble4/PathFollow3D/Bubble/Area3D"]
+shape = SubResource("SphereShape3D_yn7sq")
+
+[node name="BoingAudio" type="AudioStreamPlayer3D" parent="LockedPlatform/HideNode/MovingPathBubble4/PathFollow3D/Bubble"]
+stream = SubResource("AudioStreamRandomizer_toqx6")
+volume_db = -6.588
+
+[node name="MovingPathBubble5" type="Path3D" parent="LockedPlatform/HideNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.311, 61.0604, 192.32)
+curve = SubResource("Curve3D_im0ns")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="LockedPlatform/HideNode/MovingPathBubble5"]
+transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 0, 1.2988, 0)
+progress = 1.3
+rotation_mode = 0
+script = ExtResource("17_8v4ww")
+
+[node name="Bubble" type="CharacterBody3D" parent="LockedPlatform/HideNode/MovingPathBubble5/PathFollow3D"]
+transform = Transform3D(1.64966, 0, 0, 0, 1.64966, 0, 0, 0, 1.64966, 0, -0.279293, 0)
+script = ExtResource("18_7m7rd")
+BounceStrength = 1.25
+IsTimed = true
+Lifetime = 10.0
+
+[node name="BubbleFX2" type="MeshInstance3D" parent="LockedPlatform/HideNode/MovingPathBubble5/PathFollow3D/Bubble"]
+mesh = SubResource("SphereMesh_vw3pq")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LockedPlatform/HideNode/MovingPathBubble5/PathFollow3D/Bubble"]
+shape = SubResource("BoxShape3D_ymqlo")
+
+[node name="Area3D" type="Area3D" parent="LockedPlatform/HideNode/MovingPathBubble5/PathFollow3D/Bubble"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LockedPlatform/HideNode/MovingPathBubble5/PathFollow3D/Bubble/Area3D"]
+shape = SubResource("SphereShape3D_yn7sq")
+
+[node name="BoingAudio" type="AudioStreamPlayer3D" parent="LockedPlatform/HideNode/MovingPathBubble5/PathFollow3D/Bubble"]
+stream = SubResource("AudioStreamRandomizer_toqx6")
+volume_db = -6.588
+
+[node name="MovingPathBubble6" type="Path3D" parent="LockedPlatform/HideNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.311, 65.4617, 215.724)
+curve = SubResource("Curve3D_im0ns")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="LockedPlatform/HideNode/MovingPathBubble6"]
+transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 0, 1.2988, 0)
+progress = 1.3
+rotation_mode = 0
+script = ExtResource("17_8v4ww")
+
+[node name="Bubble" type="CharacterBody3D" parent="LockedPlatform/HideNode/MovingPathBubble6/PathFollow3D"]
+transform = Transform3D(1.64966, 0, 0, 0, 1.64966, 0, 0, 0, 1.64966, 0, -0.279293, 0)
+script = ExtResource("18_7m7rd")
+BounceStrength = 1.25
+IsTimed = true
+Lifetime = 15.0
+
+[node name="BubbleFX2" type="MeshInstance3D" parent="LockedPlatform/HideNode/MovingPathBubble6/PathFollow3D/Bubble"]
+mesh = SubResource("SphereMesh_vw3pq")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_xitd0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LockedPlatform/HideNode/MovingPathBubble6/PathFollow3D/Bubble"]
+shape = SubResource("BoxShape3D_ymqlo")
+
+[node name="Area3D" type="Area3D" parent="LockedPlatform/HideNode/MovingPathBubble6/PathFollow3D/Bubble"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LockedPlatform/HideNode/MovingPathBubble6/PathFollow3D/Bubble/Area3D"]
+shape = SubResource("SphereShape3D_yn7sq")
+
+[node name="BoingAudio" type="AudioStreamPlayer3D" parent="LockedPlatform/HideNode/MovingPathBubble6/PathFollow3D/Bubble"]
+stream = SubResource("AudioStreamRandomizer_toqx6")
+volume_db = -6.588
