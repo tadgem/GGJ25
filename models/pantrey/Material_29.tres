@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://dwsdncodnce0x"]
+
+[ext_resource type="Texture2D" uid="uid://de2gxujgu0rr8" path="res://models/pantrey/Material _29_Base_color.png" id="1_kg7rd"]
+[ext_resource type="Texture2D" uid="uid://qfdwmnct6dpy" path="res://models/pantrey/Material _29_Mixed_AO.png" id="2_jt0u4"]
+[ext_resource type="Texture2D" uid="uid://dbqnqwkoggue1" path="res://models/pantrey/Material _29_Height.png" id="3_tlsgj"]
+[ext_resource type="Texture2D" uid="uid://bq7ei6em3yjin" path="res://models/pantrey/Material _29_Metallic.png" id="4_jucm4"]
+[ext_resource type="Texture2D" uid="uid://cqwwqdyro0jxy" path="res://models/pantrey/Material _29_Normal.png" id="5_hgm6s"]
+[ext_resource type="Texture2D" uid="uid://cyxm0jjv61hf1" path="res://models/pantrey/Material _29_Roughness.png" id="6_ckmrc"]
+
+[resource]
+albedo_texture = ExtResource("1_kg7rd")
+metallic = 1.0
+metallic_texture = ExtResource("4_jucm4")
+roughness_texture = ExtResource("6_ckmrc")
+normal_enabled = true
+normal_texture = ExtResource("5_hgm6s")
+ao_enabled = true
+ao_texture = ExtResource("2_jt0u4")
+heightmap_texture = ExtResource("3_tlsgj")
+uv1_scale = Vector3(1, 1, -1)
