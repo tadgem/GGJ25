@@ -5,24 +5,23 @@
 [ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_v21p7"]
 [ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="4_2fnlp"]
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_6d151"]
-[ext_resource type="Material" uid="uid://dpvprwausbp1n" path="res://materials/csg_materials/floor.tres" id="5_bpkit"]
-[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="6_0d5dv"]
+[ext_resource type="Material" path="res://materials/csg_materials/floor.tres" id="5_bpkit"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_8nxt5"]
-[ext_resource type="Material" uid="uid://cbux4grph7ill" path="res://materials/csg_materials/woodenbeams.tres" id="6_31vve"]
-[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
-[ext_resource type="Material" uid="uid://c3io0n36rnahm" path="res://materials/csg_materials/shelf.tres" id="8_1tsow"]
-[ext_resource type="Material" uid="uid://ca3mamin2lm74" path="res://materials/csg_materials/metal_csg.tres" id="8_5kqdi"]
+[ext_resource type="Material" path="res://materials/csg_materials/woodenbeams.tres" id="6_31vve"]
+[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
+[ext_resource type="Material" path="res://materials/csg_materials/shelf.tres" id="8_1tsow"]
+[ext_resource type="Material" uid="uid://cwyk0u25wg0xu" path="res://materials/csg_materials/metal_csg.tres" id="8_5kqdi"]
 [ext_resource type="Texture2D" uid="uid://hrvene8qbjfv" path="res://images/white.png" id="8_ay315"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="8_hf3ff"]
 [ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="9_7jscg"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="9_u2cqs"]
-[ext_resource type="Material" uid="uid://cj2r8e4r3c0q1" path="res://materials/csg_materials/wood3_csg.tres" id="10_ilf4h"]
+[ext_resource type="Material" uid="uid://11lgjoiltf1n" path="res://materials/csg_materials/wood3_csg.tres" id="10_ilf4h"]
 [ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="10_q4hxx"]
 [ext_resource type="Texture2D" uid="uid://c2w8m1n6fwp1i" path="res://images/wood.png" id="10_qcelf"]
 [ext_resource type="Script" path="res://scripts/ResetBox.cs" id="12_leqfb"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="12_qrr2o"]
 [ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="13_blebg"]
-[ext_resource type="Material" uid="uid://cm0fxqap3svnm" path="res://materials/csg_materials/brickoven.tres" id="13_puknc"]
+[ext_resource type="Material" path="res://materials/csg_materials/brickoven.tres" id="13_puknc"]
 [ext_resource type="Texture2D" uid="uid://sxp0nf5ughpt" path="res://images/Tiny Texture Pack/Wood/Wood_13-512x512.png" id="13_yaxr2"]
 [ext_resource type="PackedScene" uid="uid://d3ytuchqihksv" path="res://prefabs/non-final/jar_nf.tscn" id="14_n0nx7"]
 [ext_resource type="PackedScene" uid="uid://be1ep0l1bx05r" path="res://prefabs/non-final/crate_nf.tscn" id="14_tfvrx"]
@@ -30,11 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://bp4iucdy8skyr" path="res://prefabs/non-final/dented_can_nf.tscn" id="15_uh2vf"]
 [ext_resource type="Script" path="res://scripts/LockedPlatform.cs" id="16_hinqc"]
 [ext_resource type="PackedScene" uid="uid://bh22s220v8pwa" path="res://prefabs/non-final/dented_spam_nf.tscn" id="16_mf6g1"]
-[ext_resource type="Material" uid="uid://dds822gliorgj" path="res://materials/csg_materials/rope.tres" id="16_ngbmq"]
+[ext_resource type="Material" path="res://materials/csg_materials/rope.tres" id="16_ngbmq"]
 [ext_resource type="PackedScene" uid="uid://dk4qu8wac2m4q" path="res://prefabs/non-final/glass_closed_nf.tscn" id="17_8e8b5"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="17_8v4ww"]
 [ext_resource type="Script" path="res://scripts/Bubble.cs" id="18_7m7rd"]
-[ext_resource type="Material" uid="uid://clnpx5gnw0ix2" path="res://materials/csg_materials/sink.tres" id="18_mvofr"]
+[ext_resource type="Material" path="res://materials/csg_materials/sink.tres" id="18_mvofr"]
 [ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="19_gwx0r"]
 [ext_resource type="Texture2D" uid="uid://c3mt3g1b1igp2" path="res://images/bubble_colour.png" id="20_jxhy3"]
 [ext_resource type="AudioStream" uid="uid://8xw25myopj3j" path="res://sounds/boing1.wav" id="21_xdiyr"]
@@ -43,22 +42,23 @@
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="25_yb3oa"]
 [ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="26_xai1o"]
 [ext_resource type="Script" path="res://scripts/LockedDoor.cs" id="28_al2lj"]
-[ext_resource type="Material" uid="uid://dfiibay131pif" path="res://materials/csg_materials/hob.tres" id="28_nrm2w"]
+[ext_resource type="Material" path="res://materials/csg_materials/hob.tres" id="28_nrm2w"]
 [ext_resource type="PackedScene" uid="uid://bhg38ys83mj5w" path="res://prefabs/non-final/fridge_nf.tscn" id="32_taxfe"]
-[ext_resource type="PackedScene" uid="uid://bfguphw4idk35" path="res://prefabs/non-final/ceiling_rack_nf.tscn" id="34_td76d"]
-[ext_resource type="PackedScene" path="res://prefabs/non-final/book_nf.tscn" id="35_8f608"]
-[ext_resource type="PackedScene" path="res://prefabs/non-final/chopping_board_nf.tscn" id="36_2p2ef"]
-[ext_resource type="PackedScene" uid="uid://ovfl4kvcoqjs" path="res://prefabs/non-final/cupboard_nf.tscn" id="37_l1oej"]
-[ext_resource type="PackedScene" path="res://prefabs/non-final/hob_nf.tscn" id="38_t02cd"]
-[ext_resource type="PackedScene" path="res://prefabs/non-final/knife_nf.tscn" id="39_41pwk"]
-[ext_resource type="PackedScene" path="res://prefabs/non-final/pan_nf.tscn" id="40_6nn8p"]
-[ext_resource type="PackedScene" path="res://prefabs/non-final/stewpot_nf.tscn" id="41_2bl63"]
-[ext_resource type="PackedScene" uid="uid://bwtscx4xna0y3" path="res://prefabs/non-final/counter_nf.tscn" id="42_0w843"]
+[ext_resource type="PackedScene" uid="uid://hibgjcgk2l6u" path="res://prefabs/non-final/ceiling_rack_nf.tscn" id="34_td76d"]
+[ext_resource type="PackedScene" uid="uid://b0gfdbxlkcnmv" path="res://prefabs/non-final/book_nf.tscn" id="35_8f608"]
+[ext_resource type="PackedScene" uid="uid://yojccmd65hae" path="res://prefabs/non-final/chopping_board_nf.tscn" id="36_2p2ef"]
+[ext_resource type="PackedScene" uid="uid://d32o60b56ujms" path="res://prefabs/non-final/cupboard_nf.tscn" id="37_l1oej"]
+[ext_resource type="PackedScene" uid="uid://cyoh7h3mnlxyh" path="res://prefabs/non-final/hob_nf.tscn" id="38_t02cd"]
+[ext_resource type="PackedScene" uid="uid://dd4fnsxq4as41" path="res://prefabs/non-final/knife_nf.tscn" id="39_41pwk"]
+[ext_resource type="PackedScene" uid="uid://br601y3shis7k" path="res://prefabs/non-final/pan_nf.tscn" id="40_6nn8p"]
+[ext_resource type="PackedScene" uid="uid://dptma88dln0cg" path="res://prefabs/non-final/stewpot_nf.tscn" id="41_2bl63"]
+[ext_resource type="PackedScene" uid="uid://bhejvjrbt0w2v" path="res://prefabs/non-final/counter_nf.tscn" id="42_0w843"]
 [ext_resource type="Texture2D" uid="uid://b6ggk0ema5ciq" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_BaseColor.1001.png" id="45_p3iku"]
 [ext_resource type="Texture2D" uid="uid://dhrvjvmq0npiu" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_Metallic.1001.png" id="46_2awhi"]
 [ext_resource type="Texture2D" uid="uid://dludvbep1s3p4" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_Normal.1001.png" id="47_kgjlj"]
 [ext_resource type="Texture2D" uid="uid://becr28mo82txk" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_Roughness.1001.png" id="48_u7qyk"]
 [ext_resource type="PackedScene" uid="uid://e3yfi7ayx67x" path="res://prefabs/non-final/glass_open_nf.tscn" id="55_xc3qi"]
+[ext_resource type="PackedScene" uid="uid://chw0fk8pvfrc" path="res://prefabs/mouse_character_v2.tscn" id="59_ngjqs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -305,6 +305,9 @@ size = Vector3(2, 4, 0.25)
 size = Vector3(28.186, 1, 30.6049)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="MouseCharacterV2" parent="." instance=ExtResource("59_ngjqs")]
+transform = Transform3D(0.997298, 0, 0, 0, 0.997298, 0, 0, 0, 0.997298, -50.7662, 55.4076, 254.699)
 
 [node name="CeilingRack_NF" parent="." instance=ExtResource("34_td76d")]
 transform = Transform3D(-1.55688e-06, 0, 33.8992, 0, 33.8992, 0, -35.6171, 0, -1.48178e-06, -6.03772, 86.0399, 140.549)
@@ -1002,11 +1005,6 @@ transform = Transform3D(2.02894, 0, 0, 0, 2.02894, 0, 0, 0, 2.02894, 59.0501, 10
 material_override = ExtResource("8_5kqdi")
 use_collision = true
 
-[node name="MouseCharacter" parent="." instance=ExtResource("6_0d5dv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0081, 55.7928, 255.743)
-MinSqueekTime = 12.0
-MiaxSqueekTime = 28.0
-
 [node name="BrightMesh" parent="." instance=ExtResource("7_ft0m0")]
 transform = Transform3D(-1.79994, -0.0082553, 0, -6.49531e-10, 4.37099e-08, 2, -0.0148595, 0.999966, -8.74228e-08, -56.6259, 2.52445, 1.39249)
 
@@ -1419,7 +1417,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.7378, -3.29234, -10.3936)
 curve = SubResource("Curve3D_pksmm")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Sink_Bubbles_Platforming/HideNode/MovingPathBubble2"]
-transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.17478, -1.2724e-05, -0.556357)
+transform = Transform3D(1.00102, 0, 0, 0, 1.00102, 0, 0, 0, 1.00102, 1.17479, -1.2724e-05, -0.556356)
 progress = 1.3
 rotation_mode = 0
 script = ExtResource("17_8v4ww")

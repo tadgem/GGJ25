@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="4_uy6wx"]
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_kxgkr"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_oya00"]
-[ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="7_oxdpl"]
-[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
+[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="9_sot42"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="10_0l4n7"]
 [ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="11_xphod"]
@@ -36,9 +35,10 @@
 [ext_resource type="AudioStream" uid="uid://b0pjyh5avoi5f" path="res://sounds/boing2.wav" id="25_7o6sj"]
 [ext_resource type="AudioStream" uid="uid://bqrlh54lufkfp" path="res://sounds/boing3.wav" id="26_myybu"]
 [ext_resource type="PackedScene" uid="uid://ywlgbskcv7gk" path="res://scenes/rachel/CSG_Reworked/pantrey_final_geo.tscn" id="27_xh3pb"]
-[ext_resource type="PackedScene" path="res://prefabs/water_surface.tscn" id="36_4pxl1"]
+[ext_resource type="PackedScene" uid="uid://ddt0by16kpdai" path="res://prefabs/water_surface.tscn" id="36_4pxl1"]
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="37_c45s7"]
 [ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="38_xuyfw"]
+[ext_resource type="PackedScene" uid="uid://chw0fk8pvfrc" path="res://prefabs/mouse_character_v2.tscn" id="39_ij8io"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -485,10 +485,6 @@ transform = Transform3D(-0.99998, -4.85452e-08, 0.0076735, 0.00604261, 0.215562,
 material_override = ExtResource("5_kxgkr")
 use_collision = true
 size = Vector3(164.232, 9.27132, 5.90221)
-
-[node name="MouseCharacter" parent="." instance=ExtResource("7_oxdpl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.104, 4.14893, -54.422)
-StartWithBubbles = false
 
 [node name="BrightMesh" parent="." instance=ExtResource("8_xmwmw")]
 
@@ -1026,3 +1022,7 @@ omni_range = 37.9122
 [node name="WaterSurface" parent="." instance=ExtResource("36_4pxl1")]
 transform = Transform3D(4.80858, 0, 0, 0, 0.999998, 0, 0, 0, 5.80366, 10.9018, 30.9202, -55.9921)
 surface_material_override/0 = SubResource("ShaderMaterial_qvo0h")
+
+[node name="MouseCharacterV2" parent="." instance=ExtResource("39_ij8io")]
+transform = Transform3D(0.997298, 0, 0, 0, 0.997298, 0, 0, 0, 0.997298, 100.728, 4.23168, -54.4574)
+StartWithBubbles = false
