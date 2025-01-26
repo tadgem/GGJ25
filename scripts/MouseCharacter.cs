@@ -128,7 +128,7 @@ public partial class MouseCharacter : CharacterBody3D
     {
         base._Ready();
 		_pivot = GetNode<Node3D>("CamPivot");
-		_cam = GetNode<Camera3D>("CamPivot/SpringArm3D/Camera3D");
+		_cam = GetNode<Camera3D>("Camera3D");
 		_playerModel = GetNode<Node3D>("Model");
 		_anim = GetNode<AnimationTree>("Model/AnimationTree");
 		_crosshairControl = GetNode<Control>("Control");
