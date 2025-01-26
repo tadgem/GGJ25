@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cwyk0u25wg0xu"]
+
+[ext_resource type="Texture2D" uid="uid://ckbjnvk3iyv8o" path="res://images/Tiny Texture Pack/Metal/Metal_15-512x512.png" id="1_nq33t"]
+
+[resource]
+albedo_texture = ExtResource("1_nq33t")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_triplanar = true
+uv1_world_triplanar = true
