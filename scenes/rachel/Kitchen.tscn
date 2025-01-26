@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://c431r11baogqo"]
+[gd_scene load_steps=67 format=4 uid="uid://c431r11baogqo"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_yacye"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_66ou0"]
@@ -15,9 +15,12 @@
 [ext_resource type="Script" path="res://scripts/ResetBox.cs" id="12_leqfb"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="12_qrr2o"]
 [ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="13_blebg"]
+[ext_resource type="PackedScene" uid="uid://d3ytuchqihksv" path="res://prefabs/non-final/jar_nf.tscn" id="14_n0nx7"]
 [ext_resource type="PackedScene" uid="uid://be1ep0l1bx05r" path="res://prefabs/non-final/crate_nf.tscn" id="14_tfvrx"]
 [ext_resource type="PackedScene" uid="uid://bjgbtciqtjv05" path="res://prefabs/non-final/spam_nf.tscn" id="15_14c6c"]
+[ext_resource type="PackedScene" uid="uid://bp4iucdy8skyr" path="res://prefabs/non-final/dented_can_nf.tscn" id="15_uh2vf"]
 [ext_resource type="Script" path="res://scripts/LockedPlatform.cs" id="16_hinqc"]
+[ext_resource type="PackedScene" uid="uid://bh22s220v8pwa" path="res://prefabs/non-final/dented_spam_nf.tscn" id="16_mf6g1"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="17_8v4ww"]
 [ext_resource type="Script" path="res://scripts/Bubble.cs" id="18_7m7rd"]
 [ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="19_gwx0r"]
@@ -947,7 +950,7 @@ transform = Transform3D(4.75247, 0, 0, 0, 0.634005, 0, 0, 0, 4.87341, -13.1091, 
 transform = Transform3D(4.75247, 0, 0, 0, 0.634005, 0, 0, 0, 4.87341, -13.1091, 30.6286, 126.735)
 
 [node name="Can_NF" parent="Temp_Props" instance=ExtResource("10_q4hxx")]
-transform = Transform3D(0.155156, -3.99699, 0, 3.99699, 0.155156, 0, 0, 0, 4, 14.4871, 1.77597, 81.8737)
+transform = Transform3D(-1.03641, -3.71818, -1.04929, -3.10493, 0.155156, 2.51701, -2.29898, 1.46665, -2.92637, 14.4871, 2.50673, 81.8737)
 
 [node name="Crate_NF" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
 transform = Transform3D(5.97721, -0.047884, 7.84641, 0, -11.2122, -0.051382, 8.18449, 0.0349701, -5.7303, -12.2631, 34.6316, 174.128)
@@ -995,6 +998,63 @@ transform = Transform3D(-4.81499, -0.0203291, 0.141792, 0.084991, -4.24376, 2.27
 
 [node name="Crate_NF8" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
 transform = Transform3D(-4.81499, -0.0203291, 0.141792, -0.0556018, -4.12921, -2.48016, 0.13201, -2.4807, 4.12715, -52.3026, 44.115, 251.878)
+
+[node name="Shelving_Range" type="Node3D" parent="Temp_Props"]
+transform = Transform3D(-0.064689, 0, 0.997905, 0, 1, 0, -0.997905, 0, -0.064689, -27.0537, 48.4104, 143.564)
+
+[node name="Can_NF4" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(7, 0, -5.96046e-08, 0, 7, 0, 5.96046e-08, 0, 7, -68.4819, 7.10961, -65.9184)
+
+[node name="Can_NF7" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 39.8131, 15.3147, -59.6345)
+
+[node name="Can_NF5" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -59.2998, 5.88813, -65.222)
+
+[node name="Can_NF6" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -55.8612, 5.88813, -65.9184)
+
+[node name="Can_NF9" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 14.9446, 14.0932, -59.6345)
+
+[node name="Can_NF14" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 20.3475, 17.7548, -59.6345)
+
+[node name="Can_NF10" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 18.4172, 14.0932, -59.2263)
+
+[node name="Can_NF11" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 22.074, 14.0932, -58.69)
+
+[node name="Can_NF12" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30.1628, 14.0932, -59.6345)
+
+[node name="Can_NF8" parent="Temp_Props/Shelving_Range" instance=ExtResource("10_q4hxx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -57.4688, 9.58097, -65.9183)
+
+[node name="Jar_NF" parent="Temp_Props/Shelving_Range" instance=ExtResource("14_n0nx7")]
+transform = Transform3D(1.701, 0, 0, 0, 1.701, 0, 0, 0, 1.701, 16.4859, 16.103, -59.3847)
+
+[node name="Jar_NF2" parent="Temp_Props/Shelving_Range" instance=ExtResource("14_n0nx7")]
+transform = Transform3D(2.75315, 0, -5.96046e-08, 0, 2.75315, 0, 5.96046e-08, 0, 2.75315, -63.0969, 3.87592, -65.6685)
+
+[node name="DentedCan_NF" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_uh2vf")]
+transform = Transform3D(3.75033, 0, 0, 0, 3.75034, 0, 0, 0, 3.75033, -72.971, 6.18458, -64.3991)
+
+[node name="DentedCan_NF2" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_uh2vf")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 26.2716, 15.34, -58.518)
+
+[node name="DentedSpam_NF" parent="Temp_Props/Shelving_Range" instance=ExtResource("16_mf6g1")]
+transform = Transform3D(3.53594, 0, 1.87005, 0, 4, 0, -1.87005, 0, 3.53594, -51.6377, 4.23525, -65.2645)
+
+[node name="Spam_NF4" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_14c6c")]
+transform = Transform3D(2.76697, 0, -1.15926, 0, 3.1979, 0, 1.15926, 0, 2.76697, 34.3775, 12.4394, -59.4561)
+
+[node name="Spam_NF5" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_14c6c")]
+transform = Transform3D(2.99689, 0, -0.136508, 0, 3, 0, 0.136508, 0, 2.99689, 32.3021, 16.1338, -59.4561)
+
+[node name="Spam_NF3" parent="Temp_Props/Shelving_Range" instance=ExtResource("15_14c6c")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.6639, 12.4394, -58.7339)
 
 [node name="LooneyTransition" parent="." instance=ExtResource("8_hf3ff")]
 DestroyOnFinish = true

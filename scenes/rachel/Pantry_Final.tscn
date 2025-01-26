@@ -522,9 +522,6 @@ transform = Transform3D(5.39375, -1.2511, 0, 1.2511, 5.39375, 0, 0, 0, 5.53694, 
 [node name="Barrel_NF7" parent="Props" instance=ExtResource("10_0l4n7")]
 transform = Transform3D(1.78757, 0, 5.24045, 0, 5.53694, 0, -5.24045, 0, 1.78757, -31.8167, 30.4352, 20.9923)
 
-[node name="Can_NF" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(9.67462, 0, 0, 0, 8.06173, 0, 0, 0, 9.67462, 60.8751, 15.2138, -55.4028)
-
 [node name="Can_NF2" parent="Props" instance=ExtResource("11_xphod")]
 transform = Transform3D(7.3293, 0, 0, 0, 7.3293, 0, 0, 0, 7.3293, 74.3075, 33.858, -55.4028)
 
@@ -629,33 +626,6 @@ transform = Transform3D(2.11975, 0, 0, 0, 2.11975, 0, 0, 0, 2.11975, -45.0212, 3
 [node name="Whisky_NF18" parent="Props" instance=ExtResource("9_sot42")]
 transform = Transform3D(2.11975, 0, 0, 0, 2.11975, 0, 0, 0, 2.11975, -45.0212, 39.1847, -11.5619)
 
-[node name="Can_NF4" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -10.7729, 15.3147, -59.6345)
-
-[node name="Can_NF7" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 39.8131, 15.3147, -59.6345)
-
-[node name="Can_NF5" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.59083, 14.0932, -58.9381)
-
-[node name="Can_NF6" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 1.84787, 14.0932, -59.6345)
-
-[node name="Can_NF9" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 14.9446, 14.0932, -59.6345)
-
-[node name="Can_NF14" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 20.3475, 17.7548, -59.6345)
-
-[node name="Can_NF10" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 18.4172, 14.0932, -59.2263)
-
-[node name="Can_NF11" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 22.074, 14.0932, -58.69)
-
-[node name="Can_NF12" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30.1628, 14.0932, -59.6345)
-
 [node name="Can_NF13" parent="Props" instance=ExtResource("11_xphod")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 77.3562, 23.2675, -59.6345)
 
@@ -671,17 +641,8 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 84.4856, 23.2675, -58.69)
 [node name="Can_NF18" parent="Props" instance=ExtResource("11_xphod")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 92.5744, 23.2675, -59.6345)
 
-[node name="Can_NF8" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.24017, 17.786, -59.6345)
-
 [node name="Crate_NF2" parent="Props" instance=ExtResource("12_q6mds")]
 transform = Transform3D(3.68333, 0, 4.96269, 0, 9.77788, 0, -4.96269, 0, 3.68333, 88.7934, 41.1532, -55.3212)
-
-[node name="Jar_NF" parent="Props" instance=ExtResource("20_ul0rf")]
-transform = Transform3D(1.701, 0, 0, 0, 1.701, 0, 0, 0, 1.701, 16.4859, 16.103, -59.3847)
-
-[node name="Jar_NF2" parent="Props" instance=ExtResource("20_ul0rf")]
-transform = Transform3D(2.75315, 0, 0, 0, 2.75315, 0, 0, 0, 2.75315, -5.38791, 12.081, -59.3847)
 
 [node name="GlassClosed_NF" parent="Props" instance=ExtResource("18_nu4pr")]
 transform = Transform3D(3.43672, 0, 0, 0, 3.43672, 0, 0, 0, 3.43672, -30.53, 12.4403, -55.3104)
@@ -694,9 +655,6 @@ transform = Transform3D(1.48667, 0, 0, 0, 1.48667, 0, 0, 0, 1.48667, -30.7538, 1
 
 [node name="Jar_NF4" parent="Props" instance=ExtResource("20_ul0rf")]
 transform = Transform3D(2.03342, 0, 0, 0, 2.03342, 0, 0, 0, 2.03342, 80.4948, 12.4403, -52.4267)
-
-[node name="Spam_NF2" parent="Props" instance=ExtResource("13_ykjci")]
-transform = Transform3D(1.02084, 0, -4.0616, 0, 3.25512, 0, 3.0909, 0, 1.34144, 54.8275, 12.4577, -56.729)
 
 [node name="Box_NF" parent="Props" instance=ExtResource("15_at0bi")]
 transform = Transform3D(1.20455, 0, 6.11027, 0, 6.22787, 0, -6.11027, 0, 1.20455, 90.3089, 12.4403, -55.3991)
@@ -731,21 +689,6 @@ transform = Transform3D(5.82692, -6.60934, 0, -2.88903e-07, -2.54703e-07, 8.8111
 [node name="Web_NF6" parent="Props" instance=ExtResource("21_r3bnq")]
 transform = Transform3D(0.410005, -1.53607, 1.32219, 2.00343, 0.511164, -0.0274063, -0.306489, 1.28647, 1.58961, -38.2474, 97.0241, 24.7062)
 
-[node name="DentedCan_NF" parent="Props" instance=ExtResource("16_e0tgi")]
-transform = Transform3D(3.75034, 0, 0, 0, 3.75034, 0, 0, 0, 3.75034, -15.262, 14.3896, -58.1152)
-
-[node name="DentedCan_NF2" parent="Props" instance=ExtResource("16_e0tgi")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 26.2716, 15.34, -58.518)
-
-[node name="DentedSpam_NF" parent="Props" instance=ExtResource("17_8f8ea")]
-transform = Transform3D(3.53594, 0, 1.87005, 0, 4, 0, -1.87005, 0, 3.53594, 6.07131, 12.4403, -58.9806)
-
-[node name="Spam_NF4" parent="Props" instance=ExtResource("13_ykjci")]
-transform = Transform3D(2.76697, 0, -1.15926, 0, 3.1979, 0, 1.15926, 0, 2.76697, 34.3775, 12.4394, -59.4561)
-
-[node name="Spam_NF5" parent="Props" instance=ExtResource("13_ykjci")]
-transform = Transform3D(2.99689, 0, -0.136508, 0, 3, 0, 0.136508, 0, 2.99689, 32.3021, 16.1338, -59.4561)
-
 [node name="Jar_NF5" parent="Props" instance=ExtResource("20_ul0rf")]
 transform = Transform3D(1.48667, 0, 0, 0, 1.48667, 0, 0, 0, 1.48667, 79.195, 25.2494, -59.8297)
 
@@ -758,11 +701,8 @@ transform = Transform3D(2.76697, 0, -1.15926, 0, 3.1979, 0, 1.15926, 0, 2.76697,
 [node name="Spam_NF7" parent="Props" instance=ExtResource("13_ykjci")]
 transform = Transform3D(2.99689, 0, -0.136508, 0, 3, 0, 0.136508, 0, 2.99689, 94.7137, 25.3081, -59.4561)
 
-[node name="Spam_NF3" parent="Props" instance=ExtResource("13_ykjci")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.6639, 12.4394, -58.7339)
-
 [node name="Can_NF3" parent="Props" instance=ExtResource("11_xphod")]
-transform = Transform3D(9.67462, 0, 0, 0, 8.06173, 0, 0, 0, 9.67462, 100.245, 43.9677, -55.412)
+transform = Transform3D(9.67462, 0, 0, 0, 8.06173, 0, 0, 0, 9.67462, 100.28, 44.1198, -55.452)
 
 [node name="Can_NF19" parent="Props" instance=ExtResource("11_xphod")]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -2.48944, 44.033, -59.6345)
@@ -838,6 +778,68 @@ transform = Transform3D(-2.21838, -2.38726, 1.04351e-07, 0, -1.4245e-07, -3.2588
 
 [node name="Barrel_NF16" parent="Props" instance=ExtResource("10_0l4n7")]
 transform = Transform3D(-1.84749, -2.68459, 1.17347e-07, -4.24063e-15, -1.4245e-07, -3.25887, 2.68459, -1.84749, 8.07562e-08, -4.05757, 55.4722, -53.8343)
+
+[node name="Shelving_Range" type="Node3D" parent="Props"]
+
+[node name="Can_NF" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(9.67462, 0, 0, 0, 8.06173, 0, 0, 0, 9.67462, 60.8751, 15.2138, -55.4028)
+
+[node name="Can_NF4" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -10.7729, 15.3147, -59.6345)
+
+[node name="Can_NF7" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 39.8131, 15.3147, -59.6345)
+
+[node name="Can_NF5" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.59083, 14.0932, -58.9381)
+
+[node name="Can_NF6" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 1.84787, 14.0932, -59.6345)
+
+[node name="Can_NF9" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 14.9446, 14.0932, -59.6345)
+
+[node name="Can_NF14" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 20.3475, 17.7548, -59.6345)
+
+[node name="Can_NF10" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 18.4172, 14.0932, -59.2263)
+
+[node name="Can_NF11" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 22.074, 14.0932, -58.69)
+
+[node name="Can_NF12" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30.1628, 14.0932, -59.6345)
+
+[node name="Can_NF8" parent="Props/Shelving_Range" instance=ExtResource("11_xphod")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.24017, 17.786, -59.6345)
+
+[node name="Jar_NF" parent="Props/Shelving_Range" instance=ExtResource("20_ul0rf")]
+transform = Transform3D(1.701, 0, 0, 0, 1.701, 0, 0, 0, 1.701, 16.4859, 16.103, -59.3847)
+
+[node name="Jar_NF2" parent="Props/Shelving_Range" instance=ExtResource("20_ul0rf")]
+transform = Transform3D(2.75315, 0, 0, 0, 2.75315, 0, 0, 0, 2.75315, -5.38791, 12.081, -59.3847)
+
+[node name="Spam_NF2" parent="Props/Shelving_Range" instance=ExtResource("13_ykjci")]
+transform = Transform3D(1.02084, 0, -4.0616, 0, 3.25512, 0, 3.0909, 0, 1.34144, 54.8275, 12.4577, -56.729)
+
+[node name="DentedCan_NF" parent="Props/Shelving_Range" instance=ExtResource("16_e0tgi")]
+transform = Transform3D(3.75034, 0, 0, 0, 3.75034, 0, 0, 0, 3.75034, -15.262, 14.3896, -58.1152)
+
+[node name="DentedCan_NF2" parent="Props/Shelving_Range" instance=ExtResource("16_e0tgi")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 26.2716, 15.34, -58.518)
+
+[node name="DentedSpam_NF" parent="Props/Shelving_Range" instance=ExtResource("17_8f8ea")]
+transform = Transform3D(3.53594, 0, 1.87005, 0, 4, 0, -1.87005, 0, 3.53594, 6.07131, 12.4403, -58.9806)
+
+[node name="Spam_NF4" parent="Props/Shelving_Range" instance=ExtResource("13_ykjci")]
+transform = Transform3D(2.76697, 0, -1.15926, 0, 3.1979, 0, 1.15926, 0, 2.76697, 34.3775, 12.4394, -59.4561)
+
+[node name="Spam_NF5" parent="Props/Shelving_Range" instance=ExtResource("13_ykjci")]
+transform = Transform3D(2.99689, 0, -0.136508, 0, 3, 0, 0.136508, 0, 2.99689, 32.3021, 16.1338, -59.4561)
+
+[node name="Spam_NF3" parent="Props/Shelving_Range" instance=ExtResource("13_ykjci")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.6639, 12.4394, -58.7339)
 
 [node name="LevelTransitionTrigger" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9168, 0.299594, 27.3324)
