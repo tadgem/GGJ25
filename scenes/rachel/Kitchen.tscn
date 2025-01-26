@@ -5,23 +5,23 @@
 [ext_resource type="Compositor" uid="uid://00yjbosykpys" path="res://meta/comp.tres" id="3_v21p7"]
 [ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="4_2fnlp"]
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_6d151"]
-[ext_resource type="Material" path="res://materials/csg_materials/floor.tres" id="5_bpkit"]
+[ext_resource type="Material" uid="uid://dpvprwausbp1n" path="res://materials/csg_materials/floor.tres" id="5_bpkit"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_8nxt5"]
-[ext_resource type="Material" path="res://materials/csg_materials/woodenbeams.tres" id="6_31vve"]
-[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
-[ext_resource type="Material" path="res://materials/csg_materials/shelf.tres" id="8_1tsow"]
-[ext_resource type="Material" uid="uid://cwyk0u25wg0xu" path="res://materials/csg_materials/metal_csg.tres" id="8_5kqdi"]
+[ext_resource type="Material" uid="uid://cbux4grph7ill" path="res://materials/csg_materials/woodenbeams.tres" id="6_31vve"]
+[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="7_ft0m0"]
+[ext_resource type="Material" uid="uid://c3io0n36rnahm" path="res://materials/csg_materials/shelf.tres" id="8_1tsow"]
+[ext_resource type="Material" uid="uid://ca3mamin2lm74" path="res://materials/csg_materials/metal_csg.tres" id="8_5kqdi"]
 [ext_resource type="Texture2D" uid="uid://hrvene8qbjfv" path="res://images/white.png" id="8_ay315"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="8_hf3ff"]
 [ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="9_7jscg"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="9_u2cqs"]
-[ext_resource type="Material" uid="uid://11lgjoiltf1n" path="res://materials/csg_materials/wood3_csg.tres" id="10_ilf4h"]
+[ext_resource type="Material" uid="uid://cj2r8e4r3c0q1" path="res://materials/csg_materials/wood3_csg.tres" id="10_ilf4h"]
 [ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="10_q4hxx"]
 [ext_resource type="Texture2D" uid="uid://c2w8m1n6fwp1i" path="res://images/wood.png" id="10_qcelf"]
 [ext_resource type="Script" path="res://scripts/ResetBox.cs" id="12_leqfb"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="12_qrr2o"]
 [ext_resource type="PackedScene" uid="uid://bvgq0xgssj4jo" path="res://prefabs/bubble_switch.tscn" id="13_blebg"]
-[ext_resource type="Material" path="res://materials/csg_materials/brickoven.tres" id="13_puknc"]
+[ext_resource type="Material" uid="uid://cm0fxqap3svnm" path="res://materials/csg_materials/brickoven.tres" id="13_puknc"]
 [ext_resource type="Texture2D" uid="uid://sxp0nf5ughpt" path="res://images/Tiny Texture Pack/Wood/Wood_13-512x512.png" id="13_yaxr2"]
 [ext_resource type="PackedScene" uid="uid://d3ytuchqihksv" path="res://prefabs/non-final/jar_nf.tscn" id="14_n0nx7"]
 [ext_resource type="PackedScene" uid="uid://be1ep0l1bx05r" path="res://prefabs/non-final/crate_nf.tscn" id="14_tfvrx"]
@@ -29,11 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://bp4iucdy8skyr" path="res://prefabs/non-final/dented_can_nf.tscn" id="15_uh2vf"]
 [ext_resource type="Script" path="res://scripts/LockedPlatform.cs" id="16_hinqc"]
 [ext_resource type="PackedScene" uid="uid://bh22s220v8pwa" path="res://prefabs/non-final/dented_spam_nf.tscn" id="16_mf6g1"]
-[ext_resource type="Material" path="res://materials/csg_materials/rope.tres" id="16_ngbmq"]
+[ext_resource type="Material" uid="uid://dds822gliorgj" path="res://materials/csg_materials/rope.tres" id="16_ngbmq"]
 [ext_resource type="PackedScene" uid="uid://dk4qu8wac2m4q" path="res://prefabs/non-final/glass_closed_nf.tscn" id="17_8e8b5"]
 [ext_resource type="Script" path="res://scripts/FollowPath.cs" id="17_8v4ww"]
 [ext_resource type="Script" path="res://scripts/Bubble.cs" id="18_7m7rd"]
-[ext_resource type="Material" path="res://materials/csg_materials/sink.tres" id="18_mvofr"]
+[ext_resource type="Material" uid="uid://clnpx5gnw0ix2" path="res://materials/csg_materials/sink.tres" id="18_mvofr"]
 [ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="19_gwx0r"]
 [ext_resource type="Texture2D" uid="uid://c3mt3g1b1igp2" path="res://images/bubble_colour.png" id="20_jxhy3"]
 [ext_resource type="AudioStream" uid="uid://8xw25myopj3j" path="res://sounds/boing1.wav" id="21_xdiyr"]
@@ -42,23 +42,23 @@
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="25_yb3oa"]
 [ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="26_xai1o"]
 [ext_resource type="Script" path="res://scripts/LockedDoor.cs" id="28_al2lj"]
-[ext_resource type="Material" path="res://materials/csg_materials/hob.tres" id="28_nrm2w"]
+[ext_resource type="Material" uid="uid://dfiibay131pif" path="res://materials/csg_materials/hob.tres" id="28_nrm2w"]
 [ext_resource type="PackedScene" uid="uid://bhg38ys83mj5w" path="res://prefabs/non-final/fridge_nf.tscn" id="32_taxfe"]
-[ext_resource type="PackedScene" uid="uid://hibgjcgk2l6u" path="res://prefabs/non-final/ceiling_rack_nf.tscn" id="34_td76d"]
-[ext_resource type="PackedScene" uid="uid://b0gfdbxlkcnmv" path="res://prefabs/non-final/book_nf.tscn" id="35_8f608"]
-[ext_resource type="PackedScene" uid="uid://yojccmd65hae" path="res://prefabs/non-final/chopping_board_nf.tscn" id="36_2p2ef"]
-[ext_resource type="PackedScene" uid="uid://d32o60b56ujms" path="res://prefabs/non-final/cupboard_nf.tscn" id="37_l1oej"]
-[ext_resource type="PackedScene" uid="uid://cyoh7h3mnlxyh" path="res://prefabs/non-final/hob_nf.tscn" id="38_t02cd"]
-[ext_resource type="PackedScene" uid="uid://dd4fnsxq4as41" path="res://prefabs/non-final/knife_nf.tscn" id="39_41pwk"]
-[ext_resource type="PackedScene" uid="uid://br601y3shis7k" path="res://prefabs/non-final/pan_nf.tscn" id="40_6nn8p"]
-[ext_resource type="PackedScene" uid="uid://dptma88dln0cg" path="res://prefabs/non-final/stewpot_nf.tscn" id="41_2bl63"]
-[ext_resource type="PackedScene" uid="uid://bhejvjrbt0w2v" path="res://prefabs/non-final/counter_nf.tscn" id="42_0w843"]
+[ext_resource type="PackedScene" uid="uid://bfguphw4idk35" path="res://prefabs/non-final/ceiling_rack_nf.tscn" id="34_td76d"]
+[ext_resource type="PackedScene" path="res://prefabs/non-final/book_nf.tscn" id="35_8f608"]
+[ext_resource type="PackedScene" path="res://prefabs/non-final/chopping_board_nf.tscn" id="36_2p2ef"]
+[ext_resource type="PackedScene" uid="uid://ovfl4kvcoqjs" path="res://prefabs/non-final/cupboard_nf.tscn" id="37_l1oej"]
+[ext_resource type="PackedScene" path="res://prefabs/non-final/hob_nf.tscn" id="38_t02cd"]
+[ext_resource type="PackedScene" path="res://prefabs/non-final/knife_nf.tscn" id="39_41pwk"]
+[ext_resource type="PackedScene" path="res://prefabs/non-final/pan_nf.tscn" id="40_6nn8p"]
+[ext_resource type="PackedScene" path="res://prefabs/non-final/stewpot_nf.tscn" id="41_2bl63"]
+[ext_resource type="PackedScene" uid="uid://bwtscx4xna0y3" path="res://prefabs/non-final/counter_nf.tscn" id="42_0w843"]
 [ext_resource type="Texture2D" uid="uid://b6ggk0ema5ciq" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_BaseColor.1001.png" id="45_p3iku"]
 [ext_resource type="Texture2D" uid="uid://dhrvjvmq0npiu" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_Metallic.1001.png" id="46_2awhi"]
 [ext_resource type="Texture2D" uid="uid://dludvbep1s3p4" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_Normal.1001.png" id="47_kgjlj"]
 [ext_resource type="Texture2D" uid="uid://becr28mo82txk" path="res://models/props/Chopping Board/Chopping Board_DefaultMaterial_Roughness.1001.png" id="48_u7qyk"]
 [ext_resource type="PackedScene" uid="uid://e3yfi7ayx67x" path="res://prefabs/non-final/glass_open_nf.tscn" id="55_xc3qi"]
-[ext_resource type="PackedScene" uid="uid://chw0fk8pvfrc" path="res://prefabs/mouse_character_v2.tscn" id="59_ngjqs"]
+[ext_resource type="PackedScene" path="res://prefabs/mouse_character_v2.tscn" id="59_ngjqs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -319,6 +319,7 @@ compositor = ExtResource("3_v21p7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.159413, 0.925236, -0.344275, -0.388766, 0.379392, 0.839597, 0.90744, 0, 0.420181, -0.927365, 6.47543, 0)
+visible = false
 
 [node name="Test Level Geo" type="Node3D" parent="."]
 
@@ -1752,6 +1753,9 @@ shape = SubResource("SphereShape3D_yn7sq")
 stream = SubResource("AudioStreamRandomizer_toqx6")
 volume_db = -6.588
 
+[node name="BrightMesh" parent="LockedPlatform/HideNode" instance=ExtResource("7_ft0m0")]
+transform = Transform3D(1.8, 0, 0, 0, -4.37114e-08, 2, 0, -1, -8.74228e-08, -118.779, 75.6199, 263.612)
+
 [node name="Book_NF" parent="." instance=ExtResource("35_8f608")]
 transform = Transform3D(9.54583, 0, 0, 0, 4.10883, 8.61628, 0, -8.61628, 4.10883, -86.7473, 53.4575, 171.609)
 
@@ -1904,3 +1908,189 @@ shape = SubResource("BoxShape3D_7vyl5")
 
 [node name="RespawnLocation" type="Node3D" parent="Fridge_Reset"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242298, 15.251)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5835, 72.6706, 10.2341)
+light_color = Color(0.809699, 0.657141, 0.587135, 1)
+light_energy = 12.429
+light_indirect_energy = 3.165
+light_volumetric_fog_energy = 0.0
+light_size = 0.158
+light_specular = 9.162
+light_bake_mode = 0
+omni_range = 41.7613
+
+[node name="SpotLight3D" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 13.8679, -17.8997, 97.3115)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D20" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 13.8679, -17.8997, 67.0655)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D21" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 13.8679, -32.5102, 62.0998)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D22" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 118.803, -20.2742, 57.4196)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D23" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 120.356, 9.80096, 65.407)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D24" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 128.851, -18.831, 99.9665)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D25" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 128.851, -18.831, 142.418)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 13.8679, 9.12818, 97.3115)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 13.8679, 9.12818, 164.696)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 79.8719, 38.8274, 104.066)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 17.968, 30.7373, 106.901)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 17.968, 30.7373, 128.332)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 17.968, 30.7373, 155.096)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 117.127, 3.57195, 184.194)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 103.005, 35.1601, 229.007)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D12" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 103.005, -8.86216, 229.007)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D13" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 60.927, -8.86216, 244.902)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D14" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, -14.9098, -8.86216, 244.902)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D15" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, -48.9493, 2.34695, 244.902)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D16" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, -55.8664, 2.34695, 207.89)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D17" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, -55.8664, 2.34695, 179.039)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D18" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, -55.8664, 2.34695, 146.266)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D19" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, -60.9747, 2.34695, 110.176)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 17.1611, -13.0948, 159.437)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.000715538, 1, 0, -1, -0.000715538, 17.1611, -13.0948, 127.933)
+light_color = Color(0.737891, 0.659904, 0.599055, 1)
+light_energy = 16.0
+spot_range = 116.303
+spot_angle = 56.2007
