@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://y86w1f73w411"]
+[gd_scene load_steps=68 format=4 uid="uid://y86w1f73w411"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_xoedu"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_ycnkb"]
@@ -218,6 +218,13 @@ size = Vector3(2, 4, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hw7vx"]
 size = Vector3(2, 4, 0.25)
+
+[sub_resource type="Curve3D" id="Curve3D_2hg8y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -85.777, 74.46, 259.511, 0, 0, 0, 0, 0, 0, -78.5959, 76.2866, 235.921, 0, 0, 0, 0, 0, 0, -74.4719, 78.1572, 198.798, 0, 0, 0, 0, 0, 0, -77.1129, 75.0664, 133.593, 0, 0, 0, 0, 0, 0, -67.0722, 58.0176, 240.974, 0, 0, 0, 0, 0, 0, -62.2819, 46.534, 265.106, 0, 0, 0, 0, 0, 0, -62.2819, 46.534, 265.106, 0, 0, 0, 0, 0, 0, -62.2819, 46.534, 265.106, 0, 0, 0, 0, 0, 0, 44.9182, 38.5601, 253.756, 0, 0, 0, 0, 0, 0, 93.3797, 58.5493, 216.504, 0, 0, 0, 0, 0, 0, 102.389, 56.5564, 105.045, 0, 0, 0, 0, 0, 0, 86.9235, 67.2106, 48.7587, 0, 0, 0, 0, 0, 0, -23.2758, 66.8048, 53.1139, 0, 0, 0, 0, 0, 0, -38.7497, 80.3098, 101.005, 0, 0, 0, 0, 0, 0, -37.1286, 80.3098, 198.195, 0, 0, 0, 0, 0, 0, -14.7219, 58.2553, 211.439, 0, 0, 0, 0, 0, 0, 16.2161, 53.7769, 172.744, 0, 0, 0, 0, 0, 0, 49.0802, 59.3223, 106.386, 0, 0, 0, 0, 0, 0, -58.0236, 10.0023, 45.2573),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 19
 
 [node name="Node3D" type="Node3D"]
 
@@ -1474,3 +1481,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.73781, 0, 0, 0, 1.73781, 0, 0, 0, 1.73781, 19.6755, 4.12077, 84.1321)
 Timed = true
 DoorTime = 20.0
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_2hg8y")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.956648, -0.0215128, -0.290423, 3.72526e-09, 0.99725, -0.0738719, 0.291218, 0.0706692, 0.954036, -85.777, 74.46, 259.511)
