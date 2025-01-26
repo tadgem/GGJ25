@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://c431r11baogqo"]
+[gd_scene load_steps=64 format=4 uid="uid://c431r11baogqo"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_yacye"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_66ou0"]
@@ -208,6 +208,12 @@ size = Vector3(2, 4, 0.25)
 size = Vector3(2, 4, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tgawl"]
+size = Vector3(2, 4, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xs5iy"]
+size = Vector3(2, 4, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hw7vx"]
 size = Vector3(2, 4, 0.25)
 
 [node name="Node3D" type="Node3D"]
@@ -855,7 +861,7 @@ transform = Transform3D(2.02894, 0, 0, 0, 2.02894, 0, 0, 0, 2.02894, 59.0501, 10
 use_collision = true
 
 [node name="MouseCharacter" parent="." instance=ExtResource("6_0d5dv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2353, 31.0891, 255.231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86789, 9.88103, 62.905)
 MinSqueekTime = 12.0
 MiaxSqueekTime = 28.0
 
@@ -974,6 +980,21 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -7.32455, 25.4509, 257.275)
 
 [node name="Crate_NF3" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
 transform = Transform3D(0.290161, 0.00391551, 12.5756, 0.0407714, -51.6462, 0, 12.4883, 0.168521, -0.292188, 100.915, 50.6324, 200.032)
+
+[node name="Crate_NF4" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
+transform = Transform3D(-0.607774, -0.130803, 4.77683, 0.0165095, -4.81534, -0.129757, 4.77859, 0, 0.607999, -49.0555, 31.1969, 263.412)
+
+[node name="Crate_NF5" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
+transform = Transform3D(-4.81499, -0.0203291, 0.141792, -0.0461679, -4.29364, -2.18337, 0.135597, -2.18377, 4.29155, -52.238, 35.6879, 254.798)
+
+[node name="Crate_NF6" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
+transform = Transform3D(-4.81499, -0.0203291, 0.141792, 0.084991, -4.24376, 2.2777, 0.115302, 2.27919, 4.24224, -52.238, 40.2003, 265.363)
+
+[node name="Crate_NF7" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
+transform = Transform3D(-4.81499, -0.0203291, 0.141792, 0.084991, -4.24376, 2.2777, 0.115302, 2.27919, 4.24224, -52.238, 47.0179, 263.167)
+
+[node name="Crate_NF8" parent="Temp_Props" instance=ExtResource("14_tfvrx")]
+transform = Transform3D(-4.81499, -0.0203291, 0.141792, -0.0556018, -4.12921, -2.48016, 0.13201, -2.4807, 4.12715, -52.3026, 44.115, 251.878)
 
 [node name="LooneyTransition" parent="." instance=ExtResource("8_hf3ff")]
 DestroyOnFinish = true
@@ -1325,36 +1346,71 @@ shape = SubResource("BoxShape3D_shsyf")
 mesh = SubResource("BoxMesh_juoxv")
 skeleton = NodePath("../..")
 
-[node name="LockedDoor" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
+[node name="Fridge_Locked_Plane" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
 transform = Transform3D(4.71583, 0, 0, 0, -0.0567502, 2.57162, 0, -5.62532, -0.0259434, -52.9477, 51.8356, 259.359)
 script = ExtResource("28_al2lj")
-Switch = NodePath("../BubbleSwitch")
+Switch = NodePath("../Fridge_Switch")
 
-[node name="DoorRoot" type="StaticBody3D" parent="LockedDoor"]
+[node name="DoorRoot" type="StaticBody3D" parent="Fridge_Locked_Plane"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LockedDoor/DoorRoot"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge_Locked_Plane/DoorRoot"]
 shape = SubResource("BoxShape3D_kjl6v")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LockedDoor/DoorRoot"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fridge_Locked_Plane/DoorRoot"]
 mesh = SubResource("BoxMesh_tgawl")
 skeleton = NodePath("../..")
 
-[node name="Crate_NF" parent="." instance=ExtResource("14_tfvrx")]
-transform = Transform3D(-0.607774, -0.130803, 4.77683, 0.0165095, -4.81534, -0.129757, 4.77859, 0, 0.607999, -49.0555, 31.1969, 263.412)
-
-[node name="Crate_NF2" parent="." instance=ExtResource("14_tfvrx")]
-transform = Transform3D(-4.81499, -0.0203291, 0.141792, -0.0461679, -4.29364, -2.18337, 0.135597, -2.18377, 4.29155, -52.238, 35.6879, 254.798)
-
-[node name="Crate_NF3" parent="." instance=ExtResource("14_tfvrx")]
-transform = Transform3D(-4.81499, -0.0203291, 0.141792, 0.084991, -4.24376, 2.2777, 0.115302, 2.27919, 4.24224, -52.238, 40.2003, 265.363)
-
-[node name="Crate_NF5" parent="." instance=ExtResource("14_tfvrx")]
-transform = Transform3D(-4.81499, -0.0203291, 0.141792, 0.084991, -4.24376, 2.2777, 0.115302, 2.27919, 4.24224, -52.238, 47.0179, 263.167)
-
-[node name="Crate_NF4" parent="." instance=ExtResource("14_tfvrx")]
-transform = Transform3D(-4.81499, -0.0203291, 0.141792, -0.0556018, -4.12921, -2.48016, 0.13201, -2.4807, 4.12715, -52.3026, 44.115, 251.878)
-
-[node name="BubbleSwitch" parent="." instance=ExtResource("13_blebg")]
+[node name="Fridge_Switch" parent="." instance=ExtResource("13_blebg")]
 transform = Transform3D(2.56503, 0, 0, 0, 2.56503, 0, 0, 0, 2.56503, -36.7147, 33.9888, 271.214)
 Timed = true
-DoorTime = 12.0
+DoorTime = 10.0
+
+[node name="WineRack_Locked_1" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
+transform = Transform3D(-9.67925e-08, 1.58153, 4.16457e-15, -9.67925e-08, 3.02181e-15, -1.08981, -2.21435, -6.9131e-08, 4.76371e-08, -21.0201, 12.335, 86.6879)
+script = ExtResource("28_al2lj")
+Switch = NodePath("../Wine_Rack_Switch")
+
+[node name="DoorRoot" type="StaticBody3D" parent="WineRack_Locked_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WineRack_Locked_1/DoorRoot"]
+shape = SubResource("BoxShape3D_xs5iy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WineRack_Locked_1/DoorRoot"]
+transform = Transform3D(1.05649, 0, 1.77636e-15, -3.55271e-14, 1, 1.37643e-21, -2.84217e-14, 1.27055e-21, 0.999999, -0.0502701, -0.657622, 0)
+mesh = SubResource("BoxMesh_hw7vx")
+skeleton = NodePath("../..")
+
+[node name="WineRack_Locked2" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
+transform = Transform3D(-9.67925e-08, 1.58153, 4.16457e-15, -9.67925e-08, 3.02181e-15, -1.08981, -2.21435, -6.9131e-08, 4.76371e-08, 15.9427, 19.0274, 86.7004)
+script = ExtResource("28_al2lj")
+Switch = NodePath("../Wine_Rack_Switch")
+
+[node name="DoorRoot" type="StaticBody3D" parent="WineRack_Locked2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WineRack_Locked2/DoorRoot"]
+shape = SubResource("BoxShape3D_xs5iy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WineRack_Locked2/DoorRoot"]
+transform = Transform3D(1.05649, 0, 3.55271e-15, -4.9738e-14, 1, 1.90582e-21, -2.84217e-14, 2.11758e-21, 0.999999, -0.0405273, -0.657622, 0)
+mesh = SubResource("BoxMesh_hw7vx")
+skeleton = NodePath("../..")
+
+[node name="WineRack_Locked3" type="Node3D" parent="." node_paths=PackedStringArray("Switch")]
+transform = Transform3D(-9.67925e-08, 1.58153, 4.16457e-15, -9.67925e-08, 3.02181e-15, -1.08981, -2.21435, -6.9131e-08, 4.76371e-08, -21.1348, 25.1292, 86.7162)
+script = ExtResource("28_al2lj")
+Switch = NodePath("../Wine_Rack_Switch")
+
+[node name="DoorRoot" type="StaticBody3D" parent="WineRack_Locked3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WineRack_Locked3/DoorRoot"]
+shape = SubResource("BoxShape3D_xs5iy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WineRack_Locked3/DoorRoot"]
+transform = Transform3D(1.05649, 0, 5.32907e-15, -5.68434e-14, 1, 2.0117e-21, -2.84217e-14, 2.5411e-21, 0.999999, -0.0331917, -0.657622, 0)
+mesh = SubResource("BoxMesh_hw7vx")
+skeleton = NodePath("../..")
+
+[node name="Wine_Rack_Switch" parent="." instance=ExtResource("13_blebg")]
+transform = Transform3D(1.73781, 0, 0, 0, 1.73781, 0, 0, 0, 1.73781, 19.6755, 4.12077, 84.1321)
+Timed = true
+DoorTime = 20.0
