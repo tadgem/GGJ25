@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0qpltij4tc5y" path="res://prefabs/bubble.tscn" id="4_uy6wx"]
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_kxgkr"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_oya00"]
-[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
+[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="9_sot42"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="10_0l4n7"]
 [ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="11_xphod"]
@@ -35,10 +35,10 @@
 [ext_resource type="AudioStream" uid="uid://b0pjyh5avoi5f" path="res://sounds/boing2.wav" id="25_7o6sj"]
 [ext_resource type="AudioStream" uid="uid://bqrlh54lufkfp" path="res://sounds/boing3.wav" id="26_myybu"]
 [ext_resource type="PackedScene" uid="uid://ywlgbskcv7gk" path="res://scenes/rachel/CSG_Reworked/pantrey_final_geo.tscn" id="27_xh3pb"]
-[ext_resource type="PackedScene" path="res://prefabs/water_surface.tscn" id="36_4pxl1"]
+[ext_resource type="PackedScene" uid="uid://ddt0by16kpdai" path="res://prefabs/water_surface.tscn" id="36_4pxl1"]
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="37_c45s7"]
 [ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="38_xuyfw"]
-[ext_resource type="PackedScene" path="res://prefabs/mouse_character_v2.tscn" id="39_ij8io"]
+[ext_resource type="PackedScene" uid="uid://chw0fk8pvfrc" path="res://prefabs/mouse_character_v2.tscn" id="39_ij8io"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -1045,6 +1045,12 @@ omni_range = 68.2359
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.7386, 39.3747, -17.3976)
+light_color = Color(0.914021, 0.770168, 0.751798, 1)
+light_energy = 16.0
+omni_range = 68.2359
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70458, 31.7212, -27.9945)
 light_color = Color(0.914021, 0.770168, 0.751798, 1)
 light_energy = 16.0
 omni_range = 68.2359
