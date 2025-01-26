@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cm0fxqap3svnm"]
+
+[ext_resource type="Texture2D" uid="uid://ccdc25lccxnnr" path="res://images/Tiny Texture Pack/Bricks/Bricks_07-512x512.png" id="1_6xty0"]
+
+[resource]
+albedo_texture = ExtResource("1_6xty0")
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true
+uv1_world_triplanar = true

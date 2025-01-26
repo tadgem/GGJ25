@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://clnpx5gnw0ix2"]
+
+[ext_resource type="Texture2D" uid="uid://c6eb42ne5n3dd" path="res://images/Tiny Texture Pack/Tile/Tile_04-512x512.png" id="1_erybj"]
+
+[resource]
+albedo_texture = ExtResource("1_erybj")
+uv1_scale = Vector3(0.026, 0.026, 0.026)
+uv1_triplanar = true
+uv1_world_triplanar = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bhejvjrbt0w2v"]
+[gd_scene load_steps=10 format=4 uid="uid://bwtscx4xna0y3"]
 
 [ext_resource type="Texture2D" uid="uid://ch11xw3854d58" path="res://models/props/Counter/Counter_DefaultMaterial_BaseColor.1001.png" id="1_3sabv"]
 [ext_resource type="Texture2D" uid="uid://ctndtrbpjufch" path="res://models/props/Counter/Counter_DefaultMaterial_Metallic.1001.png" id="2_5xneh"]
@@ -48,7 +48,7 @@ normal_enabled = true
 normal_texture = ExtResource("3_qt2cg")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tdgxp"]
-size = Vector3(2.06044, 0.268799, 0.520265)
+size = Vector3(2.0517, 0.248383, 0.495758)
 
 [node name="Counter_NF" type="Node3D"]
 
@@ -56,7 +56,6 @@ size = Vector3(2.06044, 0.268799, 0.520265)
 transform = Transform3D(4.07865, 0, 0, 0, 0, 0.46838, 0, -1, 0, 0, 0, 0)
 
 [node name="Counter2" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_blxul")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_fktje")
@@ -64,5 +63,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fktje")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00860086, 0.125756, 0.00292072)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00570062, 0.12983, 0.0011354)
 shape = SubResource("BoxShape3D_tdgxp")

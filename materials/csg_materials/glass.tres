@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3exco1i2bu1p"]
+
+[ext_resource type="Texture2D" uid="uid://bvb11n2xqnfcw" path="res://images/Tiny Texture Pack/Metal/Metal_09-512x512.png" id="1_ygl17"]
+
+[resource]
+albedo_texture = ExtResource("1_ygl17")
+uv1_triplanar = true
+uv1_world_triplanar = true

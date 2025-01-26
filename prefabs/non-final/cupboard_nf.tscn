@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d32o60b56ujms"]
+[gd_scene load_steps=10 format=4 uid="uid://ovfl4kvcoqjs"]
 
 [ext_resource type="Texture2D" uid="uid://c5h2532ojboxa" path="res://models/props/cupboard/cupboard_DefaultMaterial_BaseColor.1001.png" id="1_jmjsi"]
 [ext_resource type="Texture2D" uid="uid://b6sucesnrpu6v" path="res://models/props/cupboard/cupboard_DefaultMaterial_Metallic.1001.png" id="2_olv3g"]
@@ -48,7 +48,7 @@ normal_enabled = true
 normal_texture = ExtResource("3_blmiw")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tdgxp"]
-size = Vector3(0.513645, 0.680176, 0.289918)
+size = Vector3(0.506341, 0.675446, 0.287049)
 
 [node name="Cupboard_NF" type="Node3D"]
 
@@ -64,5 +64,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_51dr7")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00175157, 0.331444, -0.112253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00151077, 0.340218, -0.110818)
 shape = SubResource("BoxShape3D_tdgxp")
