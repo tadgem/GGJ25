@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://bth8xl5n35q7j"]
+[gd_scene load_steps=62 format=4 uid="uid://bth8xl5n35q7j"]
 
 [ext_resource type="Environment" uid="uid://c44fea54qp1m" path="res://meta/env.tres" id="1_toohh"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bb1wqh51le0ir" path="res://meta/cam.tres" id="2_r1krp"]
@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://bhnpme14bdhom" path="res://materials/csg_materials/test_csg.tres" id="5_kxgkr"]
 [ext_resource type="Material" uid="uid://clamfnur5p3ff" path="res://materials/csg_materials/wallcolor_csg.tres" id="6_oya00"]
 [ext_resource type="PackedScene" uid="uid://dawco8837rvja" path="res://prefabs/mouse_character.tscn" id="7_oxdpl"]
-[ext_resource type="PackedScene" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
+[ext_resource type="PackedScene" uid="uid://ce7eu40mg84hk" path="res://prefabs/bright_mesh.tscn" id="8_xmwmw"]
 [ext_resource type="PackedScene" uid="uid://b4g40uoic05ib" path="res://prefabs/non-final/whisky_nf.tscn" id="9_sot42"]
 [ext_resource type="PackedScene" uid="uid://biavlmpiw3n4j" path="res://prefabs/non-final/barrel_nf.tscn" id="10_0l4n7"]
 [ext_resource type="PackedScene" uid="uid://c2beyh7t0ho8u" path="res://prefabs/non-final/can_nf.tscn" id="11_xphod"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bjgbtciqtjv05" path="res://prefabs/non-final/spam_nf.tscn" id="13_ykjci"]
 [ext_resource type="Script" path="res://scripts/GiveBubblesTrigger.cs" id="14_2sw1k"]
 [ext_resource type="PackedScene" uid="uid://caof7trexnu55" path="res://prefabs/non-final/box_nf.tscn" id="15_at0bi"]
+[ext_resource type="AudioStream" uid="uid://bwof318d4x46a" path="res://sounds/jump.wav" id="15_d4tn0"]
 [ext_resource type="Script" path="res://scripts/LevelTransitionTrigger.cs" id="15_ogrei"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="16_a4um0"]
 [ext_resource type="PackedScene" uid="uid://bp4iucdy8skyr" path="res://prefabs/non-final/dented_can_nf.tscn" id="16_e0tgi"]
@@ -35,6 +36,9 @@
 [ext_resource type="AudioStream" uid="uid://b0pjyh5avoi5f" path="res://sounds/boing2.wav" id="25_7o6sj"]
 [ext_resource type="AudioStream" uid="uid://bqrlh54lufkfp" path="res://sounds/boing3.wav" id="26_myybu"]
 [ext_resource type="PackedScene" uid="uid://ywlgbskcv7gk" path="res://scenes/rachel/CSG_Reworked/pantrey_final_geo.tscn" id="27_xh3pb"]
+[ext_resource type="PackedScene" uid="uid://ddt0by16kpdai" path="res://prefabs/water_surface.tscn" id="36_4pxl1"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="37_c45s7"]
+[ext_resource type="Texture2D" uid="uid://dogiogj0q4so3" path="res://images/water_normal.jpg" id="38_xuyfw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51wwt"]
 subdivide_width = 1
@@ -146,6 +150,19 @@ sampling_rate = 44100.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_6jkom"]
 packet_sequence = SubResource("OggPacketSequence_7a2hv")
 loop = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qvo0h"]
+render_priority = 0
+shader = ExtResource("37_c45s7")
+shader_parameter/depth_distance = 3.45
+shader_parameter/beers_law = 12.18
+shader_parameter/water_transparency = 0.0
+shader_parameter/time_scale = 1.0
+shader_parameter/noise_scale = 15.5
+shader_parameter/roughness = 0.1
+shader_parameter/water_colour = Color(0.877577, 0.727901, 0.430712, 1)
+shader_parameter/water_secondary_colour = Color(0.136575, 0.089174, 0.0418264, 1)
+shader_parameter/normal_texture = ExtResource("38_xuyfw")
 
 [node name="Node3D" type="Node3D"]
 
@@ -549,6 +566,7 @@ transform = Transform3D(3.50427, 0, 3.02833, 0, 4.38324, 0, -3.02833, 0, 3.50427
 [node name="GiveBubblesArea" type="Area3D" parent="Props"]
 transform = Transform3D(13.1039, 0, 0, 0, 13.1039, 0, 0, 0, 13.1039, 12.1729, 36.4605, -56.787)
 script = ExtResource("14_2sw1k")
+OnGiveBubblesAudio = ExtResource("15_d4tn0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/GiveBubblesArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0153809, 0.021729)
@@ -1004,3 +1022,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.877, -0.03, 32.467)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3277, 77.4507, 0.770607)
 light_energy = 14.594
 omni_range = 37.9122
+
+[node name="WaterSurface" parent="." instance=ExtResource("36_4pxl1")]
+transform = Transform3D(4.80858, 0, 0, 0, 0.999998, 0, 0, 0, 5.80366, 10.9018, 30.9202, -55.9921)
+surface_material_override/0 = SubResource("ShaderMaterial_qvo0h")
