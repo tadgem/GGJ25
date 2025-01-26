@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/EndingCutscene.cs" id="1_ss8a8"]
 [ext_resource type="AudioStream" uid="uid://lcklon7jydac" path="res://sounds/voiceover/EndGameCutscene_VO.ogg" id="2_74w4h"]
-[ext_resource type="Texture2D" uid="uid://be76qpild4q8w" path="res://images/art/FarmlandCottage.png" id="3_lm1rm"]
+[ext_resource type="Texture2D" uid="uid://1u5wvj0jbqrj" path="res://images/art/End_scene.png" id="3_36b3m"]
 [ext_resource type="PackedScene" uid="uid://bbvx7bs66q8xb" path="res://scenes/looney_transition.tscn" id="8_l4j4o"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_iitbl"]
@@ -33,6 +33,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CreditsImage" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_36b3m")
+expand_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="Control/CreditsImage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -387.5
+offset_top = -183.76
+offset_right = 387.5
+offset_bottom = -43.76
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(150, 100)
+color = Color(0, 0, 0, 0.596078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/CreditsImage/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 7.0
+offset_right = 53.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "Design : Rachel Estell
+Programming : Liam Devlin
+Art 2D : Ashleigh Smith-Kane
+Art 3D : Callum Nugent, Lance Vinuya, Sara Rulska
+Characters & Rigging : Sara Rulska
+Music & Audio : Liam Devlin"
+
 [node name="EndingImage" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -40,9 +85,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_lm1rm")
+texture = ExtResource("3_36b3m")
 expand_mode = 5
-flip_h = true
 
 [node name="ColorRect" type="ColorRect" parent="Control/EndingImage"]
 layout_mode = 1
