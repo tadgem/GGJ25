@@ -257,6 +257,7 @@ public partial class MouseCharacter : CharacterBody3D
 		}
 		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
 		bubble_instance.IsTimed = true;
+		bubble_instance.DestroyOnTimeout = true;
 		bubble_instance.Lifetime = PlatformBubbleTimeAlive;
 		bubble_instance.IsProjectile = true;
 		GetTree().CurrentScene.AddChild(bubble_instance);
@@ -273,6 +274,7 @@ public partial class MouseCharacter : CharacterBody3D
 		}
 		Bubble bubble_instance = (Bubble) Bubble.Instantiate();	
 		bubble_instance.IsTimed = true;
+		bubble_instance.DestroyOnTimeout = true;
 		bubble_instance.Lifetime = ProjectileBubbleTimeAlive;
 		bubble_instance.IsProjectile = true;
 		GetTree().CurrentScene.AddChild(bubble_instance);

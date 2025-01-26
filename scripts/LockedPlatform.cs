@@ -11,10 +11,10 @@ public partial class LockedPlatform : LockedBase
 		base._Ready();
 		_hideNode = GetNode<Node3D>("HideNode");
 		_hideNode.Hide();
-		RecurseTogglePhysicsNodes(this, false);
+		RecurseTogglePhysicsNodesAndBubbleVisibility(this, false);
 	}
 
-	private void RecurseTogglePhysicsNodes(Node n, bool active)
+	private void RecurseTogglePhysicsNodesAndBubbleVisibility(Node n, bool active)
 	{
 		var children = n.GetChildren();
 
@@ -27,19 +27,24 @@ public partial class LockedPlatform : LockedBase
 				body.SetProcess(active);
 				body.SetPhysicsProcess(active);
 			}
-			RecurseTogglePhysicsNodes(child, active);
-		}
 
+			if(child is Bubble b)
+			{
+				b.Enable(active);
+			}
+			
+			RecurseTogglePhysicsNodesAndBubbleVisibility(child, active);
+		}
 	}
 
 	private void EnableChildColliders()
 	{
-		RecurseTogglePhysicsNodes(this, true);
+		RecurseTogglePhysicsNodesAndBubbleVisibility(this, true);
 	}
 
 	private void DisableChildColliders()
 	{
-		RecurseTogglePhysicsNodes(this, false);
+		RecurseTogglePhysicsNodesAndBubbleVisibility(this, false);
 	}
 
 	public override void OnEnable()

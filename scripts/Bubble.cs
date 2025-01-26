@@ -21,6 +21,9 @@ public partial class Bubble : CharacterBody3D
 	[Export]
 	public float Lifetime = 5.0f;
 
+	[Export]
+	public bool DestroyOnTimeout = false;
+
 	private float _timeAlive = 0.0f;
 
 	private AudioStreamPlayer3D _boingAudio;
@@ -63,6 +66,19 @@ public partial class Bubble : CharacterBody3D
 		}
 	}
 
+	public void Enable(bool enable)
+	{
+		_timeAlive = 0.0f;
+		if(enable)
+		{
+			Show();
+		}
+		else
+		{
+			Hide();
+		}
+	}
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -78,9 +94,13 @@ public partial class Bubble : CharacterBody3D
 
 		if(IsTimed && _timeAlive > Lifetime)
 		{
-			QueueFree();
+			Hide();
+			
+			if(DestroyOnTimeout)
+			{
+				QueueFree();
+			}
 		}
-
     }
 
 
